@@ -25,7 +25,7 @@ $(MODULES):
 
 .PHONY: all $(NAME)
 all: $(NAME)
-$(NAME): RULE = all
+$(NAME): RULE := all
 $(NAME): $(MODULES)
 
 .PHONY: clean

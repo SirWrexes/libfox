@@ -9,9 +9,10 @@
 # Config
 ##########################################
 NAME    :=  datastruct
+BIN     :=  libfox_$(NAME).a
 TESTBIN :=  utests_$(NAME)
 SHELL   :=  /bin/bash
-ECHO    :=  echo -e
+ECHO     =  echo -e "$(CORANGE)[Libfox: $(NAME)]$(CRESET)"
 MAKE    :=  make --silent -C
 RM      :=  rm -f
 CP      :=  cp -t
@@ -19,6 +20,7 @@ MV      :=  mv -t
 GCOV    :=  gcovr
 CC      :=  gcc
 .DEFAULT_GOAL := all
+COMPILEDBTARGET := all tests
 ##########################################
 
 
@@ -83,8 +85,8 @@ CFLAGS      += -Werror
 CFLAGS      += $(foreach dir, $(INCDIRS), -iquote $(dir))
 CFLAGS      += -Wl$(foreach wrap, $(WRAPPED),,--wrap=$(wrap))
 ##########################################
-OBJ         := $(SRC:.c=.o)
-DEP         := $(OBJ:.o=.d)
+OBJ         := $(SRC:.c=.o) $(DEPSRC:.c=.o)
+DEP         := $(OBJ:.o=.d) $(DEPSRC:.c=.d)
 -include $(DEP)
 .PRECIOUS   := $(DEP)
 ##########################################
@@ -105,19 +107,19 @@ COVFLAGS += --exclude='.*wrap_.*'
 # Reciepes
 ##########################################
 %.a:
-	@if [ -e $@ ];                                  \
-	then                                            \
-	   $(ECHO) "Updating $(CLIGHTBLUE)$@$(CRESET)"; \
-	   ar ru $@ $^;                                 \
-	else                                            \
-	   $(ECHO) "Creating $(CLIGHTBLUE)$@$(CRESET)"; \
-	   ar rc $@ $^;                                 \
+	@if [ -e $@ ];                                  								\
+	then                                            								\
+	  $(ECHO) "$(CBOLD)$(CLIGHTBLUE)Updating$(CRESET) $(CLIGHTBLUE)$@$(CRESET)";	\
+	  ar ru $(BIN) $^;                              								\
+	else                                            								\
+	  $(ECHO) "$(CBOLD)$(CLIGHTGREEN)Creating$(CRESET) $(CLIGHTBLUE)$@$(CRESET)"; 	\
+	  ar rc $(BIN) $^;                              								\
 	fi
 
 %.o: CFLAGS += -MT $@ -MMD
 %.o: %.c
 	@$(CC) $(CFLAGS) -c -o $@ $<
-	@$(ECHO) "$(CLIGHTGREEN)Compile OK ✓$(CRESET) $@"
+	@$(ECHO) "$(CLIGHTGREEN)$(CBOLD)Compile OK ✓$(CRESET) $@"
 ##########################################
 
 
@@ -126,42 +128,48 @@ COVFLAGS += --exclude='.*wrap_.*'
 compiledb:
 	@[[ "$(shell which compiledb)" == "" ]] || compiledb -n make -ki $(COMPILEDBTARGET)
 
-.PHONY: all module tests $(NAME)
+.PHONY: all module $(NAME)
 all: $(NAME)
 module: $(NAME)
-tests: test_report
+$(NAME): compiledb $(BIN) tests
+$(BIN): $(OBJ)
 
-$(NAME): COMPILEDBTARGET = $(NAME)
-$(NAME): compiledb libfox_$(NAME).a tests
-libfox_$(NAME).a: $(OBJ)
-
-$(TESTBIN): COMPILEDBTARGET = $(TESTBIN)
 $(TESTBIN): CFLAGS  += --coverage
 $(TESTBIN): LDFLAGS := -lcriterion
-$(TESTBIN): compiledb $(SRC) $(DEPSRC) $(TST) $(WRAPSRC)
+$(TESTBIN): SRC += $(DEPSRC) $(TST) $(WRAPSRC)
+$(TESTBIN): compiledb
 	@$(RM) *.gc*
-	@$(CC) -o $@ $(CFLAGS) $(SRC) $(DEPSRC) $(TST) $(WRAPSRC) $(LDFLAGS)
-	@$(ECHO) "$(CLIGHTGREEN)Compile OK ✓$(CRESET) $@"
+	@$(CC) -o $@ $(CFLAGS) $(SRC) $(LDFLAGS)
 
-.PHONY: test_report
+.PHONY: tests test_report
+tests: test_report
 test_report: $(TESTBIN)
+	@$(ECHO) "$(CUNDERLN)$(CGREEN)TEST REPORT$(CRESET)"
 	@./$(TESTBIN) $(UTFLAGS)
 	@$(RM) $(notdir $(DEPSRC:.c=.gc*))
 	@$(GCOV) $(COVFLAGS)
 
 .PHONY: clean
 clean:
-	$(RM) $(OBJ)
-	$(RM) $(DEP)
-	$(RM) *.gc*
+	@$(ECHO) "$(CRED)Deleting$(CRESET) objects"
+	@$(RM) $(OBJ)
+	@$(ECHO) "$(CRED)Deleting$(CRESET) dependancy files"
+	@$(RM) $(DEP)
+	@$(ECHO) "$(CRED)Deleting$(CRESET) coverage files"
+	@$(RM) *.gc*
 
 .PHONY: fclean
 fclean:
-	$(RM) $(OBJ)
-	$(RM) $(DEP)
-	$(RM) *.gc*
-	$(RM) libfox_$(NAME).a
-	$(RM) $(TESTBIN)
+	@$(ECHO) "$(CRED)Deleting$(CRESET) objects"
+	@$(RM) $(OBJ)
+	@$(ECHO) "$(CRED)Deleting$(CRESET) dependancy files"
+	@$(RM) $(DEP)
+	@$(ECHO) "$(CRED)Deleting$(CRESET) coverage files"
+	@$(RM) *.gc*
+	@$(ECHO) "$(CRED)Deleting$(CRESET) $(BIN)"
+	@$(RM) $(BIN)
+	@$(ECHO) "$(CRED)Deleting$(CRESET) $(TESTBIN)"
+	@$(RM) $(TESTBIN)
 
 .PHONY: re
 re: fclean all

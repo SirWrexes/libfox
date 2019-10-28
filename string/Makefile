@@ -12,7 +12,7 @@ NAME    :=  string
 BIN     :=  libfox_$(NAME).a
 TESTBIN :=  utests_$(NAME)
 SHELL   :=  /bin/bash
-ECHO    :=  echo -e
+ECHO     =  echo -e "$(CORANGE)[Libfox: $(NAME)]$(CRESET)"
 MAKE    :=  make --silent -C
 RM      :=  rm -f
 CP      :=  cp -t
@@ -79,8 +79,8 @@ CFLAGS      += -Werror
 CFLAGS      += $(foreach dir, $(INCDIRS), -iquote $(dir))
 CFLAGS      += -Wl$(foreach wrap, $(WRAPPED),,--wrap=$(wrap))
 ##########################################
-OBJ         := $(SRC:.c=.o)
-DEP         := $(OBJ:.o=.d)
+OBJ         := $(SRC:.c=.o) $(DEPSRC:.c=.o)
+DEP         := $(OBJ:.o=.d) $(DEPSRC:.c=.d)
 -include $(DEP)
 .PRECIOUS   := $(DEP)
 ##########################################
@@ -101,19 +101,19 @@ COVFLAGS += --exclude='.*wrap_.*'
 # Reciepes
 ##########################################
 %.a:
-	@if [ -e $@ ];                                  \
-	then                                            \
-	  $(ECHO) "Updating $(CLIGHTBLUE)$@$(CRESET)"; 	\
-	  ar ru $(BIN) $^;                              \
-	else                                            \
-	  $(ECHO) "Creating $(CLIGHTBLUE)$@$(CRESET)"; 	\
-	  ar rc $(BIN) $^;                              \
+	@if [ -e $@ ];                                  								\
+	then                                            								\
+	  $(ECHO) "$(CBOLD)$(CLIGHTBLUE)Updating$(CRESET) $(CLIGHTBLUE)$@$(CRESET)";	\
+	  ar ru $(BIN) $^;                              								\
+	else                                            								\
+	  $(ECHO) "$(CBOLD)$(CLIGHTGREEN)Creating$(CRESET) $(CLIGHTBLUE)$@$(CRESET)"; 	\
+	  ar rc $(BIN) $^;                              								\
 	fi
 
 %.o: CFLAGS += -MT $@ -MMD
 %.o: %.c
 	@$(CC) $(CFLAGS) -c -o $@ $<
-	@$(ECHO) "$(CLIGHTGREEN)Compile OK ✓$(CRESET) $@"
+	@$(ECHO) "$(CLIGHTGREEN)$(CBOLD)Compile OK ✓$(CRESET) $@"
 ##########################################
 
 
@@ -128,17 +128,17 @@ module: $(NAME)
 $(NAME): compiledb $(BIN) tests
 $(BIN): $(OBJ)
 
-.PHONY: tests
-tests: test_report
 $(TESTBIN): CFLAGS  += --coverage
 $(TESTBIN): LDFLAGS := -lcriterion
-$(TESTBIN): compiledb $(SRC) $(TST) $(WRAPSRC)
+$(TESTBIN): SRC += $(DEPSRC) $(TST) $(WRAPSRC)
+$(TESTBIN): compiledb
 	@$(RM) *.gc*
-	@$(CC) -o $@ $(CFLAGS) $(SRC) $(TST) $(WRAPSRC) $(LDFLAGS)
-	@$(ECHO) "$(CLIGHTGREEN)Compile OK ✓$(CRESET) $@"
+	@$(CC) -o $@ $(CFLAGS) $(SRC) $(LDFLAGS)
 
-.PHONY: test_report
+.PHONY: tests test_report
+tests: test_report
 test_report: $(TESTBIN)
+	@$(ECHO) "$(CUNDERLN)$(CGREEN)TEST REPORT$(CRESET)"
 	@./$(TESTBIN) $(UTFLAGS)
 	@$(RM) $(notdir $(DEPSRC:.c=.gc*))
 	@$(GCOV) $(COVFLAGS)
