@@ -11,16 +11,16 @@
 __a((nonnull(1)))
 void tnode_destroy(tnode_t *nodeptr, void (*destructor)())
 {
-   if (*nodeptr == NULL)
-       return;
-   if (destructor != NULL && (*nodeptr)->data != NULL)
-       destructor(&(*nodeptr)->data);
-   if ((*nodeptr)->lnext != NULL)
-       tnode_destroy(&(*nodeptr)->lnext, destructor);
-   if ((*nodeptr)->rnext != NULL)
-       tnode_destroy(&(*nodeptr)->rnext, destructor);
-   if ((*nodeptr)->root != NULL)
-       (*nodeptr)->root->nodes -= 1;
-   free(*nodeptr);
-   *nodeptr = NULL;
+    if (*nodeptr == NULL)
+        return;
+    if (destructor != NULL && (*nodeptr)->data != NULL)
+        destructor(&(*nodeptr)->data);
+    if ((*nodeptr)->lnext != NULL)
+        tnode_destroy(&(*nodeptr)->lnext, destructor);
+    if ((*nodeptr)->rnext != NULL)
+        tnode_destroy(&(*nodeptr)->rnext, destructor);
+    if ((*nodeptr)->root != NULL)
+        (*nodeptr)->root->nodes -= 1;
+    free(*nodeptr);
+    *nodeptr = NULL;
 }
