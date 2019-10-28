@@ -9,6 +9,7 @@
 # Config
 ##########################################
 NAME    :=  string
+BIN     :=  libfox_$(NAME).a
 TESTBIN :=  utests_$(NAME)
 SHELL   :=  /bin/bash
 ECHO    :=  echo -e
@@ -19,6 +20,7 @@ MV      :=  mv -t
 GCOV    :=  gcovr
 CC      :=  gcc
 .DEFAULT_GOAL := all
+COMPILEDBTARGET := all tests
 ##########################################
 
 
@@ -101,11 +103,11 @@ COVFLAGS += --exclude='.*wrap_.*'
 %.a:
 	@if [ -e $@ ];                                  \
 	then                                            \
-	  $(ECHO) "Updating $(CLIGHTBLUE)$@$(CRESET)"; \
-	  ar ru $@ $^;                                 \
+	  $(ECHO) "Updating $(CLIGHTBLUE)$@$(CRESET)"; 	\
+	  ar ru $(BIN) $^;                              \
 	else                                            \
-	  $(ECHO) "Creating $(CLIGHTBLUE)$@$(CRESET)"; \
-	  ar rc $@ $^;                                 \
+	  $(ECHO) "Creating $(CLIGHTBLUE)$@$(CRESET)"; 	\
+	  ar rc $(BIN) $^;                              \
 	fi
 
 %.o: CFLAGS += -MT $@ -MMD
@@ -120,16 +122,14 @@ COVFLAGS += --exclude='.*wrap_.*'
 compiledb:
 	@[[ "$(shell which compiledb)" == "" ]] || compiledb -n make -ki $(COMPILEDBTARGET)
 
-.PHONY: all module tests $(NAME)
+.PHONY: all module $(NAME)
 all: $(NAME)
 module: $(NAME)
+$(NAME): compiledb $(BIN) tests
+$(BIN): $(OBJ)
+
+.PHONY: tests
 tests: test_report
-
-$(NAME): COMPILEDBTARGET = $(NAME)
-$(NAME): libfox_$(NAME).a tests
-libfox_$(NAME).a: $(OBJ)
-
-$(TESTBIN): COMPILEDBTARGET = $(TESTBIN)
 $(TESTBIN): CFLAGS  += --coverage
 $(TESTBIN): LDFLAGS := -lcriterion
 $(TESTBIN): compiledb $(SRC) $(TST) $(WRAPSRC)
@@ -145,17 +145,25 @@ test_report: $(TESTBIN)
 
 .PHONY: clean
 clean:
-	$(RM) $(OBJ)
-	$(RM) $(DEP)
-	$(RM) *.gc*
+	@$(ECHO) "$(CRED)Deleting$(CRESET) objects"
+	@$(RM) $(OBJ)
+	@$(ECHO) "$(CRED)Deleting$(CRESET) dependancy files"
+	@$(RM) $(DEP)
+	@$(ECHO) "$(CRED)Deleting$(CRESET) coverage files"
+	@$(RM) *.gc*
 
 .PHONY: fclean
 fclean:
-	$(RM) $(OBJ)
-	$(RM) $(DEP)
-	$(RM) *.gc*
-	$(RM) $(NAME)
-	$(RM) $(TESTBIN)
+	@$(ECHO) "$(CRED)Deleting$(CRESET) objects"
+	@$(RM) $(OBJ)
+	@$(ECHO) "$(CRED)Deleting$(CRESET) dependancy files"
+	@$(RM) $(DEP)
+	@$(ECHO) "$(CRED)Deleting$(CRESET) coverage files"
+	@$(RM) *.gc*
+	@$(ECHO) "$(CRED)Deleting$(CRESET) $(BIN)"
+	@$(RM) $(BIN)
+	@$(ECHO) "$(CRED)Deleting$(CRESET) $(TESTBIN)"
+	@$(RM) $(TESTBIN)
 
 .PHONY: re
 re: fclean all
