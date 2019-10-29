@@ -24,7 +24,7 @@ typedef struct tnode_s *tnode_t;
 
 // ...unles you use this macro that creates a tree that auto-destructs when
 // leaving the scope where you created it. 😏
-// You may set the auto data destructor to the function of your choice like so:
+// You may set the auto data destructor to the function of your choice like so
 //     leafcutter = &destructor_function;
 // Default autodestructor is NULL
 #define autotree_t __cleanup(chainsaw) tree_t
