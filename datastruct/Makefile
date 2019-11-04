@@ -164,7 +164,7 @@ COVFLAGS += --exclude='.*wrap_.*'
 REPORTTXT := "TEST REPORT"
 ifdef SHOW_BRANCHES
     COVFLAGS += -b
-    REPORTTXT += " (branches)"
+    REPORTTXT += "(branches)"
 endif
 ##########################################
 

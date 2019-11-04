@@ -135,6 +135,11 @@ COVFLAGS := -s --exclude-unreachable-branches
 COVFLAGS += $(foreach s, $(DEPSRC), -e $(notdir $(s)))
 COVFLAGS += --exclude='.*test_.*'
 COVFLAGS += --exclude='.*wrap_.*'
+REPORTTXT := "TEST REPORT"
+ifdef SHOW_BRANCHES
+    COVFLAGS += -b
+    REPORTTXT += "(branches)"
+endif
 ##########################################
 
 
@@ -142,13 +147,13 @@ COVFLAGS += --exclude='.*wrap_.*'
 # Reciepes
 ##########################################
 %.a:
-	@if [ -e $@ ];                                  								\
-	then                                            								\
+	@if [ -e $@ ];                                                                      \
+	then                                                                                \
 	  $(ECHO$(NAME)) $(CBOLD)$(CLIGHTBLUE)"Updating"$(CRESET) $(CLIGHTBLUE)$@$(CRESET);	\
-	  ar ru $(BIN) $^;                              								\
-	else                                            								\
+	  ar ru $(BIN) $^;                                                                  \
+	else                                                                                \
 	  $(ECHO$(NAME)) $(CBOLD)$(CLIGHTBLUE)"Creating"$(CRESET) $(CLIGHTBLUE)$@$(CRESET);	\
-	  ar rc $(BIN) $^;                              								\
+	  ar rc $(BIN) $^;                                                                  \
 	fi
 
 %.o: CFLAGS += -MT $@ -MMD
