@@ -8,7 +8,8 @@
 #include <stdbool.h>
 #include "fox_define.h"
 
-__nonnull __pure bool fox_isinstr(char c, str2c_t str)
+__nonnull __pure
+bool fox_isinstr(char c, str2c_t str)
 {
     if (c == '\0')
         return false;

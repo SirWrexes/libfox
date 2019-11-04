@@ -31,7 +31,8 @@ Test(fox_strtol, overflow_and_underflow)
 
 Test(fox_strtol, num_too_big)
 {
-    long res = fox_strtol("-922337203685477580913548453135487352123547", NULL);
+    long res = fox_strtol(
+        "-922337203685477580913548453135487352123547", NULL);
 
     cr_expect_eq(res, 0, "res = %ld", res);
 }

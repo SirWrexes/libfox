@@ -10,7 +10,7 @@
 #include "datastruct/fox_stack.h"
 
 __nonnull
-bool stack_create(stack_t *stack)
+bool stack_create(foxstack_t *stack)
 {
     *stack = malloc(sizeof(**stack));
 

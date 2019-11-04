@@ -12,7 +12,7 @@
 
 Test(stack_pop, regular_usage)
 {
-    stack_t stack = NULL;
+    foxstack_t stack = NULL;
 
     cr_assert_not(stack_create(&stack));
     cr_assert_not(stack_push(stack, &stack));
@@ -29,7 +29,7 @@ Test(stack_pop, regular_usage)
 
 Test(stack_pop, empty_stack)
 {
-    stack_t stack = NULL;
+    foxstack_t stack = NULL;
 
     cr_assert_not(stack_create(&stack));
     cr_expect_eq(stack_pop(stack), NULL);

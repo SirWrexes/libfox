@@ -12,7 +12,7 @@
 
 Test(tree_destroy, regular_usage)
 {
-    tree_t tree = NULL;
+    foxtree_t tree = NULL;
 
     cr_expect_not(tree_create(&tree));
     cr_assert_not_null(tree);
@@ -22,7 +22,7 @@ Test(tree_destroy, regular_usage)
 
 Test(tree_destroy, null_tree)
 {
-    tree_t tree = NULL;
+    foxtree_t tree = NULL;
 
     tree_destroy(&tree, NULL);
     cr_assert(true);

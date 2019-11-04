@@ -8,11 +8,12 @@
 #include <criterion/criterion.h>
 #include <criterion/redirect.h>
 #include "tests/wrap_malloc.h"
-#include "fox_datastruct.h"
+
+#include "datastruct/fox_tree.h"
 
 Test(tnode_create, regular_usage_no_null)
 {
-    tree_t tree = NULL;
+    foxtree_t tree = NULL;
 
     cr_assert_not(tree_create(&tree));
     cr_assert_not(tnode_create(&tree->trunk, &tree, tree));
@@ -26,7 +27,7 @@ Test(tnode_create, regular_usage_no_null)
 
 Test(tnode_create, regular_null_data)
 {
-    tree_t tree = NULL;
+    foxtree_t tree = NULL;
 
     cr_assert_not(tree_create(&tree));
     cr_assert_not(tnode_create(&tree->trunk, NULL, tree));
@@ -40,7 +41,7 @@ Test(tnode_create, regular_null_data)
 
 Test(tnode_create, regular_null_root)
 {
-    tree_t tree = NULL;
+    foxtree_t tree = NULL;
 
     cr_assert_not(tree_create(&tree));
     cr_assert_not(tnode_create(&tree->trunk, &tree, NULL));
@@ -53,7 +54,7 @@ Test(tnode_create, regular_null_root)
 
 Test(tnode_create, broken_malloc, .fini = fix_malloc)
 {
-    tree_t tree = NULL;
+    foxtree_t tree = NULL;
 
     cr_assert_not(tree_create(&tree));
     malloc_counter = 0;

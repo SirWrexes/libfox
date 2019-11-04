@@ -23,6 +23,9 @@
     #define LIBFOX_MACRO_UNDEF
     #undef __a
     #undef __cleanup
+    #undef __const
+    #undef __fallthrough
+    #undef __malloc
     #undef __nonnull
     #undef __packed
     #undef __pure
@@ -63,6 +66,7 @@
     // For more information about these, check GNU GCC's docs
     // CAREFUL: These have RESTRICTED PORTABILITY
     #define __a(attributes)    __attribute__(attributes)
+    #define __fallthrough      __a((fallthrough))
     #define __const            __a((const))
     #define __cleanup(janitor) __a((cleanup(janitor)))
     #define __malloc           __a((malloc))
@@ -175,7 +179,8 @@
 
 #ifndef FOX_USHORT_TYPE
     #define FOX_USHORT_TYPE
-    typedef unsigned short sindex_t;
+    typedef unsigned short hindex_t;
+    typedef unsigned short hcount_t;
 #endif // FOX_USHORT_TYPE
 
 #ifndef FOX_ULONG_TYPE

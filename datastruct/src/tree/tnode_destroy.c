@@ -9,7 +9,7 @@
 #include "fox_datastruct.h"
 
 __a((nonnull(1)))
-void tnode_destroy(tnode_t *nodeptr, void (*destructor)())
+void tnode_destroy(foxtnode_t *nodeptr, void (*destructor)())
 {
     if (*nodeptr == NULL)
         return;

@@ -13,18 +13,18 @@
 
 Test(stack_push, regular_usage)
 {
-    stack_t stack = NULL;
+    foxstack_t stack = NULL;
 
-    cr_assert_not(stack_create(&stack));        // New empty stack  (-> 0)
-    cr_assert_not(stack_push(stack, &stack));   // Push 1 to stack  (-> 1)
+    cr_assert_not(stack_create(&stack));
+    cr_assert_not(stack_push(stack, &stack));
     cr_expect_eq(stack->items, 1);
-    cr_assert_not(stack_push(stack, &stack));   // Push 1 to stack  (-> 2)
+    cr_assert_not(stack_push(stack, &stack));
     cr_expect_eq(stack->items, 2);
-    cr_expect_eq(stack_pop(stack), &stack);     // Pop 1 from stack (-> 1)
+    cr_expect_eq(stack_pop(stack), &stack);
     cr_expect_eq(stack->items, 1);
     cr_expect_eq(stack->faketop->i, 2);
     cr_expect_null(stack->faketop->data);
-    cr_assert_not(stack_push(stack, &stack));   // Push 1 to stack  (-> 2)
+    cr_assert_not(stack_push(stack, &stack));
     cr_expect_eq(stack->items, 2);
     stack_pop(stack);
     stack_pop(stack);
@@ -34,7 +34,7 @@ Test(stack_push, regular_usage)
 
 Test(stack_push, broken_malloc, .fini = fix_malloc)
 {
-    stack_t stack = NULL;
+    foxstack_t stack = NULL;
 
     malloc_counter = 1;
     cr_assert_not(stack_create(&stack));

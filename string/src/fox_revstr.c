@@ -8,7 +8,8 @@
 #include "fox_define.h"
 #include "fox_string.h"
 
-__nonnull str_t fox_revstr(str_t s)
+__nonnull
+str_t fox_revstr(str_t s)
 {
     char c;
     size_t len = fox_strlen(s);

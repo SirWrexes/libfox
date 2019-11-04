@@ -10,7 +10,8 @@
 #include "fox_define.h"
 #include "fox_string.h"
 
-__nonnull static size_t numsize(char const **s)
+__nonnull
+static size_t numsize(char const **s)
 {
     size_t n = 0;
 
@@ -21,7 +22,8 @@ __nonnull static size_t numsize(char const **s)
     return n;
 }
 
-__nonnull static bool get_sign(char const **s)
+__nonnull
+static bool get_sign(char const **s)
 {
     bool isneg = false;
 
@@ -33,7 +35,8 @@ __nonnull static bool get_sign(char const **s)
     return isneg;
 }
 
-__a((nonnull(1))) long fox_strtol(char const *s, char **endptr)
+__a((nonnull(1)))
+long fox_strtol(char const *s, char **endptr)
 {
     ulong_t ret = 0;
     bool isneg = get_sign(&s);
@@ -43,7 +46,7 @@ __a((nonnull(1))) long fox_strtol(char const *s, char **endptr)
         *endptr = (str_t) s + size;
     if (size > 19)
         return 0;
-    for (sindex_t i = 0; i < size; ) {
+    for (hindex_t i = 0; i < size;) {
         ret += CHAR_TO_N(s[i]);
         if (++i < size)
             ret *= 10;

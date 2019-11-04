@@ -2,13 +2,13 @@
 ## EPITECH PROJECT, 2019
 ## Libfox
 ## File description:
-## String module
+## Input/Output module
 ##
 
 #
 # Config
 ##########################################
-NAME     :=  string
+NAME     :=  io
 BIN      :=  libfox_$(NAME).a
 TESTBIN  :=  utests_$(NAME)
 DEBUGBIN :=  debug_$(NAME)
@@ -86,27 +86,25 @@ endif
 #
 # Sources
 ##########################################
-DEBUGMAIN := ./src/debugmain.c
-SRC := ./src/fox_isinstr.c
-SRC += ./src/fox_revstr.c
-SRC += ./src/fox_strcmp.c
-SRC += ./src/fox_strcspn.c
-SRC += ./src/fox_strlen.c
-SRC += ./src/fox_strncpy.c
-SRC += ./src/fox_strspn.c
+#DEBUGMAIN := ./src/debugmain.c
+SRC := ./src/fox_dpustr.c
+SRC +=
+##########################################
+
+
+#
+# External source dependancy + tests
+##########################################
+DEPSRC := ../string/src/fox_strlen.c
+DEPSRC +=
 ##########################################
 
 
 #
 # Tests
 ##########################################
-TST := ./tests/test_fox_isinstr.c
-TST += ./tests/test_fox_revstr.c
-TST += ./tests/test_fox_strcmp.c
-TST += ./tests/test_fox_strcspn.c
-TST += ./tests/test_fox_strlen.c
-TST += ./tests/test_fox_strncpy.c
-TST += ./tests/test_fox_strspn.c
+TST := ./tests/test_fox_dputstr.c
+TST +=
 ##########################################
 WRAPSRC := ./tests/wrappers/test_wrapped_malloc.c
 WRAPPED := malloc
@@ -151,7 +149,7 @@ endif
 ##########################################
 %.a:
 	@if [ -e $@ ];                                  								\
-	then                                            								\
+	then                                                                            \
 	  $(ECHO$(NAME)) $(CBOLD)$(CLIGHTBLUE)"Updating"$(CRESET) $(CLIGHTBLUE)$@$(CRESET);		\
 	  ar ru $(BIN) $^;                              								\
 	else                                            								\
@@ -177,7 +175,7 @@ module: $(NAME)
 $(NAME): compiledb $(BIN) tests
 $(BIN): $(OBJ)
 
-$(TESTBIN): CFLAGS  += --coverage
+$(TESTBIN): CFLAGS  += --"coverage"
 $(TESTBIN): CFLAGS  += $(WRAPFLAGS)
 $(TESTBIN): LDFLAGS := -lcriterion
 $(TESTBIN): SRC += $(DEPSRC) $(TST) $(WRAPSRC)
@@ -203,7 +201,7 @@ test_report: $(TESTBIN)
 clean:
 	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET)" objects"
 	@$(RM) $(OBJ)
-	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET)" dependancy files"
+	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET)" dependency files"
 	@$(RM) $(DEP)
 	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET)" coverage files"
 	@$(RM) $(COV)
@@ -212,7 +210,7 @@ clean:
 fclean:
 	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET)" objects"
 	@$(RM) $(OBJ)
-	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET)" dependancy files"
+	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET)"dependency files"
 	@$(RM) $(DEP)
 	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET)" coverage files"
 	@$(RM) $(COV)

@@ -14,9 +14,10 @@ CP      := cp -t
 MV      := mv -t
 .DEFAULT_GOAL := all
 
-MODULES := datastruct
+MODULES += io
 MODULES += std
 MODULES += string
+MODULES += datastruct
 
 .PHONY: $(MODULES)
 $(MODULES):

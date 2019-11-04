@@ -1,11 +1,11 @@
 /*
 ** EPITECH PROJECT, 2019
-** <project name>
+** Libfox
 ** File description:
-** autodestructor.c -- No description
+** Tree auto destructor for cleanup attribute
 */
 
-#include "fox_datastruct.h"
+#include "datastruct/fox_tree.h"
 
 __const
 leafcutter_t *treedata_destructor(void)
@@ -16,7 +16,7 @@ leafcutter_t *treedata_destructor(void)
 }
 
 __nonnull
-void chainsaw(tree_t *treeptr)
+void chainsaw(foxtree_t *treeptr)
 {
     tree_destroy(treeptr, leafcutter);
 }

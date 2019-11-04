@@ -17,7 +17,7 @@ static void destructor(char ***s)
 
 Test(stack_destroy, null_destructor)
 {
-    stack_t stack = NULL;
+    foxstack_t stack = NULL;
 
     cr_assert_not(stack_create(&stack));
     stack_destroy(&stack, NULL);
@@ -28,7 +28,7 @@ Test(stack_destroy, null_destructor)
 
 Test(stack_destroy, nonnull_destructor)
 {
-    stack_t stack = NULL;
+    foxstack_t stack = NULL;
     char *s = malloc(1);
 
     cr_assert_not(stack_create(&stack));

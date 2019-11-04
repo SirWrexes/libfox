@@ -9,7 +9,7 @@
 #include "fox_datastruct.h"
 
 __a((nonnull))
-void tree_destroy(tree_t *treeptr, void (*destructor)())
+void tree_destroy(foxtree_t *treeptr, void (*destructor)())
 {
     if (*treeptr == NULL)
         return;

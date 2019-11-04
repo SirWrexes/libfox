@@ -12,7 +12,7 @@
 
 Test(stack_create, regular_usage)
 {
-    stack_t stack = NULL;
+    foxstack_t stack = NULL;
 
     cr_assert_not(stack_create(&stack));
     cr_assert_not_null(stack);
@@ -22,7 +22,7 @@ Test(stack_create, regular_usage)
 
 Test(stack_create, broken_malloc, .init = break_malloc, .fini = fix_malloc)
 {
-    stack_t stack = NULL;
+    foxstack_t stack = NULL;
 
     cr_assert(stack_create(&stack));
     cr_assert_null(stack);

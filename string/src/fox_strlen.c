@@ -7,7 +7,8 @@
 
 #include "fox_define.h"
 
-__pure __nonnull size_t fox_strlen(str_t const str)
+__pure __nonnull
+size_t fox_strlen(str_t const str)
 {
     size_t len;
 

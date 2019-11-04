@@ -8,18 +8,19 @@
 #
 # Config
 ##########################################
-NAME    :=  std
-BIN     :=  libfox_$(NAME).a
-TESTBIN :=  utests_$(NAME)
-SHELL   :=  /bin/bash
-MAKE    :=  make --no-print-directory -C
-RM      :=  rm -f
-CP      :=  cp -t
-MV      :=  mv -t
-GCOV    :=  gcovr
-CC      :=  gcc
+NAME     :=  std
+BIN      :=  libfox_$(NAME).a
+TESTBIN  :=  utests_$(NAME)
+DEBUGBIN :=  debug_$(NAME)
+SHELL    :=  /bin/bash
+MAKE     :=  make --no-print-directory -C
+RM       :=  rm -f
+CP       :=  cp -t
+MV       :=  mv -t
+GCOV     :=  gcovr
+CC       :=  gcc
 .DEFAULT_GOAL := all
-COMPILEDBTARGET := all tests
+COMPILEDBTARGET := all tests debug
 ##########################################
 
 #
@@ -68,14 +69,14 @@ if __name__ == "__main__":
   main()
 endef
 
-ifndef ECHO
+ifndef ECHO$(NAME)
   $(call export PROGBAR) $(file >progressbar.py,$(PROGBAR))
   T := $(shell $(MAKE) . $(MAKECMDGOALS)	\
        -nrRf $(firstword $(MAKEFILE_LIST)) 	\
-       ECHO="COUNT$(NAME)" | grep -c "COUNT$(NAME)")
+       ECHO$(NAME)="COUNT$(NAME)" | grep -c "COUNT$(NAME)")
   N := x
   C = $(words $N)$(eval N := x $N)
-  ECHO = python ./progressbar.py --stepno=$C --nsteps=$T
+  ECHO$(NAME) = python ./progressbar.py --stepno=$C --nsteps=$T
 endif
 
 # ----------------------- MAKEFILE STARTS FROM HERE -------------------------- #
@@ -87,6 +88,7 @@ endif
 SRC := ./src/fox_strtol.c
 SRC +=
 ##########################################
+
 
 #
 # External source dependancy + tests
@@ -103,7 +105,7 @@ DEPSRC += ../string/src/fox_isinstr.c
 TST := ./tests/test_fox_strtol.c
 TST +=
 ##########################################
-WRAPSRC := ./tests/wrappers/wrap_malloc.c
+WRAPSRC := ./tests/wrappers/test_wrapped_malloc.c
 WRAPPED := malloc
 ##########################################
 
@@ -115,10 +117,11 @@ INCDIRS     := ./include
 CFLAGS      := -Wall -Wextra
 CFLAGS      += -Werror
 CFLAGS      += $(foreach dir, $(INCDIRS), -iquote $(dir))
-CFLAGS      += -Wl$(foreach wrap, $(WRAPPED),,--wrap=$(wrap))
+WRAPFLAGS   := -Wl$(foreach wrap, $(WRAPPED),,--wrap=$(wrap))
 ##########################################
 OBJ         := $(SRC:.c=.o) $(DEPSRC:.c=.o)
 DEP         := $(OBJ:.o=.d) $(DEPSRC:.c=.d)
+COV         := $(notdir $(OBJ:.o=.gc*)) $(notdir $(TST:.c=.gc*)) $(notdir $(WRAPSRC:.c=.gc*))
 -include $(DEP)
 .PRECIOUS   := $(DEP)
 ##########################################
@@ -141,17 +144,17 @@ COVFLAGS += --exclude='.*wrap_.*'
 %.a:
 	@if [ -e $@ ];                                  								\
 	then                                            								\
-	  $(ECHO) $(CBOLD)$(CLIGHTBLUE)Updating$(CRESET) $(CLIGHTBLUE)$@$(CRESET);	\
+	  $(ECHO$(NAME)) $(CBOLD)$(CLIGHTBLUE)"Updating"$(CRESET) $(CLIGHTBLUE)$@$(CRESET);	\
 	  ar ru $(BIN) $^;                              								\
 	else                                            								\
-	  $(ECHO) $(CBOLD)$(CLIGHTBLUE)Creating$(CRESET) $(CLIGHTBLUE)$@$(CRESET);	\
+	  $(ECHO$(NAME)) $(CBOLD)$(CLIGHTBLUE)"Creating"$(CRESET) $(CLIGHTBLUE)$@$(CRESET);	\
 	  ar rc $(BIN) $^;                              								\
 	fi
 
 %.o: CFLAGS += -MT $@ -MMD
 %.o: %.c
 	@$(CC) $(CFLAGS) -c -o $@ $<
-	@$(ECHO) $(CLIGHTGREEN)$(CBOLD)Compile OK ✓$(CRESET) $@
+	@$(ECHO$(NAME)) $(CLIGHTGREEN)$(CBOLD)"Compile OK ✓"$(CRESET) $@
 ##########################################
 
 
@@ -167,41 +170,52 @@ $(NAME): compiledb $(BIN) tests
 $(BIN): $(OBJ)
 
 $(TESTBIN): CFLAGS  += --coverage
+$(TESTBIN): CFLAGS  += $(WRAPFLAGS)
 $(TESTBIN): LDFLAGS := -lcriterion
 $(TESTBIN): SRC += $(DEPSRC) $(TST) $(WRAPSRC)
 $(TESTBIN): compiledb
-	@$(RM) *.gc*
+	@$(RM) $(COV)
 	@$(CC) -o $@ $(CFLAGS) $(SRC) $(LDFLAGS)
+
+.PHONY: debug
+debug: $(DEBUGBIN)
+$(DEBUGBIN): CFLAGS += -ggdb3 -rdynamic
+$(DEBUGBIN): $(SRC) $(DEBUGMAIN)
+	$(CC) -o $@ $(CFLAGS) $(DEBUGMAIN) $(SRC) $(LDFLAGS)
 
 .PHONY: tests test_report
 tests: test_report
 test_report: $(TESTBIN)
-	@$(ECHO) $(CUNDERLN)$(CGREEN)TEST REPORT$(CRESET)
+	@$(ECHO$(NAME)) $(CUNDERLN)$(CGREEN)$(REPORTTXT)$(CRESET)
 	@./$(TESTBIN) $(UTFLAGS)
 	@$(RM) $(notdir $(DEPSRC:.c=.gc*))
 	@$(GCOV) $(COVFLAGS)
 
 .PHONY: clean
 clean:
-	@$(ECHO) $(CRED)Delete$(CRESET) objects
+	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET)" objects"
 	@$(RM) $(OBJ)
-	@$(ECHO) $(CRED)Delete$(CRESET) dependancy files
+	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET)" dependancy files"
 	@$(RM) $(DEP)
-	@$(ECHO) $(CRED)Delete$(CRESET) coverage files
-	@$(RM) *.gc*
+	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET)" coverage files"
+	@$(RM) $(COV)
 
 .PHONY: fclean
 fclean:
-	@$(ECHO) $(CRED)Delete$(CRESET) objects
+	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET)" objects"
 	@$(RM) $(OBJ)
-	@$(ECHO) $(CRED)Delete$(CRESET) dependancy files
+	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET)" dependancy files"
 	@$(RM) $(DEP)
-	@$(ECHO) $(CRED)Delete$(CRESET) coverage files
-	@$(RM) *.gc*
-	@$(ECHO) $(CRED)Delete$(CRESET) $(BIN)
+	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET)" coverage files"
+	@$(RM) $(COV)
+	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET) $(BIN)
 	@$(RM) $(BIN)
-	@$(ECHO) $(CRED)Delete$(CRESET) $(TESTBIN)
+	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET) $(TESTBIN)
 	@$(RM) $(TESTBIN)
+	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET) $(DEBUGBIN)
+	@$(RM) $(DEBUGBIN)
 
 .PHONY: re
-re: fclean all
+re:
+	@$(MAKE) . fclean
+	@$(MAKE) . all

@@ -11,7 +11,7 @@
 #include "fox_define.h"
 
 __nonnull
-bool tree_create(tree_t *treeptr)
+bool tree_create(foxtree_t *treeptr)
 {
     *treeptr = malloc(sizeof(**treeptr));
     if (*treeptr == NULL)

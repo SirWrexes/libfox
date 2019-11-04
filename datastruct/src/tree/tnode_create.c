@@ -10,7 +10,7 @@
 #include "fox_datastruct.h"
 
 __a((nonnull(1)))
-bool tnode_create(tnode_t *leafptr, void *data, tree_t root)
+bool tnode_create(foxtnode_t *leafptr, void *data, foxtree_t root)
 {
     *leafptr = malloc(sizeof(**leafptr));
     if (*leafptr == NULL)

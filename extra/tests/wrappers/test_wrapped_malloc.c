@@ -10,6 +10,8 @@
 #include "tests/wrap_malloc.h"
 #include "fox_define.h"
 
+TestSuite(broken_malloc, .fini = fix_malloc);
+
 void *real_malloc(size_t size);
 void *wrap_malloc(size_t size)
 {

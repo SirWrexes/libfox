@@ -17,7 +17,7 @@ static void destructor(char ***s)
 
 Test(tnode_destroy, simple_destruction)
 {
-    tree_t tree = NULL;
+    foxtree_t tree = NULL;
     char *s = malloc(1);
 
     cr_assert_not_null(s);
@@ -35,7 +35,7 @@ Test(tnode_destroy, simple_destruction)
 
 Test(tnode_destroy, recursive_destruction)
 {
-    tree_t tree = NULL;
+    foxtree_t tree = NULL;
     char *s = malloc(1);
 
     cr_assert_not_null(s);
@@ -55,7 +55,7 @@ Test(tnode_destroy, recursive_destruction)
 
 Test(tnode_destroy, extra_branch_testing)
 {
-    tree_t tree = NULL;
+    foxtree_t tree = NULL;
 
     cr_assert_not(tree_create(&tree));
     cr_assert_not(tnode_create(&tree->trunk, NULL, NULL));

@@ -13,7 +13,7 @@
 
 Test(create_tree, normal_usage)
 {
-    tree_t tree = NULL;
+    foxtree_t tree = NULL;
 
     cr_expect_not(tree_create(&tree));
     cr_assert_not_null(tree);
@@ -23,7 +23,7 @@ Test(create_tree, normal_usage)
 
 Test(create_tree, broken_malloc, .fini = fix_malloc)
 {
-    tree_t tree = NULL;
+    foxtree_t tree = NULL;
 
     malloc_counter = 0;
     cr_expect(tree_create(&tree));

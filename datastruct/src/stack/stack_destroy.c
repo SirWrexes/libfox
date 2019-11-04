@@ -9,10 +9,10 @@
 #include "datastruct/fox_stack.h"
 
 __a((nonnull(1)))
-void stack_destroy(stack_t *stack, void (*destructor)())
+void stack_destroy(foxstack_t *stack, void (*destructor)())
 {
-    sitem_t top = NULL;
-    sitem_t tmp = NULL;
+    foxsitem_t top = NULL;
+    foxsitem_t tmp = NULL;
 
     if (*stack == NULL)
         return;
