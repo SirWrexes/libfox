@@ -20,7 +20,7 @@ MV       :=  mv -t
 GCOV     :=  gcovr
 CC       :=  gcc
 .DEFAULT_GOAL := all
-COMPILEDBTARGET := all tests debug
+COMPILEDBTARGET := all tests
 ##########################################
 
 
@@ -86,25 +86,27 @@ endif
 #
 # Sources
 ##########################################
-#DEBUGMAIN := ./src/debugmain.c
-SRC := ./src/fox_dpustr.c
-SRC +=
+DEBUGMAIN := ./src/debugmain.c
+SRC := ./src/fox_dputchar.c
+SRC += ./src/fox_dputstr.c
+SRC += ./src/fox_dputnbr.c
 ##########################################
 
 
 #
 # External source dependancy + tests
 ##########################################
-DEPSRC := ../string/src/fox_strlen.c
-DEPSRC +=
+DEPSRC := ../math/src/fox_numsize.c
+DEPSRC += ../string/src/fox_strlen.c
 ##########################################
 
 
 #
 # Tests
 ##########################################
-TST := ./tests/test_fox_dputstr.c
-TST +=
+TST := ./tests/test_fox_dputchar.c
+TST += ./tests/test_fox_dputstr.c
+TST += ./tests/test_fox_dputnbr.c
 ##########################################
 WRAPSRC := ./tests/wrappers/test_wrapped_malloc.c
 WRAPPED := malloc
@@ -148,13 +150,13 @@ endif
 # Reciepes
 ##########################################
 %.a:
-	@if [ -e $@ ];                                  								\
-	then                                                                            \
-	  $(ECHO$(NAME)) $(CBOLD)$(CLIGHTBLUE)"Updating"$(CRESET) $(CLIGHTBLUE)$@$(CRESET);		\
-	  ar ru $(BIN) $^;                              								\
-	else                                            								\
-	  $(ECHO$(NAME)) $(CBOLD)$(CLIGHTBLUE)"Creating"$(CRESET) $(CLIGHTBLUE)$@$(CRESET);		\
-	  ar rc $(BIN) $^;                              								\
+	@if [ -e $@ ];                                                                    	\
+	then                                                                                \
+	  $(ECHO$(NAME)) $(CBOLD)$(CLIGHTBLUE)"Updating"$(CRESET) $(CLIGHTBLUE)$@$(CRESET); \
+	  ar ru $(BIN) $^;                                                                  \
+	else                                                                                \
+	  $(ECHO$(NAME)) $(CBOLD)$(CLIGHTBLUE)"Creating"$(CRESET) $(CLIGHTBLUE)$@$(CRESET); \
+	  ar rc $(BIN) $^;                                                                  \
 	fi
 
 %.o: CFLAGS += -MT $@ -MMD
@@ -185,9 +187,11 @@ $(TESTBIN): compiledb
 
 .PHONY: debug
 debug: $(DEBUGBIN)
+$(DEBUGBIN): COMPILEDBTARGET := debug
 $(DEBUGBIN): CFLAGS += -ggdb3 -rdynamic
-$(DEBUGBIN): $(SRC) $(DEBUGMAIN)
-	$(CC) -o $@ $(CFLAGS) $(DEBUGMAIN) $(SRC) $(LDFLAGS)
+$(DEBUGBIN): FILES   = $(SRC) $(DEPSRC) $(DEBUGMAIN)
+$(DEBUGBIN): compiledb
+	$(CC) -o $@ $(CFLAGS) $(FILES) $(LDFLAGS)
 
 .PHONY: tests test_report
 tests: test_report
