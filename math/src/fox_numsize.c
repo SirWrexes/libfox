@@ -6,22 +6,22 @@
 */
 
 #include <stddef.h>
-#include "preprocessor/fox_macro.h"
+#include "fox_define.h"
 
 __const
-size_t fox_nonnull_numsize(long long n)
+static size_t fox_nonnull_numsize(llong_t n)
 {
     switch (n) {
-    case 0: return 0;
-    default: return 1 + fox_nonnull_numsize(n / 10);
+        case 0: return 0;
+        default: return 1 + fox_nonnull_numsize(n / 10);
     }
 }
 
 __const
-size_t fox_numsize(long long n)
+size_t fox_numsize(llong_t n)
 {
     switch (n) {
-    case 0: return 1;
-    default: return fox_nonnull_numsize(n);
+        case 0: return 1;
+        default: return fox_nonnull_numsize(n);
     }
 }
