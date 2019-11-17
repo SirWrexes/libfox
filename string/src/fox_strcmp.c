@@ -10,9 +10,14 @@
 __nonnull __pure
 char fox_strcmp(str2c_t s1, str2c_t s2)
 {
-    while (*s1 != '\0' && *s1 == *s2) {
-        s1 += 1;
-        s2 += 1;
-    }
-    return *s1 - *s2;
+    char c1 = '\0';
+    char c2 = '\0';
+
+    do {
+        c1 = (uchar_t) *s1++;
+        c2 = (uchar_t) *s2++;
+        if (c1 == '\0')
+            return c1 - c2;
+    } while (c1 == c2);
+    return c1 - c2;
 }
