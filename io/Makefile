@@ -20,7 +20,7 @@ MV       :=  mv -t
 GCOV     :=  gcovr
 CC       :=  gcc
 .DEFAULT_GOAL := all
-COMPILEDBTARGET := all tests
+COMPILEDBTARGET := all tests debug
 ##########################################
 
 
@@ -87,29 +87,72 @@ endif
 # Sources
 ##########################################
 DEBUGMAIN := ./src/debugmain.c
-SRC := ./src/fox_dputchar.c
-SRC += ./src/fox_dputstr.c
+# -- String
+SRC := ./src/fox_sputchar.c
+SRC += ./src/fox_sputchar_oct.c
+SRC += ./src/fox_sputnbr.c
+SRC += ./src/fox_sputstr.c
+SRC += ./src/fox_sputstr_np.c
+SRC += ./src/fox_sputunbr.c
+SRC += ./src/fox_sputunbr_base.c
+# -- Allocated String
+SRC += ./src/fox_asputchar.c
+SRC += ./src/fox_asputchar_oct.c
+SRC += ./src/fox_asputnbr.c
+SRC += ./src/fox_asputstr.c
+SRC += ./src/fox_asputstr_np.c
+SRC += ./src/fox_asputunbr.c
+SRC += ./src/fox_asputunbr_base.c
+# -- Descriptor
+SRC += ./src/fox_dputchar.c
+SRC += ./src/fox_dputchar_oct.c
 SRC += ./src/fox_dputnbr.c
+SRC += ./src/fox_dputstr.c
+SRC += ./src/fox_dputstr_np.c
+SRC += ./src/fox_dputunbr.c
+SRC += ./src/fox_dputunbr_base.c
 ##########################################
 
 
 #
-# External source dependancy + tests
+# External source dependency + tests
 ##########################################
-DEPSRC := ../math/src/fox_numsize.c
+DEPSRC := ../string/src/fox_strcpy.c
+DEPSRC += ../string/src/fox_strdup.c
 DEPSRC += ../string/src/fox_strlen.c
+DEPSRC += ../string/src/fox_strncpy.c
+DEPSRC += ../math/src/fox_numsize.c
+DEPSRC += ../math/src/fox_unumsize.c
+DEPSRC += ../math/src/fox_verifbase.c
 ##########################################
 
 
 #
 # Tests
 ##########################################
-TST := ./tests/test_fox_dputchar.c
-TST += ./tests/test_fox_dputstr.c
+# -- String
+TST := ./tests/test_fox_sputstr.c
+# -- Allocated string
+TST += ./tests/test_fox_asputchar.c
+TST += ./tests/test_fox_asputchar_oct.c
+TST += ./tests/test_fox_asputnbr.c
+TST += ./tests/test_fox_asputstr.c
+TST += ./tests/test_fox_asputstr_np.c
+TST += ./tests/test_fox_asputunbr.c
+TST += ./tests/test_fox_asputunbr_base.c
+# -- Descriptor
+TST += ./tests/test_fox_dputchar.c
+TST += ./tests/test_fox_dputchar_oct.c
 TST += ./tests/test_fox_dputnbr.c
+TST += ./tests/test_fox_dputstr.c
+TST += ./tests/test_fox_dputstr_np.c
+TST += ./tests/test_fox_dputunbr.c
+TST += ./tests/test_fox_dputunbr_base.c
 ##########################################
 WRAPSRC := ./tests/wrappers/test_wrapped_malloc.c
 WRAPPED := malloc
+# --
+WRAPFLAGS   += -Wl$(foreach wrap, $(WRAPPED),,--wrap=$(wrap))
 ##########################################
 
 
@@ -120,7 +163,6 @@ INCDIRS     := ./include
 CFLAGS      := -Wall -Wextra
 CFLAGS      += -Werror
 CFLAGS      += $(foreach dir, $(INCDIRS), -iquote $(dir))
-CFLAGS      += -Wl$(foreach wrap, $(WRAPPED),,--wrap=$(wrap))
 ##########################################
 OBJ         := $(SRC:.c=.o) $(DEPSRC:.c=.o)
 DEP         := $(OBJ:.o=.d) $(DEPSRC:.c=.d)
@@ -150,13 +192,13 @@ endif
 # Reciepes
 ##########################################
 %.a:
-	@if [ -e $@ ];                                                                    	\
-	then                                                                                \
-	  $(ECHO$(NAME)) $(CBOLD)$(CLIGHTBLUE)"Updating"$(CRESET) $(CLIGHTBLUE)$@$(CRESET); \
-	  ar ru $(BIN) $^;                                                                  \
-	else                                                                                \
-	  $(ECHO$(NAME)) $(CBOLD)$(CLIGHTBLUE)"Creating"$(CRESET) $(CLIGHTBLUE)$@$(CRESET); \
-	  ar rc $(BIN) $^;                                                                  \
+	@if [ -e $@ ];                                  								\
+	then                                                                            \
+	  $(ECHO$(NAME)) $(CBOLD)$(CLIGHTBLUE)"Updating"$(CRESET) $(CLIGHTBLUE)$@$(CRESET);		\
+	  ar ru $(BIN) $^;                              								\
+	else                                            								\
+	  $(ECHO$(NAME)) $(CBOLD)$(CLIGHTBLUE)"Creating"$(CRESET) $(CLIGHTBLUE)$@$(CRESET);		\
+	  ar rc $(BIN) $^;                              								\
 	fi
 
 %.o: CFLAGS += -MT $@ -MMD
@@ -177,7 +219,7 @@ module: $(NAME)
 $(NAME): compiledb $(BIN) tests
 $(BIN): $(OBJ)
 
-$(TESTBIN): CFLAGS  += --"coverage"
+$(TESTBIN): CFLAGS  += --coverage
 $(TESTBIN): CFLAGS  += $(WRAPFLAGS)
 $(TESTBIN): LDFLAGS := -lcriterion
 $(TESTBIN): SRC += $(DEPSRC) $(TST) $(WRAPSRC)
@@ -187,11 +229,10 @@ $(TESTBIN): compiledb
 
 .PHONY: debug
 debug: $(DEBUGBIN)
-$(DEBUGBIN): COMPILEDBTARGET := debug
 $(DEBUGBIN): CFLAGS += -ggdb3 -rdynamic
-$(DEBUGBIN): FILES   = $(SRC) $(DEPSRC) $(DEBUGMAIN)
-$(DEBUGBIN): compiledb
-	$(CC) -o $@ $(CFLAGS) $(FILES) $(LDFLAGS)
+$(DEBUGBIN): SRC += $(DEPSRC) $(DEBUGMAIN)
+$(DEBUGBIN): $(SRC)
+	$(CC) -o $@ $(CFLAGS) $(SRC) $(LDFLAGS)
 
 .PHONY: tests test_report
 tests: test_report
@@ -214,7 +255,7 @@ clean:
 fclean:
 	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET)" objects"
 	@$(RM) $(OBJ)
-	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET)"dependency files"
+	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET)" dependency files"
 	@$(RM) $(DEP)
 	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET)" coverage files"
 	@$(RM) $(COV)
