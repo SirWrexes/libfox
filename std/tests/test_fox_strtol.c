@@ -13,11 +13,11 @@
 Test(fox_strtol, regular_usage)
 {
     str_t endptr = NULL;
-    str_t num = "ptdr xD +---0123cul";
+    str_t num = "          +---0123cul";
     long res = fox_strtol(num, &endptr);
 
     cr_expect_eq(res, -123, "res = %ld", res);
-    cr_expect_eq(endptr, num + 16);
+    cr_expect_eq(endptr, num + strspn(num, " +-0123456789"));
 }
 
 Test(fox_strtol, overflow_and_underflow)
@@ -35,4 +35,11 @@ Test(fox_strtol, num_too_big)
         "-922337203685477580913548453135487352123547", NULL);
 
     cr_expect_eq(res, 0, "res = %ld", res);
+}
+
+Test(strtol, not_a_number)
+{
+    long res = fox_strtol("sucepute 23", NULL);
+
+    cr_expect_eq(res, 0);
 }

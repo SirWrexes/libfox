@@ -27,7 +27,7 @@ static bool get_sign(char const **s)
 {
     bool isneg = false;
 
-    *s += fox_strcspn(*s, "+-" STR_NUMERIC);
+    *s += fox_strspn(*s, STR_WHITESPACE);
     while (**s != '\0' && CHAR_IS_SIGN(**s)) {
         isneg ^= (bool) (**s == '-');
         *s += 1;
