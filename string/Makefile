@@ -90,8 +90,11 @@ DEBUGMAIN := ./src/debugmain.c
 SRC := ./src/fox_isinstr.c
 SRC += ./src/fox_revstr.c
 SRC += ./src/fox_strcmp.c
+SRC += ./src/fox_strcpy.c
 SRC += ./src/fox_strcspn.c
+SRC += ./src/fox_strdup.c
 SRC += ./src/fox_strlen.c
+SRC += ./src/fox_strncmp.c
 SRC += ./src/fox_strncpy.c
 SRC += ./src/fox_strspn.c
 ##########################################
@@ -103,8 +106,11 @@ SRC += ./src/fox_strspn.c
 TST := ./tests/test_fox_isinstr.c
 TST += ./tests/test_fox_revstr.c
 TST += ./tests/test_fox_strcmp.c
+TST += ./tests/test_fox_strcpy.c
 TST += ./tests/test_fox_strcspn.c
+TST += ./tests/test_fox_strdup.c
 TST += ./tests/test_fox_strlen.c
+TST += ./tests/test_fox_strncmp.c
 TST += ./tests/test_fox_strncpy.c
 TST += ./tests/test_fox_strspn.c
 ##########################################
@@ -203,7 +209,7 @@ test_report: $(TESTBIN)
 clean:
 	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET)" objects"
 	@$(RM) $(OBJ)
-	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET)" dependancy files"
+	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET)" dependency files"
 	@$(RM) $(DEP)
 	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET)" coverage files"
 	@$(RM) $(COV)
@@ -212,7 +218,7 @@ clean:
 fclean:
 	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET)" objects"
 	@$(RM) $(OBJ)
-	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET)" dependancy files"
+	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET)" dependency files"
 	@$(RM) $(DEP)
 	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET)" coverage files"
 	@$(RM) $(COV)
