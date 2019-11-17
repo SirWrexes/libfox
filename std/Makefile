@@ -91,7 +91,7 @@ SRC +=
 
 
 #
-# External source dependancy + tests
+# External source dependency + tests
 ##########################################
 DEPSRC := ../string/src/fox_strspn.c
 DEPSRC += ../string/src/fox_strcspn.c
@@ -200,7 +200,7 @@ test_report: $(TESTBIN)
 clean:
 	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET)" objects"
 	@$(RM) $(OBJ)
-	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET)" dependancy files"
+	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET)" dependency files"
 	@$(RM) $(DEP)
 	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET)" coverage files"
 	@$(RM) $(COV)
@@ -209,7 +209,7 @@ clean:
 fclean:
 	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET)" objects"
 	@$(RM) $(OBJ)
-	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET)" dependancy files"
+	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET)" dependency files"
 	@$(RM) $(DEP)
 	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET)" coverage files"
 	@$(RM) $(COV)
