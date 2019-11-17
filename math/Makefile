@@ -87,7 +87,8 @@ endif
 ##########################################
 DEBUGMAIN = ./src/debugmain.c
 SRC := ./src/fox_numsize.c
-SRC +=
+SRC += ./src/fox_unumsize.c
+SRC += ./src/fox_verifbase.c
 ##########################################
 
 
@@ -95,7 +96,8 @@ SRC +=
 # Tests
 ##########################################
 TST := ./tests/test_fox_numsize.c
-TST +=
+TST += ./tests/test_fox_unumsize.c
+TST += ./tests/test_fox_verifbase.c
 ##########################################
 WRAPSRC := ./tests/wrappers/test_wrapped_malloc.c
 WRAPPED := malloc
