@@ -33,15 +33,28 @@
 
 #ifndef FOX_USHORT_TYPE
     #define FOX_USHORT_TYPE
-    typedef unsigned short hindex_t;
+    typedef unsigned short ushort_t;
     typedef unsigned short hcount_t;
+    typedef unsigned short hindex_t;
+    typedef unsigned short hsize_t;
 #endif // FOX_USHORT_TYPE
+
+#ifndef FOX_UINT_TYPE
+    #define FOX_UINT_TYPE
+    typedef unsigned int ibmask_t;
+#endif // FOX_INT_TYPE
+
+#ifndef FOX_LONG_TYPE
+    #define FOX_LONG_TYPE
+    typedef long scount_t;
+#endif // FOX_LONG_TYPE
 
 #ifndef FOX_ULONG_TYPE
     #define FOX_ULONG_TYPE
     typedef unsigned long ulong_t;
     typedef unsigned long count_t;
     typedef unsigned long index_t;
+    typedef unsigned long bmask_t;
 #endif
 
 #ifndef FOX_LLONG_TYPE
