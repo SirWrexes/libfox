@@ -18,4 +18,4 @@ jobs:
     - name: install criterion
       run: cmake --install dependency
     - name: make and test libfox
-      run: make
+      run: make CMDCFLAGS='-I../dependency/criterion/include -L../dependency'

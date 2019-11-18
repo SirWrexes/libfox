@@ -168,6 +168,7 @@ $(BIN): $(OBJ)
 
 $(TESTBIN): CFLAGS  += --coverage
 $(TESTBIN): CFLAGS  += $(WRAPFLAGS)
+$(TESTBIN): CFLAGS  += $(CMDCFLAGS)
 $(TESTBIN): LDLIBS  := -lcriterion
 $(TESTBIN): SRC += $(DEPSRC) $(TST) $(WRAPSRC)
 $(TESTBIN): compiledb
