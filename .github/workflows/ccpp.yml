@@ -16,7 +16,7 @@ jobs:
     - name: Build Criterion
       run: cmake --build dependency
     - name: Add lib to LD environment
+    - name: Make and test Libfox
       env: 
         LD_LIBRARY_PATH: $(readlink -fn ./dependency)
-    - name: Make and test Libfox
       run: make CMDCFLAGS='-I../dependency/criterion/include -L../dependency'
