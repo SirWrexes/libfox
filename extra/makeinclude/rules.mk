@@ -80,6 +80,8 @@ clean:
 # ------------------------------------------------------------------------------------- #
 .PHONY: fclean
 fclean:
+	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET)" compiledb"
+	@$(RM) compile_commands.json
 	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET)" objects"
 	@$(RM) $(OBJ)
 	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET)" dependency files"
