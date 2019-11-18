@@ -17,18 +17,18 @@
 
 #ifndef FOX_STR_TYPE
     #define FOX_STR_TYPE
-    typedef char const * const * const  str4c_t;
-    typedef char const * const          str3c_t;
-    typedef char const *                str2c_t;
     typedef char *                      str_t;
+    typedef char const *                str2c_t;
+    typedef char const * const          str3c_t;
+    typedef char const * const * const  str4c_t;
 #endif // FOX_STR_TYPE
 
 #ifndef FOX_WSTR_TYPE
     #define FOX_WwSTR_TYPE
-    typedef wchar_t const * const * const  wstr4c_t;
-    typedef wchar_t const * const          wstr3c_t;
-    typedef wchar_t const *                wstr2c_t;
     typedef wchar_t *                      wstr_t;
+    typedef wchar_t const *                wstr2c_t;
+    typedef wchar_t const * const          wstr3c_t;
+    typedef wchar_t const * const * const  wstr4c_t;
 #endif // FOX_WSTR_TYPE
 
 #ifndef FOX_USHORT_TYPE
@@ -61,6 +61,7 @@
 #ifndef FOX_LLONG_TYPE
     #define FOX_LLONG_TYPE
     typedef long long llong_t;
+    typedef long long lcount_t;
 #endif // FOX_LLONG_TYPE
 
 #ifndef FOX_ULLONG_TYPE
