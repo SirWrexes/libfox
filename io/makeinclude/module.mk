@@ -20,31 +20,32 @@ NAME := io
 DEBUGMAIN := ./src/debugmain.c
 # -- Printf
 #  |__ Arg parsing
-SRC := ./src/printf/argparse/get_lenmodif.c
+SRC := ./src/printftools/argparse/get_lenmodif.c
 # -- String
-SRC += ./src/fox_sputchar.c
-SRC += ./src/fox_sputchar_oct.c
-SRC += ./src/fox_sputnbr.c
-SRC += ./src/fox_sputstr.c
-SRC += ./src/fox_sputstr_np.c
-SRC += ./src/fox_sputunbr.c
-SRC += ./src/fox_sputunbr_base.c
+SRC += ./src/sput/fox_sputchar.c
+SRC += ./src/sput/fox_sputchar_oct.c
+SRC += ./src/sput/fox_sputnbr.c
+SRC += ./src/sput/fox_sputstr.c
+SRC += ./src/sput/fox_sputstr_np.c
+SRC += ./src/sput/fox_sputunbr.c
+SRC += ./src/sput/fox_sputunbr_base.c
 # -- Allocated String
-SRC += ./src/fox_asputchar.c
-SRC += ./src/fox_asputchar_oct.c
-SRC += ./src/fox_asputnbr.c
-SRC += ./src/fox_asputstr.c
-SRC += ./src/fox_asputstr_np.c
-SRC += ./src/fox_asputunbr.c
-SRC += ./src/fox_asputunbr_base.c
+SRC += ./src/asput/fox_asputchar.c
+SRC += ./src/asput/fox_asputchar_oct.c
+SRC += ./src/asput/fox_asputnbr.c
+SRC += ./src/asput/fox_asputstr.c
+SRC += ./src/asput/fox_asputstr_np.c
+SRC += ./src/asput/fox_asputunbr.c
+SRC += ./src/asput/fox_asputunbr_base.c
 # -- Descriptor
-SRC += ./src/fox_dputchar.c
-SRC += ./src/fox_dputchar_oct.c
-SRC += ./src/fox_dputnbr.c
-SRC += ./src/fox_dputstr.c
-SRC += ./src/fox_dputstr_np.c
-SRC += ./src/fox_dputunbr.c
-SRC += ./src/fox_dputunbr_base.c
+SRC += ./src/dput/fox_diopadn.c
+SRC += ./src/dput/fox_dputchar.c
+SRC += ./src/dput/fox_dputchar_oct.c
+SRC += ./src/dput/fox_dputnbr.c
+SRC += ./src/dput/fox_dputstr.c
+SRC += ./src/dput/fox_dputstr_np.c
+SRC += ./src/dput/fox_dputunbr.c
+SRC += ./src/dput/fox_dputunbr_base.c
 ################################################
 
 
@@ -53,25 +54,26 @@ SRC += ./src/fox_dputunbr_base.c
 ################################################
 # -- Printf
 #  |_ Arg parsing
-TST := ./tests/printf/argparse/test_get_lenmodif.c
+TST := ./tests/printftools/argparse/test_get_lenmodif.c
 # -- String
-TST += ./tests/test_fox_sputstr.c
+TST += ./tests/sput/test_fox_sputstr.c
 # -- Allocated string
-TST += ./tests/test_fox_asputchar.c
-TST += ./tests/test_fox_asputchar_oct.c
-TST += ./tests/test_fox_asputnbr.c
-TST += ./tests/test_fox_asputstr.c
-TST += ./tests/test_fox_asputstr_np.c
-TST += ./tests/test_fox_asputunbr.c
-TST += ./tests/test_fox_asputunbr_base.c
+TST += ./tests/asput/test_fox_asputchar.c
+TST += ./tests/asput/test_fox_asputchar_oct.c
+TST += ./tests/asput/test_fox_asputnbr.c
+TST += ./tests/asput/test_fox_asputstr.c
+TST += ./tests/asput/test_fox_asputstr_np.c
+TST += ./tests/asput/test_fox_asputunbr.c
+TST += ./tests/asput/test_fox_asputunbr_base.c
 # -- Descriptor
-TST += ./tests/test_fox_dputchar.c
-TST += ./tests/test_fox_dputchar_oct.c
-TST += ./tests/test_fox_dputnbr.c
-TST += ./tests/test_fox_dputstr.c
-TST += ./tests/test_fox_dputstr_np.c
-TST += ./tests/test_fox_dputunbr.c
-TST += ./tests/test_fox_dputunbr_base.c
+TST += ./tests/dput/test_fox_diopadn.c
+TST += ./tests/dput/test_fox_dputchar.c
+TST += ./tests/dput/test_fox_dputchar_oct.c
+TST += ./tests/dput/test_fox_dputnbr.c
+TST += ./tests/dput/test_fox_dputstr.c
+TST += ./tests/dput/test_fox_dputstr_np.c
+TST += ./tests/dput/test_fox_dputunbr.c
+TST += ./tests/dput/test_fox_dputunbr_base.c
 ################################################
 
 

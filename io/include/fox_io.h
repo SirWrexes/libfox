@@ -13,13 +13,18 @@
 
 // Print a single character to a given file descriptor
 ssize_t fox_dputchar(int fd, char c);
-#define fox_putchar(c)  fox_dputchar(1, c) // -> STDOUT
-#define fox_eputchar(c) fox_dputchar(2, c) // -> STDERR
+#define fox_putchar(c)  fox_dputchar(1, (c)) // -> STDOUT
+#define fox_eputchar(c) fox_dputchar(2, (c)) // -> STDERR
 
 // Print a character in octal (\xxx) to given fd
 ssize_t fox_dputchar_oct(int fd, uchar_t c);
-#define fox_putchar_oct(c)  fox_dputchar_oct(1, c) // -> STDOUT
-#define fox_eputchar_oct(c) fox_dputchar_oct(2, c) // -> STDERR
+#define fox_putchar_oct(c)  fox_dputchar_oct(1, (c)) // -> STDOUT
+#define fox_eputchar_oct(c) fox_dputchar_oct(2, (c)) // -> STDERR
+
+// Print n times the character pad to given fd
+ssize_t fox_diopadn(int fd, uchar_t pad, count_t n);
+#define fox_iopadn(c, n)  fox_diopadn(1, (c), (n)) // -> STDOUT
+#define fox_eiopadn(c, n) fox_diopadn(2, (c), (n)) // -> STDERR
 
 // Print a string to a given file descriptor
 ssize_t fox_dputstr(int fd, str2c_t str);
