@@ -10,17 +10,19 @@
 
 #include <stdbool.h>
 #include <stdarg.h>
+#include <sys/types.h>
 #include "fox_define.h"
 
 typedef struct format_struct fstruct_t;
 #ifndef PRINTER_TYPE_DEFINED
     #define PRINTER_TYPE_DEFINED
-    typedef scount_t (*printer_t)(fstruct_t *, va_list *);
+    typedef scount_t (*converter_t)(fstruct_t *, va_list *);
 #endif // PRINTER_TYPE_DEFINED
 
 typedef struct {
     unsigned prec;           // Precision
     unsigned width;          // Field width
+    char padchar;            // Field fill char ('0'/' ' flags)
 
     char spec;               // Format letter
 
@@ -35,11 +37,10 @@ typedef struct {
     bool left : 1;           // - flag
     bool showsign : 1;       // + flag
     bool space : 1;          // Space flag
-    bool zeropad : 1;        // 0 flag
 
     bool is_valid : 1;       // For invalid formats
 
-    const int bfpad : 4;     // Bit field padding
+    const int bfpad : 5;     // Bit field padding
 
     ushort_t infomask;       // Mask containgin all the previous info
 } finfo_t; // Flags, field width, conversion specifier etc.
@@ -51,6 +52,8 @@ typedef union {
     int av_int;         // d, i
     wchar_t av_wchar;   // lc
     long av_long;       // ld, li
+    size_t av_size;     // zu
+    ssize_t av_ssize;   // zi, zd
     llong_t av_llong;   // lli, lld
     uchar_t av_uchar;   // hhu, c
     unsigned av_uint;   // u
@@ -61,12 +64,12 @@ typedef union {
 } fargv_t; // Format argument value
 
 struct format_struct {
-    finfo_t info;    // Info from "%<...>"
-    fargv_t value;   // Argument value
-    scount_t chars;  // Number of chars written
-    str_t fmt;       // Start of the format when parsing begins
-    str_t buff;      // Buffer string containing the converted arg
-    printer_t print; // Printer functtion
+    finfo_t info;      // Info from "%<...>"
+    fargv_t value;     // Argument value
+    scount_t chars;    // Number of chars written
+    str_t fmt;         // Start of the format when parsing begins
+    str_t buff;        // Buffer string containing the converted arg
+    converter_t print; // Printer functtion
 }; // Struct bundling everything needed to print format arguments
 
 #endif /* !ARGS_H */
