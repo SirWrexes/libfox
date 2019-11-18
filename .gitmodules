@@ -1,0 +1,3 @@
+[submodule "depedency/criterion"]
+	path = depedency/criterion
+	url = https://github.com/Snaipe/Criterion.git
