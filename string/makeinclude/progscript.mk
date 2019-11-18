@@ -1,0 +1,1 @@
+../../extra/makeinclude/progscript.mk
