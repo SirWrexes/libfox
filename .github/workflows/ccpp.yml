@@ -14,8 +14,8 @@ jobs:
     - name: prepare criterion
       run: cd dependency && cmake criterion
     - name: build criterion
-      run: cmake --build dependency && ls -l . dependency dependency/*
+      run: cmake --build dependency
     - name: make libfox
-      run: make
+      run: make LDFLAGS="-L./dependency"
     - name: test libfox
-      run: make tests LDFLAGS="-L./dependency/criterion"
+      run: make tests LDFLAGS="-L./dependency"
