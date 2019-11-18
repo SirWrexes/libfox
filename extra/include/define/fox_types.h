@@ -33,10 +33,11 @@
 
 #ifndef FOX_USHORT_TYPE
     #define FOX_USHORT_TYPE
-    typedef unsigned short ushort_t;
+    typedef unsigned short hbmask_t;
     typedef unsigned short hcount_t;
     typedef unsigned short hindex_t;
     typedef unsigned short hsize_t;
+    typedef unsigned short ushort_t;
 #endif // FOX_USHORT_TYPE
 
 #ifndef FOX_UINT_TYPE
