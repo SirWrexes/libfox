@@ -15,7 +15,7 @@ size_t fox_sputstr_np(str_t s, str2c_t str)
     size_t i = 0;
     size_t len = 0;
 
-    while (*str) {
+    while (true) {
         for (i = 0; CHAR_IS_PRINTABLE(str[i]) || str[i] == '\n'; i += 1) {}
         fox_strncpy(s, str, i);
         str += i;

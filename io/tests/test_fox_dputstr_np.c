@@ -12,11 +12,11 @@
 
 Test(putstr_np, regular_usage, .init = cr_redirect_stdout)
 {
-    char str[] = {12, 148, 's', 'u', 'p', 'e', 'r', 85, 0};
+    char str[] = {12, 148, 's', 'u', 'p', 'e', 'r', 0177, 85, '\n', 0};
     char ref[] = {[0 ... 30] = '\0'};
 
     cr_expect_eq(
-        sprintf(ref, "\\%03o\\%03osuperU", 12, 148), fox_putstr_np(str));
+        sprintf(ref, "\\%03o\\%03osuper\\177U\n", 12, 148), fox_putstr_np(str));
     cr_expect_stdout_eq_str(ref);
 }
 

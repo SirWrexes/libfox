@@ -17,7 +17,7 @@ extern inline ssize_t fox_dputstr_np(int fd, str2c_t str)
 
     if (str == NULL)
         return write(fd, "(null)", 6);
-    while (*str) {
+    while (true) {
         for (i = 0; CHAR_IS_PRINTABLE(str[i]) || str[i] == '\n'; i += 1) {}
         r += write(fd, str, i);
         str += i;

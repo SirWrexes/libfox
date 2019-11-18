@@ -16,7 +16,7 @@ static size_t getlen(str2c_t str)
     size_t i = 0;
 
     for (; *str != '\0'; str += 1)
-        i += CHAR_IS_PRINTABLE(*str) ? 1 : 4;
+        i += (CHAR_IS_PRINTABLE(*str) || *str == '\n') ? 1 : 4;
     return i;
 }
 
