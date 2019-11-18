@@ -172,7 +172,7 @@ $(TESTBIN): LDLIBS  := -lcriterion
 $(TESTBIN): SRC += $(DEPSRC) $(TST) $(WRAPSRC)
 $(TESTBIN): compiledb
 	@$(RM) $(COV)
-	@$(CC) -o $@ $(CFLAGS) $(SRC) $(LDFLAGS) $(LDLIBS) $(GH-WORKFLOW-INC)
+	@$(CC) -o $@ $(CFLAGS) $(GH-WORKFLOW-INC) $(SRC) $(LDFLAGS) $(LDLIBS)
 
 .PHONY: debug
 debug: $(DEBUGBIN)
