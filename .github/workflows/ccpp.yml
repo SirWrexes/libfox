@@ -14,7 +14,7 @@ jobs:
     - name: prepare criterion
       run: cd dependency && cmake criterion && ls -l
     - name: build criterion
-      run: cd dependency && cmake criterion --build all
+      run: cd dependency && cmake criterion --build .
     - name: make libfox
       run: make
     - name: test libfox
