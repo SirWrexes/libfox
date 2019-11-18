@@ -11,9 +11,9 @@ jobs:
     - uses: actions/checkout@v1
     - name: Update Criterion deps
       run: git submodule update --init --recursive
-    - name: Prepare Criterion
-      run: cd dependency && cmake criterion
-    - name: Build Criterion
-      run: cmake --build dependency
-    - name: Make and test Libfox
-      run: env LD_LIBRARY_PATH=$(readlink -fn ./dependency) make CMDCFLAGS='-I../dependency/criterion/include -L../dependency'
+    - name: prepare criterion
+      run: cd dependency/criterion && cmake .
+    - name: build criterion
+      run: cmake --build dependency/criterion
+    - name: make and test libfox
+      run: env LD_LIBRARY_PATH=$(readlink -fn ./dependency) make CMDCFLAGS='-I../dependency/criterion/include -L../dependency/criterion'

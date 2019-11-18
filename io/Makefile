@@ -241,7 +241,7 @@ test_report: $(TESTBIN)
 	@$(ECHO$(NAME)) $(CUNDERLN)$(CGREEN)$(REPORTTXT)$(CRESET)
 	@./$(TESTBIN) $(UTFLAGS)
 	@$(RM) $(notdir $(DEPSRC:.c=.gc*))
-	@$(GCOV) $(COVFLAGS)
+	-@$(GCOV) $(COVFLAGS)
 
 .PHONY: clean
 clean:
