@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: update criterion deps
-      run: git submodule init && git submodule update && cd dependency/criterion && git submodule init && git submodule update --recursive
+      run: git submodule update --init --recursive
     - name: build criterion
       run: cd dependency/criterion && cmake . && cmake --build .
     - name: make libfox
