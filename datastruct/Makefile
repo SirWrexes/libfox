@@ -200,11 +200,11 @@ $(BIN): $(OBJ)
 
 $(TESTBIN): CFLAGS  += --coverage
 $(TESTBIN): CFLAGS  += $(WRAPFLAGS)
-$(TESTBIN): LDLIBS := -lcriterion
+$(TESTBIN): LDLIBS  := -lcriterion
 $(TESTBIN): SRC += $(DEPSRC) $(TST) $(WRAPSRC)
 $(TESTBIN): compiledb
 	@$(RM) $(COV)
-	@$(CC) -o $@ $(CFLAGS) $(SRC) $(LDFLAGS) $(LDLIBS)
+	@$(CC) -o $@ $(CFLAGS) $(SRC) $(LDFLAGS) $(LDLIBS) $(GH-WORKFLOW-INC)
 
 .PHONY: debug
 debug: $(DEBUGBIN)
