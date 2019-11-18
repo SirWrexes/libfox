@@ -141,7 +141,7 @@ WRAPPED := malloc
 #
 # Build settings
 ##########################################
-INCDIRS     := ./include
+INCDIRS     := ./include ../extra/include
 CFLAGS      := -Wall -Wextra
 CFLAGS      += -Werror
 CFLAGS      += $(foreach dir, $(INCDIRS), -iquote $(dir))
