@@ -5,22 +5,21 @@
 ** Get the length modifier of a format argument
 */
 
-#include "fox_string.h"
-
-#include "args/farg_datastruct.h"
-#include "private/lenmodifs.h"
+#include <sys/types.h>
+#include "printf/fstruct.h"
+#include "printf/get_lenmodif_extra.h"
 
 __nonnull
 extern inline void get_lenmodif(finfo_t *info, str_t *format)
 {
-    hsize_t lmsize = fox_strspn(*format, LM_CHARS);
-
-    if (lmsize == 0)
-        return;
-    for (hindex_t i = 0; i < LM_CNT; i += 1) {
-        if (lmsize != LM_SIZE[i] || fox_strncmp(*format, LM_STR[i], lmsize))
-            continue;
-        LM_SET[i](info, format);
-        return;
+    switch (*(*format)++) {
+        case 'h': set_lm_h(info, format); break;
+        case 'l': set_lm_l(info, format); break;
+        case 'q': info->is_long_long = true; break;
+        case 'L': info->is_long_double = true; break;
+        case 'z': case 'Z': set_lm_z(info); break;
+        case 'j': set_lm_j(info); break;
+        case 't': set_lm_t(info); break;
+        default: *format -= 1; break;
     }
 }

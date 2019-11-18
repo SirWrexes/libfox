@@ -18,8 +18,11 @@ NAME := io
 # Sources (set relative to master Makefile path)
 ################################################
 DEBUGMAIN := ./src/debugmain.c
+# -- Printf
+#  |__ Arg parsing
+SRC := ./src/printf/argparse/get_lenmodif.c
 # -- String
-SRC := ./src/fox_sputchar.c
+SRC += ./src/fox_sputchar.c
 SRC += ./src/fox_sputchar_oct.c
 SRC += ./src/fox_sputnbr.c
 SRC += ./src/fox_sputstr.c
@@ -48,8 +51,11 @@ SRC += ./src/fox_dputunbr_base.c
 #
 # Tests (set relative to master Makefile path)
 ################################################
+# -- Printf
+#  |_ Arg parsing
+TST := ./tests/printf/argparse/test_get_lenmodif.c
 # -- String
-TST := ./tests/test_fox_sputstr.c
+TST += ./tests/test_fox_sputstr.c
 # -- Allocated string
 TST += ./tests/test_fox_asputchar.c
 TST += ./tests/test_fox_asputchar_oct.c
