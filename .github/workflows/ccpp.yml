@@ -12,9 +12,9 @@ jobs:
     - name: update criterion deps
       run: git submodule update --init --recursive
     - name: prepare criterion
-      run: cd dependency && cmake criterion && ls -l
+      run: cd dependency && cmake criterion
     - name: build criterion
-      run: cd dependency && cmake criterion --build .
+      run: cd dependency && cmake --help
     - name: make libfox
       run: make
     - name: test libfox
