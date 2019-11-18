@@ -25,6 +25,10 @@ $(MODULES):
 	@$(MAKE) $@ $(RULE)
 	@echo
 
+.PHONY: compiledb
+compiledb: RULE := compiledb
+compiledb: $(MODULES)
+
 .PHONY: all $(NAME)
 all: $(NAME)
 $(NAME): RULE := all
