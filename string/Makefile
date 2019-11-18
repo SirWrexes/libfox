@@ -45,7 +45,8 @@ CUNDERLN    :=  $$'\033[4m'
 
 # ----------------------- PYTHON PROGRESS BAR SCRIPT ------------------------ #
 
-define PROGBAR
+define PROGBAR-CODE
+#!$(shell which python)
 import argparse
 import math
 import sys
@@ -70,14 +71,15 @@ if __name__ == "__main__":
   main()
 endef
 
+PROGSCRIPT := .progbar
 ifndef ECHO$(NAME)
-  $(call export PROGBAR) $(file >progressbar.py,$(PROGBAR))
+  $(call export PROGBAR-CODE) $(file >$(PROGSCRIPT),$(PROGBAR-CODE))
   T := $(shell $(MAKE) . $(MAKECMDGOALS)	\
        -nrRf $(firstword $(MAKEFILE_LIST)) 	\
        ECHO$(NAME)="COUNT$(NAME)" | grep -c "COUNT$(NAME)")
   N := x
   C = $(words $N)$(eval N := x $N)
-  ECHO$(NAME) = python ./progressbar.py --stepno=$C --nsteps=$T
+  ECHO$(NAME) = python ./$(PROGSCRIPT) --stepno=$C --nsteps=$T
 endif
 
 # ----------------------- MAKEFILE STARTS FROM HERE -------------------------- #
@@ -229,6 +231,8 @@ fclean:
 	@$(RM) $(TESTBIN)
 	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET) $(DEBUGBIN)
 	@$(RM) $(DEBUGBIN)
+	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET)" progress bar script"
+	@$(RM) $(PROGSCRIPT)
 
 .PHONY: re
 re:
