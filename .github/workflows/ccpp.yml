@@ -16,4 +16,4 @@ jobs:
     - name: build criterion
       run: cmake --build dependency/criterion
     - name: make and test libfox
-      run: env LD_LIBRARY_PATH=$(readlink -fn ./dependency) make CMDCFLAGS='-I../dependency/criterion/include -L../dependency/criterion'
+      run: env LD_LIBRARY_PATH=$(readlink -fn ./dependency/criterion) make CMDCFLAGS='-I../dependency/criterion/include -L../dependency/criterion'
