@@ -6,11 +6,11 @@
 */
 
 #include "fox_string.h"
-#include "preprocessor/fox_macro.h"
+#include "fox_define.h"
 
-#include "args/parsers.h"
-#include "args/farg_datastruct.h"
-#include "private/printer_table.h"
+#include "printf/argparse.h"
+#include "printf/fstruct.h"
+#include "printf/converter_table.h"
 
 static const flagparser_t fp[] =
 {
@@ -29,7 +29,7 @@ extern inline void parse_arg(fstruct_t *arg, str_t *format)
     for (hindex_t i = 0; arg->info.is_valid && fp[i] != NULL; i += 1)
         fp[i](&arg->info, &arg->fmt);
     arg->info.spec = *arg->fmt++;
-    arg->print = PRINTER[PRINTER_INDEX(arg->info.spec)];
+    arg->print = CONVERTER[CONVERTER_INDEX(arg->info.spec)];
     arg->info.is_valid = (arg->print != NULL);
     if (arg->info.is_valid)
         *format = arg->fmt;

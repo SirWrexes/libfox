@@ -6,8 +6,7 @@
 */
 
 #include "fox_std.h"
-
-#include "args/farg_datastruct.h"
+#include "printf/fstruct.h"
 
 __nonnull
 extern inline void get_width(finfo_t *info, str_t *format)
