@@ -28,10 +28,8 @@ static bool get_sign(char const **s)
     bool isneg = false;
 
     *s += fox_strspn(*s, STR_WHITESPACE);
-    while (**s != '\0' && CHAR_IS_SIGN(**s)) {
-        isneg ^= (bool) (**s == '-');
-        *s += 1;
-    }
+    while (CHAR_IS_SIGN(**s))
+        isneg ^= (bool) (*(*s)++ == '-');
     return isneg;
 }
 
