@@ -204,7 +204,7 @@ $(TESTBIN): LDLIBS  := -lcriterion
 $(TESTBIN): SRC += $(DEPSRC) $(TST) $(WRAPSRC)
 $(TESTBIN): compiledb
 	@$(RM) $(COV)
-	@$(CC) -o $@ $(CFLAGS) $(GH-WORKFLOW-INC) $(SRC) $(LDFLAGS) $(LDLIBS)
+	@$(CC) -o $@ $(CFLAGS) $(SRC) $(LDLIBS)
 
 .PHONY: debug
 debug: $(DEBUGBIN)
