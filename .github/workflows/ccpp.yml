@@ -9,7 +9,11 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
+    - name: update criterion deps
+      run: git submodule update --recursive
+    - name: build criterion
+      run: cmake dependency/criterion
     - name: make
       run: make
     - name: test
-      run: make tests
+      run: make tests LDFLAGS="-L./dependency/criterion"
