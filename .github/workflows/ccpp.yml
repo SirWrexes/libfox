@@ -15,7 +15,5 @@ jobs:
       run: cd dependency && cmake criterion
     - name: build criterion
       run: cmake --build dependency
-    - name: make libfox
-      run: make LDFLAGS="-L./dependency"
-    - name: test libfox
-      run: make tests LDFLAGS="-L./dependency"
+    - name: make and test libfox
+      run: make LDFLAGS="-L./dependency" GH-WORKFLOW-INC="-I./dependency/criterion/include"
