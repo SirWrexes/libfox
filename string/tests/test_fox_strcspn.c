@@ -13,4 +13,5 @@
 Test(fox_strcspn, regular_usage)
 {
     cr_expect_eq(fox_strcspn("123ABC", STR_ALPHAUP), 3);
+    cr_expect_eq(fox_strcspn("123456", STR_ALPHAUP), 6);
 }

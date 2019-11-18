@@ -11,7 +11,7 @@ __nonnull __pure size_t fox_strspn(str3c_t str, str3c_t accept)
 {
     size_t i = 0;
 
-    while (str[i] && fox_isinstr(str[i], accept))
+    while (fox_isinstr(str[i], accept))
         i += 1;
     return i;
 }
