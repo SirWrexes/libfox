@@ -200,17 +200,17 @@ $(BIN): $(OBJ)
 
 $(TESTBIN): CFLAGS  += --coverage
 $(TESTBIN): CFLAGS  += $(WRAPFLAGS)
-$(TESTBIN): LDFLAGS := -lcriterion
+$(TESTBIN): LDLIBS := -lcriterion
 $(TESTBIN): SRC += $(DEPSRC) $(TST) $(WRAPSRC)
 $(TESTBIN): compiledb
 	@$(RM) $(COV)
-	@$(CC) -o $@ $(CFLAGS) $(SRC) $(LDFLAGS)
+	@$(CC) -o $@ $(CFLAGS) $(SRC) $(LDFLAGS) $(LDLIBS)
 
 .PHONY: debug
 debug: $(DEBUGBIN)
 $(DEBUGBIN): CFLAGS += -ggdb3 -rdynamic
 $(DEBUGBIN): $(SRC) $(DEBUGMAIN)
-	$(CC) -o $@ $(CFLAGS) $(DEBUGMAIN) $(SRC) $(LDFLAGS)
+	$(CC) -o $@ $(CFLAGS) $(DEBUGMAIN) $(SRC)
 
 .PHONY: tests test_report
 tests: test_report
