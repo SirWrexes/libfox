@@ -114,7 +114,7 @@ TST += ./tests/test_fox_strncmp.c
 TST += ./tests/test_fox_strncpy.c
 TST += ./tests/test_fox_strspn.c
 ##########################################
-WRAPSRC := ./tests/wrappers/test_wrapped_malloc.c
+WRAPSRC := ./tests/wrappers/wrap_malloc.c
 WRAPPED := malloc
 ##########################################
 

@@ -149,7 +149,7 @@ TST += ./tests/test_fox_dputstr_np.c
 TST += ./tests/test_fox_dputunbr.c
 TST += ./tests/test_fox_dputunbr_base.c
 ##########################################
-WRAPSRC := ./tests/wrappers/test_wrapped_malloc.c
+WRAPSRC := ./tests/wrappers/wrap_malloc.c
 WRAPPED := malloc
 # --
 WRAPFLAGS   += -Wl$(foreach wrap, $(WRAPPED),,--wrap=$(wrap))

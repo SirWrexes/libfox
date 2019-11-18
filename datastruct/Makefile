@@ -131,7 +131,7 @@ TST += ./tests/list/test_list_destroy.c
 TST += ./tests/list/test_node_create.c
 TST += ./tests/list/test_node_destroy.c
 ##########################################
-WRAPSRC := ./tests/wrappers/test_wrapped_malloc.c
+WRAPSRC := ./tests/wrappers/wrap_malloc.c
 WRAPPED := malloc
 ##########################################
 

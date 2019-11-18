@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2019
-** <project_name>
+** Libfox
 ** File description:
-** wrap_malloc.h -- No description
+** Malloc wrapper header
 */
 
 #ifndef WRAP_MALLOC_H
@@ -28,7 +28,6 @@ void break_malloc(void);
 
 // Reset malloc_counter to 1
 // Be sure to add .fini = fix_malloc in tests that use malloc_counter !
-// (Or use the "borken_malloc" test suite for that matter)
 void fix_malloc(void);
 
 #endif /* !WRAP_MALLOC_H */

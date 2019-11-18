@@ -105,7 +105,7 @@ DEPSRC += ../string/src/fox_isinstr.c
 TST := ./tests/test_fox_strtol.c
 TST +=
 ##########################################
-WRAPSRC := ./tests/wrappers/test_wrapped_malloc.c
+WRAPSRC := ./tests/wrappers/wrap_malloc.c
 WRAPPED := malloc
 ##########################################
 

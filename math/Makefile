@@ -99,7 +99,7 @@ TST := ./tests/test_fox_numsize.c
 TST += ./tests/test_fox_unumsize.c
 TST += ./tests/test_fox_verifbase.c
 ##########################################
-WRAPSRC := ./tests/wrappers/test_wrapped_malloc.c
+WRAPSRC := ./tests/wrappers/wrap_malloc.c
 WRAPPED := malloc
 ##########################################
 
