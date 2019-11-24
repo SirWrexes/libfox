@@ -9,13 +9,6 @@
 #include "statics/fox_diopadn.h"
 #include "fox_define.h"
 
-static str_t set_padbuff(char padbuff[PADSIZE], uchar_t pad)
-{
-    for (hindex_t i = 0; i < PADSIZE; i += 1)
-        padbuff[i] = pad;
-    return padbuff;
-}
-
 scount_t fox_diopadn(int fd, int pad, count_t n)
 {
     char padbuff[PADSIZE];
