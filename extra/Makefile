@@ -12,12 +12,6 @@
 # ↓ Module name and sources
 include ./makeinclude/module.mk
 
-# ↓ Colors and text formatting
-include ./makeinclude/format.mk
-
-# ↓ Progressbar script
-include ./makeinclude/progscript.mk
-
 # ↓ Module configuration
 include ./makeinclude/makeconf.mk
 
@@ -27,9 +21,15 @@ include ./makeinclude/wrappers.mk
 # ↓ Various build configuration
 include ./makeinclude/builconf.mk
 
-# ↓ Receipes (for %.a and %.o)
-include ./makeinclude/reciepes.mk
+# ↓ Colors and text formatting
+include ./makeinclude/format.mk
 
-# ↓ Rules for making targets
+# ↓ Progressbar script
+include ./makeinclude/progscript.mk
+
+# ↓ Rules (for %.a and %.o)
 include ./makeinclude/rules.mk
+
+# ↓ Receipes for making targets
+include ./makeinclude/reciepes.mk
 ##########################################
