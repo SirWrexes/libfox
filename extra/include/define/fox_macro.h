@@ -17,17 +17,17 @@
 #ifndef LIBFOX_MACRO_UNDEF
     #define LIBFOX_MACRO_UNDEF
     #undef __a
-    #undef __cleanup
-    #undef __const
-    #undef __fallthrough
-    #undef __format
-    #undef __leaf
-    #undef __malloc
-    #undef __nonnull
-    #undef __packed
-    #undef __pure
-    #undef __transparent
-    #undef __unused
+    #undef __Acleanup
+    #undef __Aconst
+    #undef __Afallthrough
+    #undef __Aformat
+    #undef __Aleaf
+    #undef __Amalloc
+    #undef __Anonnull
+    #undef __Apacked
+    #undef __Apure
+    #undef __Atransparent
+    #undef __Aunused
     #undef CHAR_IS_ALPHA
     #undef CHAR_IS_ALPHALO
     #undef CHAR_IS_ALPHANUM
@@ -63,27 +63,28 @@
     // Shorter ways of writing attributes
     // For more information about these, check GNU GCC's docs
     // CAREFUL: These have RESTRICTED PORTABILITY
-    #define __a(attributes)      __attribute__(attributes)
-    #define __cleanup(janitor)   __a((cleanup(janitor)))
-    #define __const              __a((const))
-    #define __fallthrough        __a((fallthrough))
-    #define __format(type, f, a) __a((format(type, f, a)))
-    #define __leaf               __a((leaf))
-    #define __malloc             __a((malloc))
-    #define __nonnull            __a((nonnull))
-    #define __packed             __a((packed))
-    #define __pure               __a((pure))
-    #define __transparent        __a((__transparent_union__))
-    #define __unused             __a((unused))
+    #define __a(attributes)       __attribute__(attributes)
+    #define __Acleanup(janitor)   __a((cleanup(janitor)))
+    #define __Aconst              __a((const))
+    #define __Afallthrough        __a((fallthrough))
+    #define __Aformat(type, f, a) __a((format(type, f, a)))
+    #define __Aleaf               __a((leaf))
+    #define __Amalloc             __a((malloc))
+    #define __Anonnull            __a((nonnull))
+    #define __Apacked             __a((packed))
+    #define __Apure               __a((pure))
+    #define __Atransparent        __a((__transparent_union__))
+    #define __Aunused             __a((unused))
 
     // True if c is a printable ASCII char
-    #define CHAR_IS_PRINTABLE(c) ((signed char) (c) - ' ' >= 0 && (c) != 127)
+    #define CHAR_IS_PRINTABLE(c) \
+        (((signed char) ((c) - ' ')) >= 0 && (c) != 127)
 
     // Check if a char is an end of line (linebreak OR null char)
     #define CHAR_IS_EOL(c) ((c) == '\n' || (c) == '\0')
 
     // Check if a char is strictly numeric
-    #define CHAR_IS_NUM(c) ((unsigned char) (c) - '0' < 10)
+    #define CHAR_IS_NUM(c) (((unsigned char) ((c) - '0')) < 10)
 
     // Check if a char is strictly lowercase alphabetical
     #define CHAR_IS_ALPHALO(c) ((unsigned char) (c) - 'a' <= 'z' - 'a')
@@ -135,6 +136,9 @@
     // Get the biggest of two numbers
     #define N_MAX(x, y) ((x) > (y) ? (x) : (y))
 
+    // Get the smallest of two numbers
+    #define N_MIN(x, y) ((x) > (y) ? (y) : (x))
+
     // Check if a number is pair
     #define N_IS_EVEN(n) !N_IS_ODD(n)
 
@@ -147,6 +151,10 @@
     // One-liner to return value and execute any function(s)
     // -- I.G. returning a specific value while printing an error string
     #define RETURN(value, funcs...) return (0 ? : (funcs, value))
+
+    // Returns false (sucess) if a != b
+    #define SUCCEED_IF_DIFF(a, b) ((a) == (b))
+
 #endif // LIBFOX_MACRO_DEF
 
 #endif /* !FOX_MACRO_H */
