@@ -6,9 +6,8 @@
 */
 
 #include <stdbool.h>
-#include "fox_define.h"
-
 #include "printf/fstruct.h"
+#include "fox_define.h"
 
 __nonnull
 extern inline void get_flags(finfo_t *info, str_t *format)
