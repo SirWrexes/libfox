@@ -12,17 +12,18 @@ MKCONF := 1
 #
 # Config
 ##########################################
-BIN      :=  libfox_$(NAME).a
-TESTBIN  :=  utests_$(NAME)
-DEBUGBIN :=  debug_$(NAME)
-SHELL    :=  /bin/bash
-MAKE     :=  make --no-print-directory -C
-RM       :=  rm -f
-CP       :=  cp -t
-MV       :=  mv -t
-GCOV     :=  gcovr
-CC       :=  gcc
-.DEFAULT_GOAL := all
+BIN             := libfox_$(NAME).a
+TESTBIN         := utests_$(NAME)
+DEBUGBIN        := debug_$(NAME)
+SHELL           := /bin/bash
+MAKE            := make --no-print-directory -C
+RM              := rm -f
+CP              := cp -t
+MV              := mv -t
+GCOV            := gcovr
+CC              := gcc
+COMPILEDB       := compile_commands.json
+.DEFAULT_GOAL   := all
 COMPILEDBTARGET := all tests debug
 ##########################################
 
