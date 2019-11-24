@@ -27,13 +27,13 @@ typedef struct foxsitem_s *foxsitem_t;
 // You can set a destructor for the data stored in stack items like so
 //      pilebreaker = &destructor_function;
 // Default autodestructor is NULL
-#define autofoxstack_t __cleanup(jenga) foxstack_t
+#define autofoxstack_t __Acleanup(jenga) foxstack_t
 #define pilebreaker (*stackdata_destructor())
 
 // This is just regular sorcery. Skip to the next part.
 typedef void (*pilebreaker_t)();
-void jenga(foxstack_t *stackptr) __nonnull;
-pilebreaker_t *stackdata_destructor(void) __const;
+void jenga(foxstack_t *stackptr) __Anonnull;
+pilebreaker_t *stackdata_destructor(void) __Aconst;
 
 /* ------------------------------------------------------------------------ */
 
@@ -56,7 +56,7 @@ struct foxsitem_s
 // Create a stack
 // Returns true in case of error
 bool stack_create(foxstack_t *stackptr)
-__nonnull;
+__Anonnull;
 
 // Destroy a stack and all its items
 // Destructor shall be a function pointer to the destructor
@@ -68,11 +68,11 @@ __a((nonnull(1)));
 // Push an item to the top of the stack.
 // Returns true in case of error
 bool stack_push(foxstack_t stack, void *data)
-__nonnull;
+__Anonnull;
 
 // Pop an item from the top of stack
 // Returns it pointer or NULL in case of empty stack
 void *stack_pop(foxstack_t stack)
-__nonnull;
+__Anonnull;
 
 #endif // FOX_STACK_H

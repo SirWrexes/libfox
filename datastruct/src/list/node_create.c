@@ -9,7 +9,7 @@
 
 #include "datastruct/fox_list.h"
 
-__nonnull
+__Anonnull
 bool node_create(foxnode_t *nodeptr, void *data)
 {
     *nodeptr = malloc(sizeof(**nodeptr));

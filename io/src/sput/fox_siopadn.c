@@ -8,7 +8,7 @@
 #include <unistd.h>
 #include "fox_define.h"
 
-__nonnull __const
+__Anonnull __Aconst
 count_t fox_siopadn(str_t s, int pad, count_t n)
 {
     count_t i = 0;

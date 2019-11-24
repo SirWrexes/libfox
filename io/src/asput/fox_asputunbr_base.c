@@ -11,7 +11,7 @@
 #include "fox_io.h"
 #include "fox_define.h"
 
-__nonnull
+__Anonnull
 ssize_t fox_asputunbr_base(str_t *s, ullong_t n, str2c_t base)
 {
     ssize_t res;

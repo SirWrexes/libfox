@@ -8,7 +8,7 @@
 #include <malloc.h>
 #include "fox_io.h"
 
-__nonnull
+__Anonnull
 scount_t fox_asputchar(str_t *s, char c)
 {
     *s = malloc(2 * sizeof(**s));

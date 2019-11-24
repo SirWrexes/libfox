@@ -11,7 +11,7 @@
 #include "fox_string.h"
 #include "fox_define.h"
 
-__nonnull
+__Anonnull
 ssize_t fox_sputnbr(str_t s, llong_t n)
 {
     bool isneg = (n < 0);

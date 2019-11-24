@@ -7,7 +7,7 @@
 
 #include "datastruct/fox_list.h"
 
-__const
+__Aconst
 paperblade_t *listdata_destructor(void)
 {
     static paperblade_t f = NULL;
@@ -15,7 +15,7 @@ paperblade_t *listdata_destructor(void)
     return &f;
 }
 
-__nonnull
+__Anonnull
 void shredder(foxlist_t *listptr)
 {
     list_destroy(listptr, paperblade);

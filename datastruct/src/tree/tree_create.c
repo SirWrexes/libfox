@@ -10,7 +10,7 @@
 #include "fox_datastruct.h"
 #include "fox_define.h"
 
-__nonnull
+__Anonnull
 bool tree_create(foxtree_t *treeptr)
 {
     *treeptr = malloc(sizeof(**treeptr));

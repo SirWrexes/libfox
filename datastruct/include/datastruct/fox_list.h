@@ -38,7 +38,7 @@ typedef struct
 
 // ...unles you use this macro that creates a list that autodestroys itself
 // after use.
-#define autofoxlist_t __cleanup(shredder) foxlist_t
+#define autofoxlist_t __Acleanup(shredder) foxlist_t
 #define paperblade    (*listdata_destructor())
 
 /* ------------------------------------------------------------------------ */
@@ -46,7 +46,7 @@ typedef struct
 // Create a list
 // Returns true in case of error
 bool list_create(foxlist_t *listptr)
-__nonnull;
+__Anonnull;
 
 // Destroy a list and all of its nodes
 // Destructor shall be a function pointer to the data destructor
@@ -58,7 +58,7 @@ __a((nonnull(1)));
 // Add a node to the list conatining data
 // Returns true in case of error
 bool list_addnode(foxlist_t list, void *data)
-__nonnull;
+__Anonnull;
 
 // Remove a node from the list
 // refptr can either be
@@ -73,7 +73,7 @@ __a((nonnull(1,2)));
 // Create a node
 // Returns true in case of error
 bool node_create(foxnode_t *nodeptr, void *data)
-__nonnull;
+__Anonnull;
 
 // Destroy a node
 // Destructor shall be a pointer to the blablabla you know it by now
@@ -85,7 +85,7 @@ __a((nonnull(1)));
 
 // This is just regular sorcery. Disregard it.
 typedef void (*paperblade_t)(void *);
-void shredder(foxlist_t *listptr) __nonnull;
-paperblade_t *stackdata_destructor(void) __const;
+void shredder(foxlist_t *listptr) __Anonnull;
+paperblade_t *stackdata_destructor(void) __Aconst;
 
 #endif /* !FOX_LIST_H */

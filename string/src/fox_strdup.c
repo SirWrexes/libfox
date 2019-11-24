@@ -9,7 +9,7 @@
 #include "fox_string.h"
 #include "fox_define.h"
 
-__nonnull
+__Anonnull
 str_t fox_strdup(str2c_t str)
 {
     str_t cpy = malloc((fox_strlen(str) + 1) * sizeof(*cpy));

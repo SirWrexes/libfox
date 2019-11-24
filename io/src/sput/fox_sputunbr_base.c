@@ -9,7 +9,7 @@
 #include "fox_math.h"
 #include "fox_define.h"
 
-__nonnull
+__Anonnull
 ssize_t fox_sputunbr_base(str_t s, ullong_t n, str2c_t base)
 {
     hindex_t i = 0;

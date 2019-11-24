@@ -9,7 +9,7 @@
 
 #include "args/farg_datastruct.h"
 
-__nonnull
+__Anonnull
 extern inline void get_precision(finfo_t *info, str_t *format)
 {
     long tmp = 0;

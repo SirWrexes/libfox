@@ -11,7 +11,7 @@
 #include "fox_io.h"
 #include "fox_define.h"
 
-__nonnull
+__Anonnull
 scount_t fox_asputnbr(str_t *s, llong_t n)
 {
     *s = malloc((fox_numsize(n) + (n < 0) + 1) * sizeof(**s));

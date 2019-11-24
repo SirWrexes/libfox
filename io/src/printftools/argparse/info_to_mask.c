@@ -9,7 +9,7 @@
 
 #include "args/farg_datastruct.h"
 
-__nonnull
+__Anonnull
 extern inline bmask_t info_to_mask(finfo_t *info)
 {
     return info->is_char << 0

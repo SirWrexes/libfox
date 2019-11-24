@@ -9,7 +9,7 @@
 
 #include "datastruct/fox_list.h"
 
-__nonnull
+__Anonnull
 bool list_create(foxlist_t *listptr)
 {
     *listptr = malloc(sizeof(**listptr));

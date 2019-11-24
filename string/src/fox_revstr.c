@@ -8,7 +8,7 @@
 #include "fox_define.h"
 #include "fox_string.h"
 
-__nonnull
+__Anonnull
 str_t fox_revstr(str_t s)
 {
     char c;

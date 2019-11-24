@@ -32,13 +32,13 @@ typedef struct foxtnode_s *foxtnode_t;
 // You may set the auto data destructor to the function of your choice like so
 //     leafcutter = &destructor_function;
 // Default autodestructor is NULL
-#define autofoxtree_t __cleanup(chainsaw) foxtree_t
+#define autofoxtree_t __Acleanup(chainsaw) foxtree_t
 #define leafcutter (*treedata_destructor())
 
 // This is just regular sorcery. Skip to the next part.
 typedef void (*leafcutter_t)();
-void chainsaw(foxtree_t *treeptr) __nonnull;
-leafcutter_t *treedata_destructor(void) __const;
+void chainsaw(foxtree_t *treeptr) __Anonnull;
+leafcutter_t *treedata_destructor(void) __Aconst;
 
 /* ------------------------------------------------------------------------ */
 
@@ -61,7 +61,7 @@ struct foxtnode_s
 // Create a binary tree
 // Returns true in case of error
 bool tree_create(foxtree_t *treeptr)
-__nonnull;
+__Anonnull;
 
 // Destroy a tree and all its nodes
 // See tnode_destroy below for details about destructor

@@ -8,7 +8,7 @@
 #include <malloc.h>
 #include "fox_io.h"
 
-__nonnull
+__Anonnull
 scount_t fox_asiopadn(str_t *s, uchar_t pad, scount_t n)
 {
     *s = malloc((n + 1) * sizeof(**s));

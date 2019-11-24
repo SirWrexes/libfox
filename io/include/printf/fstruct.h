@@ -14,10 +14,10 @@
 #include "fox_define.h"
 
 typedef struct format_struct fstruct_t;
-#ifndef PRINTER_TYPE_DEFINED
-    #define PRINTER_TYPE_DEFINED
+#ifndef CONVERTER_TYPE_DEFINED
+    #define CONVERTER_TYPE_DEFINED
     typedef scount_t (*converter_t)(fstruct_t *, va_list *);
-#endif // PRINTER_TYPE_DEFINED
+#endif // CONVERTER_TYPE_DEFINED
 
 typedef struct {
     unsigned prec;           // Precision

@@ -10,19 +10,19 @@
 #include "fox_define.h"
 #include "fox_string.h"
 
-__nonnull
+__Anonnull
 static size_t numsize(char const **s)
 {
     size_t n = 0;
 
     while (**s == '0')
         *s += 1;
-    while ((*s)[n] != '\0' && CHAR_IS_NUM((*s)[n]))
+    while (CHAR_IS_NUM((*s)[n]))
         n += 1;
     return n;
 }
 
-__nonnull
+__Anonnull
 static bool get_sign(char const **s)
 {
     bool isneg = false;

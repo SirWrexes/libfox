@@ -8,7 +8,7 @@
 #include <stddef.h>
 #include "fox_define.h"
 
-__const
+__Aconst
 static size_t fox_nonnull_numsize(ullong_t n)
 {
     switch (n) {
@@ -17,7 +17,7 @@ static size_t fox_nonnull_numsize(ullong_t n)
     }
 }
 
-__const
+__Aconst
 size_t fox_unumsize(ullong_t n)
 {
     switch (n) {

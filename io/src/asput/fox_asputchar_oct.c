@@ -10,7 +10,7 @@
 #include "fox_io.h"
 #include "fox_define.h"
 
-__nonnull
+__Anonnull
 scount_t fox_asputchar_oct(str_t *s, uchar_t c)
 {
     *s = malloc(5 * sizeof(**s));

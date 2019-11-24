@@ -7,7 +7,7 @@
 
 #include "fox_define.h"
 
-__pure __nonnull
+__Apure __Anonnull
 size_t fox_strlen(str_t const str)
 {
     size_t len;

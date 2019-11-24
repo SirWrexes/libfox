@@ -7,7 +7,7 @@
 
 #include "datastruct/fox_tree.h"
 
-__const
+__Aconst
 leafcutter_t *treedata_destructor(void)
 {
     static leafcutter_t f = NULL;
@@ -15,7 +15,7 @@ leafcutter_t *treedata_destructor(void)
     return &f;
 }
 
-__nonnull
+__Anonnull
 void chainsaw(foxtree_t *treeptr)
 {
     tree_destroy(treeptr, leafcutter);

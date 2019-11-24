@@ -7,7 +7,7 @@
 
 #include "datastruct/fox_list.h"
 
-__nonnull
+__Anonnull
 bool list_addnode(foxlist_t list, void *data)
 {
     foxnode_t new = NULL;

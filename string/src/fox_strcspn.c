@@ -7,7 +7,7 @@
 
 #include "fox_string.h"
 
-__nonnull __pure
+__Anonnull __Apure
 size_t fox_strcspn(str2c_t str, str2c_t reject)
 {
     size_t i = 0;

@@ -13,7 +13,7 @@ MKCONF := 1
 # Config
 ##########################################
 BIN             := libfox_$(NAME).a
-TESTBIN         := utests_$(NAME)
+TESTBIN         := utest_$(NAME)
 DEBUGBIN        := debug_$(NAME)
 SHELL           := /bin/bash
 MAKE            := make --no-print-directory -C

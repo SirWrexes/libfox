@@ -7,7 +7,7 @@
 
 #include "datastruct/fox_stack.h"
 
-__nonnull
+__Anonnull
 void *stack_pop(foxstack_t stack)
 {
     foxsitem_t pop = stack->faketop;

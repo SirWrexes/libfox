@@ -9,7 +9,7 @@
 #include "fox_string.h"
 #include "fox_define.h"
 
-__nonnull __const
+__Anonnull __Aconst
 size_t fox_sputstr_np(str_t s, str2c_t str)
 {
     size_t i = 0;

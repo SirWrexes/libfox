@@ -9,7 +9,7 @@
 
 #include "datastruct/fox_list.h"
 
-__nonnull
+__Anonnull
 void list_destroy(foxlist_t *listptr, void (*destructor)())
 {
     foxnode_t node = NULL;

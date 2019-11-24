@@ -12,7 +12,7 @@
 #include "printf/fstruct.h"
 #include "fox_define.h"
 
-__nonnull
+__Anonnull
 static inline void set_lm_h(finfo_t *info, str_t *format)
 {
     if (**format != 'h')
@@ -23,7 +23,7 @@ static inline void set_lm_h(finfo_t *info, str_t *format)
     }
 }
 
-__nonnull
+__Anonnull
 static inline void set_lm_l(finfo_t *info, str_t *format)
 {
     if (**format != 'l')
@@ -34,7 +34,7 @@ static inline void set_lm_l(finfo_t *info, str_t *format)
     }
 }
 
-__nonnull
+__Anonnull
 static inline void set_lm_z(finfo_t *info)
 {
     #if LONG_MAX != LONG_LONG_MAX
@@ -43,7 +43,7 @@ static inline void set_lm_z(finfo_t *info)
     info->is_long = sizeof(size_t) > sizeof(unsigned int);
 }
 
-__nonnull
+__Anonnull
 static inline void set_lm_j(finfo_t *info)
 {
     #if LONG_MAX != LONG_LONG_MAX
@@ -52,7 +52,7 @@ static inline void set_lm_j(finfo_t *info)
     info->is_long = sizeof(uintmax_t) > sizeof(unsigned int);
 }
 
-__nonnull
+__Anonnull
 static inline void set_lm_t(finfo_t *info)
 {
     #if LONG_MAX != LONG_LONG_MAX

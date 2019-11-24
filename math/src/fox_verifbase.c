@@ -8,13 +8,13 @@
 #include <stdbool.h>
 #include "fox_define.h"
 
-__const
+__Aconst
 static uchar_t to_index(char c)
 {
     return c - ' ';
 }
 
-__pure __a((nonnull(1)))
+__Apure __a((nonnull(1)))
 char fox_verifbase(str2c_t base, size_t *size)
 {
     bool table[94] = {false};

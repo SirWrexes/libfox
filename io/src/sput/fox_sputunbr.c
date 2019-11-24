@@ -11,7 +11,7 @@
 #include "fox_string.h"
 #include "fox_define.h"
 
-__nonnull
+__Anonnull
 ssize_t fox_sputunbr(str_t s, ullong_t n)
 {
     size_t sz = fox_unumsize(n);

@@ -7,7 +7,8 @@
 
 #include "fox_string.h"
 
-__nonnull __pure size_t fox_strspn(str3c_t str, str3c_t accept)
+__Anonnull __Apure
+size_t fox_strspn(str3c_t str, str3c_t accept)
 {
     size_t i = 0;
 

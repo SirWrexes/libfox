@@ -9,7 +9,7 @@
 #include <stdbool.h>
 #include "datastruct/fox_stack.h"
 
-__nonnull
+__Anonnull
 bool stack_create(foxstack_t *stack)
 {
     *stack = malloc(sizeof(**stack));

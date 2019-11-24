@@ -9,7 +9,7 @@
 #include "printf/fstruct.h"
 #include "printf/get_lenmodif_extra.h"
 
-__nonnull
+__Anonnull
 extern inline void get_lenmodif(finfo_t *info, str_t *format)
 {
     switch (*(*format)++) {

@@ -5,7 +5,7 @@
 ## Progress bar script generation
 ##
 
-ifndef PROGSCRIPT
+ifndef PROGBAR-CODE
 
 define PROGBAR-CODE
 #!$(shell which python)
@@ -34,14 +34,14 @@ if __name__ == "__main__":
 endef
 
 PROGSCRIPT := .progbar
-ifndef ECHO$(NAME)
-  $(call export PROGBAR-CODE) $(file >$(PROGSCRIPT),$(PROGBAR-CODE))
-  T := $(shell $(MAKE) . $(MAKECMDGOALS)	\
-       -nrRf $(firstword $(MAKEFILE_LIST)) 	\
-       ECHO$(NAME)="COUNT$(NAME)" | grep -c "COUNT$(NAME)")
-  N := x
-  C = $(words $N)$(eval N := x $N)
-  ECHO$(NAME) = python ./$(PROGSCRIPT) --stepno=$C --nsteps=$T
+$(call export PROGBAR-CODE) $(file >$(PROGSCRIPT),$(PROGBAR-CODE))
 endif
 
+ifndef ECHO$(BIN)
+  T := $(shell $(MAKE) . $(MAKECMDGOALS)	\
+       -nrRf $(firstword $(MAKEFILE_LIST)) 	\
+       ECHO$(BIN)="COUNT$(BIN)" | grep -c "COUNT$(BIN)")
+  N := x
+  C = $(words $N)$(eval N := x $N)
+  ECHO$(BIN) = python ./$(PROGSCRIPT) --stepno=$C --nsteps=$T
 endif
