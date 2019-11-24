@@ -10,7 +10,7 @@
 #include "fox_define.h"
 
 __a((nonnull(1)))
-extern inline ssize_t fox_asputstr(str_t *s, str2c_t str)
+extern inline scount_t fox_asputstr(str_t *s, str2c_t str)
 {
     if (str == NULL)
         *s = fox_strdup("(null)");

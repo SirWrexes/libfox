@@ -9,7 +9,7 @@
 #include "fox_io.h"
 
 __nonnull
-ssize_t fox_asputchar(str_t *s, char c)
+scount_t fox_asputchar(str_t *s, char c)
 {
     *s = malloc(2 * sizeof(**s));
     if (*s == NULL)

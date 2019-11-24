@@ -13,7 +13,7 @@
 #include "fox_define.h"
 
 __nonnull
-ssize_t fox_asputunbr(str_t *s, ullong_t n)
+scount_t fox_asputunbr(str_t *s, ullong_t n)
 {
     *s = malloc((fox_unumsize(n) + 1) * sizeof(**s));
     if (*s == NULL)

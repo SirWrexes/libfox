@@ -11,7 +11,7 @@
 #include "fox_define.h"
 
 __nonnull
-ssize_t fox_asputchar_oct(str_t *s, uchar_t c)
+scount_t fox_asputchar_oct(str_t *s, uchar_t c)
 {
     *s = malloc(5 * sizeof(**s));
     if (*s == NULL)

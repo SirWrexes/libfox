@@ -12,7 +12,7 @@
 #include "fox_define.h"
 
 __nonnull
-ssize_t fox_asputnbr(str_t *s, llong_t n)
+scount_t fox_asputnbr(str_t *s, llong_t n)
 {
     *s = malloc((fox_numsize(n) + (n < 0) + 1) * sizeof(**s));
     if (*s == NULL)
