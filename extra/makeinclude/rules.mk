@@ -13,7 +13,9 @@ MKRULES :=1
 #########################################################################################
 .PHONY: compiledb
 compiledb:
-	@[[ "$(shell which compiledb)" == "" ]] || compiledb -n make -ki $(COMPILEDBTARGET)
+	@$(ECHO$(NAME)) $(CBOLD)$(CLIGHTBLUE)"Create"$(CRESET) $(CLIGHTBLUE)"$(COMPILEDB)"$(CRESET)
+	@[[ "$(shell which compiledb)" == "" ]] || compiledb -no $(COMPILEDB) make -ki $(COMPILEDBTARGET)
+	@$(ECHO$(NAME)) $(CBOLD)$(CLIGHTBLUE)"Done."$(CRESET)
 #########################################################################################
 
 
@@ -36,7 +38,7 @@ $(BIN): $(OBJ)
 .PHONY: debug
 debug: $(DEBUGBIN)
 $(DEBUGBIN): CFLAGS += -ggdb3 -rdynamic
-$(DEBUGBIN): SRC += $(DEPSRC) $(DEBUGMAIN)
+$(DEBUGBIN): SRC    += $(DEPSRC) $(DEBUGMAIN)
 $(DEBUGBIN): $(SRC)
 	$(CC) -o $@ $(CFLAGS) $(SRC)
 #########################################################################################
@@ -46,11 +48,11 @@ $(DEBUGBIN): $(SRC)
 #
 # Test target
 #########################################################################################
-$(TESTBIN): CFLAGS  += --coverage
-$(TESTBIN): CFLAGS  += $(WRAPFLAGS)
-$(TESTBIN): CFLAGS  += $(CMDCFLAGS)
-$(TESTBIN): LDLIBS  := -lcriterion
-$(TESTBIN): SRC += $(DEPSRC) $(TST) $(WRAPSRC)
+$(TESTBIN): CFLAGS += --coverage
+$(TESTBIN): CFLAGS += $(WRAPFLAGS)
+$(TESTBIN): CFLAGS += $(CMDCFLAGS)
+$(TESTBIN): LDLIBS := -lcriterion
+$(TESTBIN): SRC    += $(DEPSRC) $(TST) $(WRAPSRC)
 $(TESTBIN): compiledb
 	@$(RM) $(COV)
 	@$(CC) -o $@ $(CFLAGS) $(SRC) $(LDLIBS)
@@ -77,11 +79,13 @@ clean:
 	@$(RM) $(DEP)
 	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET)" coverage files"
 	@$(RM) $(COV)
+	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET)" progress bar script ($(PROGSCRIPT))"
+	@$(RM) $(PROGSCRIPT)
 # ------------------------------------------------------------------------------------- #
 .PHONY: fclean
 fclean:
-	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET)" compiledb"
-	@$(RM) compile_commands.json
+	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET)" $(COMPILEDB)"
+	@$(RM) $(COMPILEDB)
 	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET)" objects"
 	@$(RM) $(OBJ)
 	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET)" dependency files"
@@ -94,7 +98,7 @@ fclean:
 	@$(RM) $(TESTBIN)
 	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET) $(DEBUGBIN)
 	@$(RM) $(DEBUGBIN)
-	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET)" progress bar script"
+	@$(ECHO$(NAME)) $(CRED)"Delete"$(CRESET)" progress bar script ($(PROGSCRIPT))"
 	@$(RM) $(PROGSCRIPT)
 # ------------------------------------------------------------------------------------- #
 .PHONY: re
