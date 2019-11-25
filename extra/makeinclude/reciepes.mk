@@ -12,10 +12,15 @@ MKRULES :=1
 # Compile DB (recommended if you use vim with YouCompleteMe)
 #########################################################################################
 .PHONY: compiledb
+ifneq "$(shell which compiledb > /dev/null)" ""
 compiledb:
 	@$(ECHO$(BIN)) $(CBOLD)$(CLIGHTBLUE)"Create"$(CRESET) $(CLIGHTBLUE)"$(COMPILEDB)"$(CRESET)
 	@[[ "$(shell which compiledb)" == "" ]] || compiledb -no $(COMPILEDB) make -ki $(COMPILEDBTARGET)
 	@$(ECHO$(BIN)) $(CBOLD)$(CLIGHTBLUE)"Done."$(CRESET)
+else
+compiledb:
+	@$(ECHO$(BIN)) $(CRED)"compiledb "$(CBOLD)" is not installed"$(CRESET)$(CRED)", cannot create $(COMPILEDB)"
+endif
 #########################################################################################
 
 
