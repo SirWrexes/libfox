@@ -17,6 +17,7 @@ MV      := mv -t
 MODULES += datastruct
 MODULES += io
 MODULES += math
+MODULES += memory
 MODULES += std
 MODULES += string
 
