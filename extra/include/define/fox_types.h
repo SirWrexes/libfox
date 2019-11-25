@@ -12,6 +12,7 @@
 
 #ifndef FOX_UCHAR_TYPE
     #define FOX_UCHAR_TYPE
+    typedef unsigned char byte_t;
     typedef unsigned char uchar_t;
 #endif // FOX_UCHAR_TYPE
 
