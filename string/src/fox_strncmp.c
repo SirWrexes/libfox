@@ -7,8 +7,7 @@
 
 #include "fox_define.h"
 
-__Anonnull __Apure
-char fox_strncmp(str2c_t s1, str2c_t s2, unsigned n)
+__Anonnull __Apure char fox_strncmp(str2c_t s1, str2c_t s2, unsigned n)
 {
     uchar_t c1 = '\0';
     uchar_t c2 = '\0';

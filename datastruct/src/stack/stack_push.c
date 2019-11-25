@@ -37,8 +37,7 @@ static bool push_to_first_available(foxstack_t stack, void *data)
     return false;
 }
 
-__Anonnull
-bool stack_push(foxstack_t stack, void *data)
+__Anonnull bool stack_push(foxstack_t stack, void *data)
 {
     if (stack->faketop == NULL || stack->faketop->i == stack->items)
         return push_to_top(stack, data);

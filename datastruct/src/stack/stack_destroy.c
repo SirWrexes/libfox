@@ -8,8 +8,7 @@
 #include <malloc.h>
 #include "datastruct/fox_stack.h"
 
-__a((nonnull(1)))
-void stack_destroy(foxstack_t *stack, void (*destructor)())
+__a((nonnull(1))) void stack_destroy(foxstack_t *stack, void (*destructor)())
 {
     foxsitem_t top = NULL;
     foxsitem_t tmp = NULL;

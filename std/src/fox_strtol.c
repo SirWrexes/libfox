@@ -5,13 +5,12 @@
 ** Convert a numeric string into a long int
 */
 
-#include <stdbool.h>
 #include <limits.h>
+#include <stdbool.h>
 #include "fox_define.h"
 #include "fox_string.h"
 
-__Anonnull
-static size_t numsize(char const **s)
+__Anonnull static size_t numsize(char const **s)
 {
     size_t n = 0;
 
@@ -22,8 +21,7 @@ static size_t numsize(char const **s)
     return n;
 }
 
-__Anonnull
-static bool get_sign(char const **s)
+__Anonnull static bool get_sign(char const **s)
 {
     bool isneg = false;
 
@@ -33,8 +31,7 @@ static bool get_sign(char const **s)
     return isneg;
 }
 
-__a((nonnull(1)))
-long fox_strtol(char const *s, char **endptr)
+__a((nonnull(1))) long fox_strtol(char const *s, char **endptr)
 {
     ulong_t ret = 0;
     bool isneg = get_sign(&s);

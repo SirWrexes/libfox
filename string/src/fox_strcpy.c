@@ -8,8 +8,7 @@
 #include "fox_define.h"
 #include "fox_string.h"
 
-__Anonnull
-str_t fox_strcpy(str_t dst, str2c_t src)
+__Anonnull str_t fox_strcpy(str_t dst, str2c_t src)
 {
     index_t i = 0;
 

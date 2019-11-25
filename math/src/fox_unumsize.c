@@ -1,15 +1,14 @@
 /*
 ** EPITECH PROJECT, 2019
-** <project name>
+** Libfox
 ** File description:
-** fox_unumsize.c -- No description
+** Get the length of an unsigned int
 */
 
 #include <stddef.h>
 #include "fox_define.h"
 
-__Aconst
-static size_t fox_nonnull_numsize(ullong_t n)
+__Aconst static size_t fox_nonnull_numsize(ullong_t n)
 {
     switch (n) {
         case 0: return 0;
@@ -17,8 +16,7 @@ static size_t fox_nonnull_numsize(ullong_t n)
     }
 }
 
-__Aconst
-size_t fox_unumsize(ullong_t n)
+__Aconst size_t fox_unumsize(ullong_t n)
 {
     switch (n) {
         case 0: return 1;

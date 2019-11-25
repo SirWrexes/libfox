@@ -5,17 +5,16 @@
 ** Personal implementation of libc's printf
 */
 
-#include <unistd.h>
 #include <stdarg.h>
+#include <unistd.h>
+#include "fox_define.h"
 #include "fox_io.h"
 #include "fox_string.h"
-#include "fox_define.h"
 
 #include "args/farg_datastruct.h"
 #include "args/parsers.h"
 
-__nonnull
-static void reset_fstruct(fstruct_t *arg)
+__nonnull static void reset_fstruct(fstruct_t *arg)
 {
     arg->info.prec = 0;
     arg->info.width = 0;
@@ -38,8 +37,7 @@ static void reset_fstruct(fstruct_t *arg)
     arg->print = NULL;
 }
 
-__nonnull
-static ssize_t print_segment(str_t *fmt)
+__nonnull static ssize_t print_segment(str_t *fmt)
 {
     size_t s = 0;
     ssize_t r = 0;
@@ -50,8 +48,7 @@ static ssize_t print_segment(str_t *fmt)
     return r;
 }
 
-__format(printf, 1,2) __a((nonnull(1)))
-ssize_t my_printf(str_t fmt, ...)
+__format(printf, 1, 2) __a((nonnull(1))) ssize_t my_printf(str_t fmt, ...)
 {
     va_list va;
     ssize_t r = 0;

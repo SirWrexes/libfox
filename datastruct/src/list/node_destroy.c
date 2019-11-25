@@ -10,8 +10,7 @@
 
 #include "datastruct/fox_list.h"
 
-__a((nonnull(1)))
-void node_destroy(foxnode_t *nodeptr, void (*destructor)())
+__a((nonnull(1))) void node_destroy(foxnode_t *nodeptr, void (*destructor)())
 {
     if (*nodeptr == NULL)
         return;

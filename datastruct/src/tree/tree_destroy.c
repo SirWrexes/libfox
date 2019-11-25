@@ -8,8 +8,7 @@
 #include <malloc.h>
 #include "fox_datastruct.h"
 
-__a((nonnull))
-void tree_destroy(foxtree_t *treeptr, void (*destructor)())
+__a((nonnull)) void tree_destroy(foxtree_t *treeptr, void (*destructor)())
 {
     if (*treeptr == NULL)
         return;

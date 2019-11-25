@@ -7,12 +7,11 @@
 
 #include "fox_define.h"
 
-__Apure __Anonnull
-size_t fox_strlen(str_t const str)
+__Apure __Anonnull size_t fox_strlen(str_t const str)
 {
     size_t len;
 
-    for (len = 0; ; len += 7) {
+    for (len = 0;; len += 7) {
         if (str[len] == '\0')
             return len;
         if (str[len + 1] == '\0')
