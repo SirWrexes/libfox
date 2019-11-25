@@ -7,6 +7,13 @@
 
 ifndef PROGBAR-CODE
 
+ifneq "$(USER)" "bugs"
+# The autograder doesn't support coloured output.
+# Deactivate it when building from there.
+    BARCOLOR := \033[38;2;255;167;4m
+    COLOROFF := \033[0m
+endif
+
 define PROGBAR-CODE
 #!$(shell which python)
 import argparse
@@ -21,7 +28,7 @@ def main():
   args = parser.parse_args()
 
   nchars = int(math.log(args.nsteps, 10)) + 1
-  fmt_str = "\033[38;2;255;167;4m[Libfox: $(NAME) | {:Xd}/{:Xd} | {:6.2f}%]\033[0m".replace("X", str(nchars))
+  fmt_str = "$(BARCOLOR)[Libfox: $(NAME) | {:Xd}/{:Xd} | {:6.2f}%]$(COLOROFF)".replace("X", str(nchars))
   progress = 100 * args.stepno / args.nsteps
   sys.stdout.write(fmt_str.format(args.stepno, args.nsteps, progress))
   for item in args.remainder:

@@ -8,7 +8,10 @@
 ifndef MKFORMAT
 MKFORMAT := 1
 
-#
+ifneq "$(USER)" "bugs"
+# The autograder doesn't support coloured output.
+# Deactivate it when building from there.
+
 # Format cleanup
 ##########################################
 CRESET      :=	$$'\033[0m'
@@ -33,4 +36,5 @@ CBOLD       :=  $$'\033[1m'
 CUNDERLN    :=  $$'\033[4m'
 ##########################################
 
+endif
 endif
