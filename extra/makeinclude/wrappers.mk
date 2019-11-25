@@ -11,7 +11,7 @@ MKWRAPPERS := 1
 
 # Malloc
 #############################################################
-WRAPSRC := ./tests/wrappers/wrap_malloc.c
+WRAPSRC := ../extra/tests/wrappers/wrap_malloc.c
 WRAPPED := malloc
 #############################################################
 
