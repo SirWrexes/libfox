@@ -9,17 +9,15 @@
 
 __Apure __Anonnull static size_t tail_length(str2c_t s, size_t r)
 {
-    if (r-- == 0 || *s++ == '\0')
-        return 0;
-    if (r-- == 0 || *s++ == '\0')
+    if (*++s == '\0' || --r == 0)
         return 1;
-    if (r-- == 0 || *s++ == '\0')
+    if (*++s == '\0' || --r == 0)
         return 2;
-    if (r-- == 0 || *s++ == '\0')
+    if (*++s == '\0' || --r == 0)
         return 3;
-    if (r-- == 0 || *s++ == '\0')
+    if (*++s == '\0' || --r == 0)
         return 4;
-    if (r-- == 0 || *s++ == '\0')
+    if (*++s == '\0' || --r == 0)
         return 5;
     return 6;
 }
@@ -46,5 +44,8 @@ __Apure __Anonnull size_t fox_strnlen(str_t const str, size_t n)
         if (str[len + 7] == '\0')
             return len + 7;
     }
-    return n + tail_length(str + len, n - len);
+    n -= len;
+    if (n == 0)
+        return len;
+    return len + tail_length(str + len, n);
 }
