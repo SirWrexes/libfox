@@ -18,6 +18,7 @@ NAME := string
 ################################################
 DEBUGMAIN := ./src/debugmain.c
 SRC := ./src/fox_isinstr.c
+SRC += ./src/fox_linelen.c
 SRC += ./src/fox_revstr.c
 SRC += ./src/fox_strcmp.c
 SRC += ./src/fox_strcpy.c
@@ -35,6 +36,7 @@ SRC += ./src/fox_strspn.c
 # Tests (set relative to master Makefile path)
 ################################################
 TST := ./tests/test_fox_isinstr.c
+TST += ./tests/test_fox_linelen.c
 TST += ./tests/test_fox_revstr.c
 TST += ./tests/test_fox_strcmp.c
 TST += ./tests/test_fox_strcpy.c

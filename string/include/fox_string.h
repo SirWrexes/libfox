@@ -10,12 +10,15 @@
 
 #include <stddef.h>
 #include <stdbool.h>
+
 #include "fox_define.h"
 
 // Get a string's length as a size_t value
 size_t fox_strlen(str2c_t str) __Anonnull __Apure;
 // Get a string's length up to n characters max
 size_t fox_strnlen(str2c_t str, size_t n) __Anonnull __Apure;
+// Get a line's length (strlen up to first '\n' or '\0')
+size_t fox_linelen(str2c_t str) __Anonnull __Apure;
 
 // Compare two strings
 // Returns 0 for identical strings

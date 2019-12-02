@@ -1,12 +1,13 @@
 /*
 ** EPITECH PROJECT, 2019
-** <project name> unit tests
+** Libfox
 ** File description:
-** test_fox_strlen.c -- No description
+** UT: Getting the length of a string
 */
 
 #include <criterion/criterion.h>
 #include <criterion/redirect.h>
+
 #include "fox_define.h"
 #include "fox_string.h"
 
