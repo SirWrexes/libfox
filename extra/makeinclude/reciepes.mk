@@ -44,7 +44,7 @@ $(BIN): $(OBJ)
 debug: $(DEBUGBIN)
 $(DEBUGBIN): CFLAGS += -ggdb3 -rdynamic
 $(DEBUGBIN): SRC    += $(DEPSRC) $(DEBUGMAIN)
-$(DEBUGBIN): $(SRC)
+$(DEBUGBIN): $(SRC) $(DEBUGMAIN)
 	$(CC) -o $@ $(CFLAGS) $(SRC)
 #########################################################################################
 
