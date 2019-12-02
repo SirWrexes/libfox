@@ -26,6 +26,7 @@ SRC += ./src/fox_strdup.c
 SRC += ./src/fox_strlen.c
 SRC += ./src/fox_strncmp.c
 SRC += ./src/fox_strncpy.c
+SRC += ./src/fox_strnlen.c
 SRC += ./src/fox_strspn.c
 ################################################
 
@@ -42,6 +43,7 @@ TST += ./tests/test_fox_strdup.c
 TST += ./tests/test_fox_strlen.c
 TST += ./tests/test_fox_strncmp.c
 TST += ./tests/test_fox_strncpy.c
+TST += ./tests/test_fox_strnlen.c
 TST += ./tests/test_fox_strspn.c
 ################################################
 
@@ -49,8 +51,8 @@ TST += ./tests/test_fox_strspn.c
 #
 # External dependency soucres
 ################################################
-DEPSRC :=
-DEPSRC +=
+DEPSRC := ../memory/src/fox_memcpy.c
+DEPSRC += ../memory/src/fox_memset.c
 ################################################
 
 endif

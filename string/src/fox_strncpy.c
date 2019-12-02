@@ -1,19 +1,19 @@
 /*
 ** EPITECH PROJECT, 2019
-** <project name>
+** Libfox
 ** File description:
-** fox_strncpy.c -- No description
+** Copy a string up to n bytes
 */
 
 #include "fox_define.h"
+#include "fox_memory.h"
 #include "fox_string.h"
 
-__Anonnull str_t fox_strncpy(str_t dst, str2c_t src, size_t n)
+__a((nonnull(2))) str_t fox_strncpy(str_t dst, str2c_t src, size_t n)
 {
-    size_t i = 0;
+    size_t len = fox_strnlen(src, n);
 
-    for (i = 0; i < n && src[i] != '\0'; i += 1)
-        dst[i] = src[i];
-    dst[i] = '\0';
-    return dst;
+   if (len != n)
+       fox_memset(dst + len, '\0', n - len);
+   return fox_memcpy(dst, src, len);
 }

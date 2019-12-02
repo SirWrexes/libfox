@@ -14,6 +14,8 @@
 
 // Get a string's length as a size_t value
 size_t fox_strlen(str2c_t str) __Anonnull __Apure;
+// Get a string's length up to n characters max
+size_t fox_strnlen(str2c_t str, size_t n) __Anonnull __Apure;
 
 // Compare two strings
 // Returns 0 for identical strings
@@ -27,11 +29,11 @@ char fox_strncmp(str2c_t s1, str2c_t s2, unsigned n) __Anonnull __Apure;
 
 // Copy src into dest
 // Returns dest
-str_t fox_strcpy(str_t dest, str2c_t s) __Anonnull;
+str_t fox_strcpy(str_t dest, str2c_t s) __a((nonnull(2)));
 
 // Copy src into dest up to n characters
 // Returns dest
-str_t fox_strncpy(str_t dest, str2c_t s, size_t n) __Anonnull;
+str_t fox_strncpy(str_t dest, str2c_t s, size_t n) __a((nonnull(2)));
 
 // Make an exact copy of s and return its pointer
 // Returns null in case of error
