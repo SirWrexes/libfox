@@ -12,7 +12,7 @@
 
 #include "fox_define.h"
 
-__Aconst
-void *fox_memcpy(void *dest, const void *src, size_t n);
+void *fox_memcpy(void *dest, const void *src, size_t n)
+    __a((nonnull(2))) __Aconst;
 
 #endif /* !FOX_MEMORY_H */

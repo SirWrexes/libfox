@@ -10,8 +10,8 @@
 
 static const size_t ULSIZE = sizeof(ulong_t);
 
-__Aconst
-void *fox_memcpy(void *dst, const void *src, size_t n)
+__Aconst __a((nonnull(2))) void *fox_memcpy(
+    void *dst, const void *src, size_t n)
 {
     ulong_t *srcp = (ulong_t *) src;
     ulong_t *dstp = (ulong_t *) dst;
@@ -20,16 +20,18 @@ void *fox_memcpy(void *dst, const void *src, size_t n)
     ulong_t word;
     byte_t byte;
 
-    while (n / ULSIZE != 0) {
-        word = *srcp++;
-        *dstp++ = word;
-        n -= ULSIZE;
-    }
-    srcbp = (byte_t *) srcp;
-    dstbp = (byte_t *) dstp;
-    while (n-- != 0) {
-        byte = *srcbp++;
-        *dstbp++ = byte;
+    if (dst != NULL) {
+        while (n / ULSIZE != 0) {
+            word = *srcp++;
+            *dstp++ = word;
+            n -= ULSIZE;
+        }
+        srcbp = (byte_t *) srcp;
+        dstbp = (byte_t *) dstp;
+        while (n-- != 0) {
+            byte = *srcbp++;
+            *dstbp++ = byte;
+        }
     }
     return dst;
 }

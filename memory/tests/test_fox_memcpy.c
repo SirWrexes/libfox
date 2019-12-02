@@ -33,3 +33,8 @@ Test(memcpy, regular_usage)
     cr_expect_str_eq(
         fox_memcpy(dum_tststr, DUM_REFSTR, 23 * sizeof(char)), DUM_REFSTR);
 }
+
+Test(memcpy, null_dst)
+{
+    cr_expect_null(fox_memcpy(NULL, "saucisse", 42));
+}
