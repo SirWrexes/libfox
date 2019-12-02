@@ -19,7 +19,7 @@ NAME := memory
 ################################################
 DEBUGMAIN := ./src/debugmain.c
 SRC := ./src/fox_memcpy.c
-SRC +=
+SRC += ./src/fox_memset.c
 ################################################
 
 
@@ -27,7 +27,7 @@ SRC +=
 # Tests (set relative to master Makefile path)
 ################################################
 TST := ./tests/test_fox_memcpy.c
-TST +=
+TST += ./tests/test_fox_memset.c
 ################################################
 
 

@@ -12,7 +12,10 @@
 
 #include "fox_define.h"
 
-void *fox_memcpy(void *dest, const void *src, size_t n)
-    __a((nonnull(2))) __Aconst;
+// Copy n bytes of memory from src into dst
+void *fox_memcpy(void *dst, const void *src, size_t n) __a((nonnull(2)));
+
+// Set n bytes of pointed dst memory to value c
+void *fox_memset(void *dst, int c, size_t n);
 
 #endif /* !FOX_MEMORY_H */
