@@ -21,8 +21,6 @@ Test(memcpy, regular_usage)
         .dummy_pad = {[0 ... 3] = '\0'}
     };
 
-    cr_log_warn("Size of ulong_t: %zu", sizeof(unsigned long));
-    cr_log_warn("Size of dummy  : %zu", sizeof(memcpy_dummy_t));
     cr_expect_eq(fox_memcpy(&dum_tst, &DUM_REF, sizeof(dum_tst)), &dum_tst);
     cr_expect_eq(dum_tst.dummy_size, DUM_REF.dummy_size);
     cr_expect_eq(dum_tst.dummy_str, DUM_REF.dummy_str);
