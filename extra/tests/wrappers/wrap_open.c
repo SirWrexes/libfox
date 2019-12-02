@@ -8,8 +8,8 @@
 #include <errno.h>
 #include <fcntl.h>
 
-#include "tests/wrap_open.h"
 #include "fox_define.h"
+#include "tests/wrap_open.h"
 
 int __real_open(str2c_t path);
 int __wrap_open(str2c_t path)
@@ -22,8 +22,7 @@ int __wrap_open(str2c_t path)
     return __real_open(path);
 }
 
-__a((const))
-short *__open_counter(void)
+__a((const)) short *__open_counter(void)
 {
     static short n = -1;
 

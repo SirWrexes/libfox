@@ -7,8 +7,8 @@
 
 #include <errno.h>
 
-#include "tests/wrap_malloc.h"
 #include "fox_define.h"
+#include "tests/wrap_malloc.h"
 
 void *__real_malloc(size_t size);
 void *__wrap_malloc(size_t size)
@@ -21,8 +21,7 @@ void *__wrap_malloc(size_t size)
     return __real_malloc(size);
 }
 
-__a((const))
-short *__malloc_counter(void)
+__a((const)) short *__malloc_counter(void)
 {
     static short n = -1;
 
