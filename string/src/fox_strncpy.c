@@ -13,7 +13,7 @@ __a((nonnull(2))) str_t fox_strncpy(str_t dst, str2c_t src, size_t n)
 {
     size_t len = fox_strnlen(src, n);
 
-   if (len != n)
-       fox_memset(dst + len, '\0', n - len);
-   return fox_memcpy(dst, src, len);
+    if (len != n)
+        fox_memset(dst + len, '\0', n - len);
+    return fox_memcpy(dst, src, len);
 }
