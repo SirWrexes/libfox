@@ -15,6 +15,18 @@ WRAPSRC := ../extra/tests/wrappers/wrap_malloc.c
 WRAPPED := malloc
 #############################################################
 
+# Open
+#############################################################
+WRAPSRC += ../extra/tests/wrappers/wrap_open.c
+WRAPPED += open
+#############################################################
+
+# Read
+#############################################################
+WRAPSRC += ../extra/tests/wrappers/wrap_read.c
+WRAPPED += read
+#############################################################
+
 # Wrap flags for compilation
 #############################################################
 WRAPFLAGS   := -Wl$(foreach wrap, $(WRAPPED),,--wrap=$(wrap))
