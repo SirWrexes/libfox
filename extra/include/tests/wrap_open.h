@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2019
 ** Libfox
 ** File description:
-** open wrapper header
+** Open wrapper header
 */
 
 #ifndef WRAP_OPEN_H
