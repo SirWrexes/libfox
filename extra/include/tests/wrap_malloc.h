@@ -8,12 +8,7 @@
 #ifndef WRAP_MALLOC_H
 #define WRAP_MALLOC_H
 
-#include <criterion/criterion.h>
 #include "fox_define.h"
-
-// I don't want stupid false positives about naming convention errors
-#define real_malloc __real_malloc
-#define wrap_malloc __wrap_malloc
 
 // Posible values
 //     ¤ -1  Disable breaking (malloc works normally)

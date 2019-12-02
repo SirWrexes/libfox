@@ -7,20 +7,18 @@
 
 #include <errno.h>
 
-#include <criterion/criterion.h>
-
 #include "tests/wrap_malloc.h"
 #include "fox_define.h"
 
-void *real_malloc(size_t size);
-void *wrap_malloc(size_t size)
+void *__real_malloc(size_t size);
+void *__wrap_malloc(size_t size)
 {
     if (malloc_counter == 0) {
         errno = ENOMEM;
         return NULL;
     }
     malloc_counter -= (malloc_counter != -1);
-    return real_malloc(size);
+    return __real_malloc(size);
 }
 
 __a((const))

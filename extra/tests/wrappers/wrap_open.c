@@ -8,20 +8,18 @@
 #include <errno.h>
 #include <fcntl.h>
 
-#include <criterion/criterion.h>
-
 #include "tests/wrap_open.h"
 #include "fox_define.h"
 
-int real_open(str2c_t path);
-int wrap_open(str2c_t path)
+int __real_open(str2c_t path);
+int __wrap_open(str2c_t path)
 {
     if (open_counter == 0) {
         errno = ENOMEM;
         return -1;
     }
     open_counter -= (open_counter != -1);
-    return real_open(path);
+    return __real_open(path);
 }
 
 __a((const))

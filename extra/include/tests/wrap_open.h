@@ -8,12 +8,7 @@
 #ifndef WRAP_OPEN_H
 #define WRAP_OPEN_H
 
-#include <criterion/criterion.h>
 #include "fox_define.h"
-
-// I don't want stupid false positives about naming convention errors
-#define real_open __real_open
-#define wrap_open __wrap_open
 
 // Posible values
 //     ¤ -1  Disable breaking (open works normally)
