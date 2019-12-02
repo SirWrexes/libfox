@@ -7,12 +7,12 @@
 
 #include <stdbool.h>
 #include <sys/types.h>
+
+#include "fox_define.h"
 #include "fox_math.h"
 #include "fox_string.h"
-#include "fox_define.h"
 
-__Anonnull
-ssize_t fox_sputnbr(str_t s, llong_t n)
+__Anonnull ssize_t fox_sputnbr(str_t s, llong_t n)
 {
     bool isneg = (n < 0);
     size_t sz = fox_numsize(n);

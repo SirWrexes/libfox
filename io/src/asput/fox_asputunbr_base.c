@@ -5,14 +5,14 @@
 ** Print an unsigned number in given base into a newly allocated string
 */
 
-#include <sys/types.h>
 #include <malloc.h>
-#include "fox_math.h"
-#include "fox_io.h"
-#include "fox_define.h"
+#include <sys/types.h>
 
-__Anonnull
-ssize_t fox_asputunbr_base(str_t *s, ullong_t n, str2c_t base)
+#include "fox_define.h"
+#include "fox_io.h"
+#include "fox_math.h"
+
+__Anonnull ssize_t fox_asputunbr_base(str_t *s, ullong_t n, str2c_t base)
 {
     ssize_t res;
 

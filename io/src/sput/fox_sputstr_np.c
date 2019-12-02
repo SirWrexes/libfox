@@ -5,12 +5,11 @@
 ** Write a string (including non-printables) to an already allocated string
 */
 
+#include "fox_define.h"
 #include "fox_io.h"
 #include "fox_string.h"
-#include "fox_define.h"
 
-__Anonnull __Aconst
-size_t fox_sputstr_np(str_t s, str2c_t str)
+__Anonnull __Aconst size_t fox_sputstr_np(str_t s, str2c_t str)
 {
     size_t i = 0;
     size_t len = 0;

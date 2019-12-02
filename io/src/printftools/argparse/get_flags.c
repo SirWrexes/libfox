@@ -6,11 +6,11 @@
 */
 
 #include <stdbool.h>
-#include "printf/fstruct.h"
-#include "fox_define.h"
 
-__Anonnull
-extern inline void get_flags(finfo_t *info, str_t *format)
+#include "fox_define.h"
+#include "printf/fstruct.h"
+
+__Anonnull extern inline void get_flags(finfo_t *info, str_t *format)
 {
     do {
         switch (**format) {

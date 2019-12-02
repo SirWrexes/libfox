@@ -7,8 +7,7 @@
 
 #include "fox_define.h"
 
-__Anonnull __Aconst
-extern inline size_t fox_sputchar(str_t s, char c)
+__Anonnull __Aconst extern inline size_t fox_sputchar(str_t s, char c)
 {
     *s++ = c;
     *s = '\0';

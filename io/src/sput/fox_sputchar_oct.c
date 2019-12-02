@@ -7,8 +7,7 @@
 
 #include "fox_io.h"
 
-__Anonnull
-size_t fox_sputchar_oct(str_t s, uchar_t c)
+__Anonnull size_t fox_sputchar_oct(str_t s, uchar_t c)
 {
     hindex_t i = 1;
 
