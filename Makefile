@@ -26,6 +26,11 @@ $(MODULES):
 	@$(MAKE) $@ $(RULE)
 	@echo
 
+.PHONY: test-%
+test-%:
+	@$(MAKE) $(subst test-,,$@) tests
+	@echo
+
 .PHONY: compiledb
 compiledb: RULE := compiledb
 compiledb: $(MODULES)
