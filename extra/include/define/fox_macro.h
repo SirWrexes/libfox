@@ -17,8 +17,10 @@
 #ifndef LIBFOX_MACRO_UNDEF
     #define LIBFOX_MACRO_UNDEF
     #undef __a
+    #undef __AalwaysIL
     #undef __Acleanup
     #undef __Aconst
+    #undef __Aconstructor
     #undef __Afallthrough
     #undef __Aformat
     #undef __Aleaf
@@ -64,8 +66,10 @@
     // For more information about these, check GNU GCC's docs
     // CAREFUL: These have RESTRICTED PORTABILITY
     #define __a(attributes)       __attribute__(attributes)
+    #define __AalwaysIL           __a((always_inline))
     #define __Acleanup(janitor)   __a((cleanup(janitor)))
     #define __Aconst              __a((const))
+    #define __Aconstructor        __a((constructor))
     #define __Afallthrough        __a((fallthrough))
     #define __Aformat(type, f, a) __a((format(type, f, a)))
     #define __Aleaf               __a((leaf))
@@ -153,7 +157,7 @@
     #define RETURN(value, funcs...) return (0 ? : (funcs, value))
 
     // Returns false (sucess) if a != b
-    #define SUCCEED_IF_DIFF(a, b) ((a) == (b))
+    #define SUCCESS_IF_DIFF(a, b) ((a) == (b))
 
 #endif // LIBFOX_MACRO_DEF
 
