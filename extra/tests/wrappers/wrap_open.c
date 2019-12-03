@@ -9,7 +9,7 @@
 #include <fcntl.h>
 
 #include "fox_define.h"
-#include "tests/wrap_open.h"
+#include "tests/wrappers/wrap_open.h"
 
 int __real_open(str2c_t path);
 int __wrap_open(str2c_t path)

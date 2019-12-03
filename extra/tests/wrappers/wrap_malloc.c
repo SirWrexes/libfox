@@ -8,7 +8,7 @@
 #include <errno.h>
 
 #include "fox_define.h"
-#include "tests/wrap_malloc.h"
+#include "tests/wrappers/wrap_malloc.h"
 
 void *__real_malloc(size_t size);
 void *__wrap_malloc(size_t size)
