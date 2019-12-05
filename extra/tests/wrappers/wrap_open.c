@@ -15,14 +15,14 @@ int __real_open(str2c_t path);
 int __wrap_open(str2c_t path)
 {
     if (open_counter == 0) {
-        errno = ENOMEM;
+        errno = ENOENT;
         return -1;
     }
     open_counter -= (open_counter != -1);
     return __real_open(path);
 }
 
-__a((const)) short *__open_counter(void)
+__Aconst short *__open_counter(void)
 {
     static short n = -1;
 

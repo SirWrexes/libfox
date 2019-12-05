@@ -21,7 +21,7 @@ void *__wrap_malloc(size_t size)
     return __real_malloc(size);
 }
 
-__a((const)) short *__malloc_counter(void)
+__Aconst short *__malloc_counter(void)
 {
     static short n = -1;
 

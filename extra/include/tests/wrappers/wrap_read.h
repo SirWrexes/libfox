@@ -12,9 +12,9 @@
 
 // Posible values
 //     ¤ -1  Disable breaking (read works normally)
-//     ¤ 0   Break (return NULL and set errno to ENOMEM)
+//     ¤ 0   Break (return -1 and set errno to EBADF)
 //     ¤ n   When n > 0, read works n times then breaks.
-short *__read_counter(void) __a((const));
+short *__read_counter(void) __Aconst;
 #define read_counter (*__read_counter())
 
 // Set read_counter to 0 to provoke instant breaking in your test

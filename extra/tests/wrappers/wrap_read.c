@@ -22,7 +22,7 @@ ssize_t __wrap_read(int fd, void *buff, size_t n)
     return __real_read(fd, buff, n);
 }
 
-__a((const)) short *__read_counter(void)
+__Aconst short *__read_counter(void)
 {
     static short n = -1;
 

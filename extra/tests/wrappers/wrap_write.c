@@ -22,7 +22,7 @@ ssize_t __wrap_write(int fd, void *buff, size_t n)
     return __real_write(fd, buff, n);
 }
 
-__a((const)) short *__write_counter(void)
+__Aconst short *__write_counter(void)
 {
     static short n = -1;
 

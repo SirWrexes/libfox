@@ -22,7 +22,7 @@ int __wrap_close(int fd)
     return __real_close(fd);
 }
 
-__a((const)) short *__close_counter(void)
+__Aconst short *__close_counter(void)
 {
     static short n = -1;
 

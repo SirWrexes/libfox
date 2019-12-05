@@ -12,9 +12,9 @@
 
 // Posible values
 //     ¤ -1  Disable breaking (close works normally)
-//     ¤ 0   Break (return NULL and set errno to ENOMEM)
+//     ¤ 0   Break (return -1 and set errno to EBADF)
 //     ¤ n   When n > 0, close works n times then breaks.
-short *__close_counter(void) __a((const));
+short *__close_counter(void) __Aconst;
 #define close_counter (*__close_counter())
 
 // Set close_counter to 0 to provoke instant breaking in your test
