@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2019
-** <project name>
+** Libfox
 ** File description:
-** fox_memset.c -- No description
+** Set a whole memory area to given data
 */
 
 #include "fox_define.h"
