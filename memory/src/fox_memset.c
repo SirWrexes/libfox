@@ -10,10 +10,10 @@
 
 void *fox_memset(void *dst, int c, size_t n)
 {
-    int chunk[32] = {[0 ... 31] = c};
+    typeof(c) chunk[32] = {[0 ... 31] = c};
     unsigned chnksz = sizeof(chunk);
     unsigned chnkln = chnksz / sizeof(chunk[0]);
-    int *dstp = dst;
+    typeof(c) *dstp = dst;
 
     if (dstp != NULL) {
         while (n / chnksz != 0) {
