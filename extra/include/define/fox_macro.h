@@ -55,6 +55,8 @@
     #undef STR_ALPHANUM
     #undef STR_ALPHAUP
     #undef STR_NUMERIC
+    #undef SUCCESS_IF_DIFF
+    #undef EPITECH_ERROR
     #undef RETURN
 #endif // LIBFOX_MACRO_UNDEF
 
@@ -158,6 +160,9 @@
 
     // Returns false (sucess) if a != b
     #define SUCCESS_IF_DIFF(a, b) ((a) == (b))
+
+    // Return value for error at in Epitech projects
+    #define EPITECH_ERROR (84)
 
 #endif // LIBFOX_MACRO_DEF
 
