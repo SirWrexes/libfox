@@ -75,4 +75,12 @@
     typedef long double ldouble_t;
 #endif // FOX_LDOUBLE_TYPE
 
+#ifndef FOX_VECTOR_TYPE
+    #define FOX_VECTOR_TYPE
+    typedef struct {
+        unsigned x;
+        unsigned y;
+    } vector2u_t;
+#endif // FOX_VECTOR_TYPE
+
 #endif /* !FOX_TYPES_H */
