@@ -15,7 +15,7 @@ MKRULES :=1
 ifneq "$(shell which compiledb 2>/dev/null)" ""
 compiledb:
 	@$(ECHO$(BIN)) $(CBOLD)$(CLIGHTBLUE)"Create"$(CRESET) $(CLIGHTBLUE)"$(COMPILEDB)"$(CRESET)
-	@[[ "$(shell which compiledb)" == "" ]] || compiledb -no $(COMPILEDB) make -ki $(COMPILEDBTARGET) 2>/dev/null
+	@[[ "$(shell which compiledb)" == "" ]] || compiledb -no $(COMPILEDB) make -nrRki $(COMPILEDBTARGET) 2>/dev/null
 	@$(ECHO$(BIN)) $(CBOLD)$(CLIGHTBLUE)"Done."$(CRESET)
 else
 compiledb:
