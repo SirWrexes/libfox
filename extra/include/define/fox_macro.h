@@ -23,6 +23,7 @@
     #undef __Aconstructor
     #undef __Afallthrough
     #undef __Aformat
+    #undef __Ahidden
     #undef __Aleaf
     #undef __Amalloc
     #undef __Anonnull
@@ -74,6 +75,7 @@
     #define __Aconstructor        __a((constructor))
     #define __Afallthrough        __a((fallthrough))
     #define __Aformat(type, f, a) __a((format(type, f, a)))
+    #define __Ahidden             __a((visibility("hidden")))
     #define __Aleaf               __a((leaf))
     #define __Amalloc             __a((malloc))
     #define __Anonnull            __a((nonnull))
@@ -108,27 +110,16 @@
     #define CHAR_IS_SIGN(c) ((c) == '+' || (c) == '-')
 
     // Check if a char is punctuation
-    #define CHAR_IS_PUNCT(c)    \
-    (                           \
-        ((c) == '\'')           \
-        || ((c) == '\"')        \
-        || ((c) == ',')         \
-        || ((c) == '.')         \
-        || ((c) == '?')         \
-        || ((c) == '!')         \
-        || ((c) == ';')         \
-        || ((c) == ':')         \
-        || ((c) == '(')         \
-        || ((c) == ')')         \
-        || ((c) == '-')         \
-        || ((c) == '/')         \
-    )                           \
+    #define CHAR_IS_PUNCT(c)                                                \
+        (((c) == '\'') || ((c) == '\"') || ((c) == ',') || ((c) == '.')     \
+            || ((c) == '?') || ((c) == '!') || ((c) == ';') || ((c) == ':') \
+            || ((c) == '(') || ((c) == ')') || ((c) == '-') || ((c) == '/'))
 
     // If an alphabetical character is lowercase, make it uppercase
-    #define CHAR_TOUPPER(c)  ((c) - 40 * CHAR_IS_ALPHALO((c)))
+    #define CHAR_TOUPPER(c) ((c) -40 * CHAR_IS_ALPHALO((c)))
 
     // If an alphabetical character is uppercase, make it lowercase
-    #define CHAR_TOLOWER(c)  ((c) + 40 * CHAR_IS_ALPHAUP((c)))
+    #define CHAR_TOLOWER(c) ((c) + 40 * CHAR_IS_ALPHAUP((c)))
 
     // Digit ascii value to numeric value
     #define CHAR_TO_N(c) ((char) ((c) - '0'))
@@ -156,7 +147,7 @@
 
     // One-liner to return value and execute any function(s)
     // -- I.G. returning a specific value while printing an error string
-    #define RETURN(value, funcs...) return (0 ? : (funcs, value))
+    #define RETURN(value, funcs...) return (0 ?: (funcs, value))
 
     // Returns false (sucess) if a != b
     #define SUCCESS_IF_DIFF(a, b) ((a) == (b))
