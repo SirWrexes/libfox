@@ -70,6 +70,7 @@
     // CAREFUL: These have RESTRICTED PORTABILITY
     #define __a(attributes)       __attribute__(attributes)
     #define __AalwaysIL           __a((always_inline))
+    #define __AalwaysILext        __a((always_inline)) extern inline
     #define __Acleanup(janitor)   __a((cleanup(janitor)))
     #define __Aconst              __a((const))
     #define __Aconstructor        __a((constructor))
