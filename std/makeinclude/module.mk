@@ -19,16 +19,16 @@ NAME := std
 ################################################
 DEBUGMAIN := ./src/debugmain.c
 # --- TREE
-SRC := ./src/fox_strtol.c
-SRC +=
+SRC := ./src/fox_isprintable.c
+SRC += ./src/fox_strtol.c
 ################################################
 
 
 #
 # Tests (set relative to master Makefile path)
 ################################################
-TST := ./tests/test_fox_strtol.c
-TST +=
+TST := ./tests/test_fox_isprintable.c
+TST += ./tests/test_fox_strtol.c
 ################################################
 
 
