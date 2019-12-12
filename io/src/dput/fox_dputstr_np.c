@@ -18,7 +18,7 @@ __Apure static count_t getlen(str2c_t str)
     count_t i = 0;
 
     for (; *str != '\0'; str += 1)
-        i += (fox_isprintable(*str) || *str == '\n') ? 1 : 4;
+        i += fox_isprintable(*str) ? 1 : 4;
     return i;
 }
 

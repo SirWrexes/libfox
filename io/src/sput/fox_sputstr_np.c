@@ -16,7 +16,7 @@ __Anonnull __Aconst size_t fox_sputstr_np(str_t s, str2c_t str)
     size_t len = 0;
 
     while (true) {
-        for (i = 0; fox_isprintable(str[i]) || str[i] == '\n'; i += 1) {}
+        for (i = 0; fox_isprintable(str[i]); i += 1) {}
         fox_strncpy(s, str, i);
         str += i;
         s += i;
