@@ -12,13 +12,13 @@ MKRECIEPES := 1
 # Lib archive
 ##########################################
 %.a:
-	@if [ -e $@ ];                                                                    \
-	then                                                                              \
+	@if [ -e $@ ];                                                                   \
+	then                                                                             \
 	  $(ECHO$(BIN)) $(CBOLD)$(CLIGHTBLUE)"Update"$(CRESET) $(CLIGHTBLUE)$@$(CRESET); \
-	  ar ru $(BIN) $^;                                                                \
-	else                                                                              \
+	  ar ru $(BIN) $^;                                                               \
+	else                                                                             \
 	  $(ECHO$(BIN)) $(CBOLD)$(CLIGHTBLUE)"Create"$(CRESET) $(CLIGHTBLUE)$@$(CRESET); \
-	  ar rc $(BIN) $^;                                                                \
+	  ar rc $(BIN) $^;                                                               \
 	fi
 	@$(ECHO$(BIN)) $(CBOLD)$(CLIGHTBLUE)"Done."$(CRESET)
 ##########################################

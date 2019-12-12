@@ -23,6 +23,7 @@ MV              := mv -t
 GCOV            := gcovr
 CC              := gcc
 COMPILEDB       := compile_commands.json
+CTAGS           := tags
 .DEFAULT_GOAL   := all
 COMPILEDBTARGET := all tests debug
 ##########################################
