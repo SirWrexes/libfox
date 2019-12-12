@@ -22,4 +22,8 @@ void *fox_memcpy(void *dst, const void *src, size_t n) __a((nonnull(2)));
 // Set n bytes of pointed dst memory to value c
 void *fox_memset(void *dst, int c, size_t n);
 
+// Allocate a pointer for n items of size sz
+// Newly allocated memory is initialized to 0
+void *fox_calloc(size_t n, size_t sz) __Amalloc __AallocSz(1, 2);
+
 #endif /* !FOX_MEMORY_H */
