@@ -38,7 +38,6 @@
     #undef CHAR_IS_EOL
     #undef CHAR_IS_NUM
     #undef CHAR_IS_OP
-    #undef CHAR_IS_PRINTABLE
     #undef CHAR_IS_PUNCT
     #undef CHAR_IS_SIGN
     #undef CHAR_TOLOWER
@@ -85,10 +84,6 @@
     #define __Atransparent        __a((__transparent_union__))
     #define __Aunused             __a((unused))
 
-    // True if c is a printable ASCII char
-    #define CHAR_IS_PRINTABLE(c) \
-        (((signed char) ((c) - ' ')) >= 0 && (c) != 127)
-
     // Check if a char is an end of line (linebreak OR null char)
     #define CHAR_IS_EOL(c) ((c) == '\n' || (c) == '\0')
 
@@ -111,10 +106,20 @@
     #define CHAR_IS_SIGN(c) ((c) == '+' || (c) == '-')
 
     // Check if a char is punctuation
-    #define CHAR_IS_PUNCT(c)                                                \
-        (((c) == '\'') || ((c) == '\"') || ((c) == ',') || ((c) == '.')     \
-            || ((c) == '?') || ((c) == '!') || ((c) == ';') || ((c) == ':') \
-            || ((c) == '(') || ((c) == ')') || ((c) == '-') || ((c) == '/'))
+    #define CHAR_IS_PUNCT(c)    \
+        (((c) == '\'')          \
+         || ((c) == '\"')       \
+         || ((c) == ',')        \
+         || ((c) == '.')        \
+         || ((c) == '?')        \
+         || ((c) == '!')        \
+         || ((c) == ';')        \
+         || ((c) == ':')        \
+         || ((c) == '(')        \
+         || ((c) == ')')        \
+         || ((c) == '-')        \
+         || ((c) == '/')        \
+        )
 
     // If an alphabetical character is lowercase, make it uppercase
     #define CHAR_TOUPPER(c) ((c) -40 * CHAR_IS_ALPHALO((c)))

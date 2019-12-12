@@ -6,7 +6,9 @@
 */
 
 #include <stdbool.h>
+
 #include "fox_define.h"
+#include "fox_std.h"
 
 __Aconst static uchar_t to_index(char c)
 {
@@ -19,7 +21,7 @@ __Apure __a((nonnull(1))) char fox_verifbase(str2c_t base, size_t *size)
     size_t sz = 0;
     uchar_t i;
 
-    while (CHAR_IS_PRINTABLE(*base)) {
+    while (fox_isprintable(*base)) {
         i = to_index(*base);
         if (table[i])
             break;

@@ -83,6 +83,7 @@ DEPSRC += ../math/src/fox_unumsize.c
 DEPSRC += ../math/src/fox_verifbase.c
 DEPSRC += ../memory/src/fox_memcpy.c
 DEPSRC += ../memory/src/fox_memset.c
+DEPSRC += ../std/src/fox_isprintable.c
 DEPSRC += ../string/src/fox_strcpy.c
 DEPSRC += ../string/src/fox_strdup.c
 DEPSRC += ../string/src/fox_strlen.c
