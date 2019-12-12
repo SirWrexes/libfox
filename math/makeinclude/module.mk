@@ -37,7 +37,7 @@ TST += tests/test_fox_verifbase.c
 #
 # External dependency soucres
 ##########################################
-DEPSRC :=
+DEPSRC := ../std/src/fox_isprintable.c
 DEPSRC +=
 ##########################################
 
