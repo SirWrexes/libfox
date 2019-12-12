@@ -53,4 +53,10 @@ bool fox_isinstr(char c, str2c_t str) __Anonnull __Apure;
 size_t fox_strspn(str2c_t str, str2c_t accept) __Anonnull __Apure;
 size_t fox_strcspn(str2c_t str, str2c_t reject) __Anonnull __Apure;
 
+// Check if a string is strictly numeric meaning it has, in this order:
+// 1. An arbitrary number of spaces
+// 2. Any number of signs (+ and -)
+// 3. Series of numbers, may have 1 dot (.) separators
+bool fox_strisnum(str2c_t s) __Anonnull __Apure;
+
 #endif // FOX_STR_H
