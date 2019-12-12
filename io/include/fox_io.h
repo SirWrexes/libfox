@@ -31,6 +31,12 @@ scount_t fox_dputstr(int fd, str2c_t str);
 #define fox_putstr(str)  fox_dputstr(1, (str)) // -> STDOUT
 #define fox_eputstr(str) fox_dputstr(2, (str)) // -> STDERR
 
+// Print an error status corresponding to last errno value
+// s, if not null, will be written before the error, followed by ": "
+scount_t fox_dperror(int fd, str2c_t s);
+#define fox_perror(s)  fox_dperror(1, (s)) // -> STDOUT
+#define fox_eperror(s) fox_dperror(2, (s)) // -> STDERR
+
 // Print a string, including non printables as '\xxx' to a given fd
 scount_t fox_dputstr_np(int fd, str2c_t str);
 #define fox_putstr_np(str)  fox_dputstr_np(1, (str)) // -> STDOUT
