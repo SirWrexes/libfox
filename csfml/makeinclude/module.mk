@@ -20,6 +20,7 @@ NAME := csfml
 DEBUGMAIN := ./src/debugmain.c
 # -- Animation tools
 SRC := ./src/animinfo/ai_on_last_frame.c
+SRC += ./src/animinfo/ai_scale_current.c
 SRC += ./src/animinfo/ai_rect_current.c
 SRC += ./src/animinfo/ai_rect_first.c
 SRC += ./src/animinfo/ai_rect_next.c
@@ -33,6 +34,7 @@ SRC += ./src/animinfo/ai_type.c
 ################################################
 # -- Animation tools
 TST := ./tests/animinfo/test_ai_on_last_frame.c
+TST += ./tests/animinfo/test_ai_scale_current.c
 TST += ./tests/animinfo/test_ai_rect_current.c
 TST += ./tests/animinfo/test_ai_rect_first.c
 TST += ./tests/animinfo/test_ai_rect_next.c
