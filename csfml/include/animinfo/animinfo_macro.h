@@ -53,6 +53,42 @@
 
 /*******************************************************************
 **
+** FRAME SCALING
+** ↓
+****/
+
+// Macro to acess generated arrays
+#define animScale(entity, animation) \
+/* → */ FOXANIMSCALE_##entity_##animation
+
+// Use this macro to declare an animation scale table
+#define animScale_create(entity, animation) \
+/* → */ static const sfVector2f animScale(entity, animation)[] =
+
+// Safety macro to declare the last rectangle of an animation rect array
+#define __animScale_sentinel__ \
+/* → */ { .top = -1, .left = -1, .height = -1, .width = -1 }
+
+/*******************************************************************
+**
+** FRAME SCALING TABLE
+** ↓
+****/
+
+// Macro to access generated arrays
+#define animScaleTab(entity) \
+/* → */ FOXRECTTAB_##entity
+
+// Use this macro to make a rectangle array table
+#define animScaleTab_create(entity) \
+/* → */ extern const sfVector2f *animScaleTab(entity)[]
+
+// Use this macro to init a rectangle array table
+#define animScaleTab_init(entity, size...) \
+/* → */ const sfVector2f *animScaleTab(entity)[size] =
+
+/*******************************************************************
+**
 ** ANIMATION TYPE ARRAY
 ** ↓
 ****/
