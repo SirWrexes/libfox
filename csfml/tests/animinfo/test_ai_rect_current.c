@@ -35,7 +35,7 @@ Test(ai_rect_current, regular_usage)
     struct animation_info ai = {
         .current = 0,
         .frame = 0,
-        .rects = animRectTab(testai)
+        .rect = animRectTab(testai)
     };
 
     cr_expect_eq(ai_rect_current(&ai)->left, animRect(testai0)[0].left);

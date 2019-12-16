@@ -30,21 +30,21 @@ static animRectTab_init(testai)
     animRect(testai1)
 };
 
-Test(ai_rect_next, regular_usage)
+Test(ai_rect_prev, regular_usage)
 {
     struct animation_info ai = {
         .current = 0,
-        .frame = 0,
+        .frame = 1,
         .rect = animRectTab(testai)
     };
 
-    cr_expect_eq(ai_rect_next(&ai)->left, animRect(testai1)[0].left);
-    cr_expect_eq(ai_rect_next(&ai)->top, animRect(testai1)[0].top);
-    cr_expect_eq(ai_rect_next(&ai)->height, animRect(testai1)[0].height);
-    cr_expect_eq(ai_rect_next(&ai)->width, animRect(testai1)[0].width);
+    cr_expect_eq(ai_rect_prev(&ai)->left, animRect(testai0)[0].left);
+    cr_expect_eq(ai_rect_prev(&ai)->top, animRect(testai0)[0].top);
+    cr_expect_eq(ai_rect_prev(&ai)->height, animRect(testai0)[0].height);
+    cr_expect_eq(ai_rect_prev(&ai)->width, animRect(testai0)[0].width);
     ai.current = 1;
-    cr_expect_eq(ai_rect_next(&ai)->left, animRect(testai0)[0].left);
-    cr_expect_eq(ai_rect_next(&ai)->top, animRect(testai0)[0].top);
-    cr_expect_eq(ai_rect_next(&ai)->height, animRect(testai0)[0].height);
-    cr_expect_eq(ai_rect_next(&ai)->width, animRect(testai0)[0].width);
+    cr_expect_eq(ai_rect_prev(&ai)->left, animRect(testai1)[0].left);
+    cr_expect_eq(ai_rect_prev(&ai)->top, animRect(testai1)[0].top);
+    cr_expect_eq(ai_rect_prev(&ai)->height, animRect(testai1)[0].height);
+    cr_expect_eq(ai_rect_prev(&ai)->width, animRect(testai1)[0].width);
 }
