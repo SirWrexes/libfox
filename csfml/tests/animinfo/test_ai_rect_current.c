@@ -10,14 +10,14 @@
 
 #include "fox_csfml.h"
 
-animRect_create(testai0)
+animRect_create(test, 1)
 {
     {.top = 23, .left = 42, .height = 32, .width = 24},
     {.top = 10, .left = 20, .height = 30, .width = 40},
     __animRect_sentinel__
 };
 
-animRect_create(testai1)
+animRect_create(test, 2)
 {
     {.top = 10, .left = 20, .height = 30, .width = 40},
     {.top = 23, .left = 42, .height = 32, .width = 24},
@@ -26,8 +26,8 @@ animRect_create(testai1)
 
 static animRectTab_init(testai, 2)
 {
-    animRect(testai0),
-    animRect(testai1)
+    animRect(test, 1),
+    animRect(test, 2)
 };
 
 Test(ai_rect_current, regular_usage)
@@ -38,13 +38,13 @@ Test(ai_rect_current, regular_usage)
         .rect = animRectTab(testai)
     };
 
-    cr_expect_eq(ai_rect_current(&ai)->left, animRect(testai0)[0].left);
-    cr_expect_eq(ai_rect_current(&ai)->top, animRect(testai0)[0].top);
-    cr_expect_eq(ai_rect_current(&ai)->height, animRect(testai0)[0].height);
-    cr_expect_eq(ai_rect_current(&ai)->width, animRect(testai0)[0].width);
+    cr_expect_eq(ai_rect_current(&ai)->left, animRect(test, 1)[0].left);
+    cr_expect_eq(ai_rect_current(&ai)->top, animRect(test, 1)[0].top);
+    cr_expect_eq(ai_rect_current(&ai)->height, animRect(test, 1)[0].height);
+    cr_expect_eq(ai_rect_current(&ai)->width, animRect(test, 1)[0].width);
     ai.current = 1;
-    cr_expect_eq(ai_rect_current(&ai)->left, animRect(testai1)[0].left);
-    cr_expect_eq(ai_rect_current(&ai)->top, animRect(testai1)[0].top);
-    cr_expect_eq(ai_rect_current(&ai)->height, animRect(testai1)[0].height);
-    cr_expect_eq(ai_rect_current(&ai)->width, animRect(testai1)[0].width);
+    cr_expect_eq(ai_rect_current(&ai)->left, animRect(test, 2)[0].left);
+    cr_expect_eq(ai_rect_current(&ai)->top, animRect(test, 2)[0].top);
+    cr_expect_eq(ai_rect_current(&ai)->height, animRect(test, 2)[0].height);
+    cr_expect_eq(ai_rect_current(&ai)->width, animRect(test, 2)[0].width);
 }

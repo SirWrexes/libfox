@@ -75,17 +75,17 @@ struct sound_effect {
 
 // Animation types
 enum animation_type {
-    ANIM_TYPE_PING_PONG, // Rects go back and forth
-    ANIM_TYPE_LOOP,      // When last rect is reached, cycle in reverse order
-    ANIM_TYPE_ONCE,      // Stay on last frame after a cycle
-    ANIM_TYPE_NONE,      // No animation
+    ANIM_TYPE_NONE, // No animation
+    ANIM_TYPE_ONCE, // Stay on last frame after a cycle
+    ANIM_TYPE_LOOP, // When last rect is reached, cycle in reverse order
+    ANIM_TYPE_PONG, // Rects go back and forth
 
     ANIM_TYPE_COUNT
 };
 
 // Animation info object
 struct animation_info {
-    const unsigned total;       // Total count of animations
+    const unsigned total;      // Total count of animations
     const animtype_t *type;    // Anim types      // @type[total]
     const sfIntRect **rect;    // Anim rectangles // @*rect[total]
     const sfVector2f ***scale; // Anim scales     // @*scale[total][frame]

@@ -10,9 +10,12 @@
 
 #include "fox_csfml.h"
 
-static animType_init(test, 1)
+static animType_init(test, ANIM_TYPE_COUNT)
 {
-    ANIM_TYPE_PING_PONG
+    [ANIM_TYPE_NONE] = ANIM_TYPE_NONE,
+    [ANIM_TYPE_ONCE] = ANIM_TYPE_ONCE,
+    [ANIM_TYPE_LOOP] = ANIM_TYPE_LOOP,
+    [ANIM_TYPE_PONG] = ANIM_TYPE_PONG
 };
 
 Test(ai_type, regular_usage)
@@ -22,5 +25,8 @@ Test(ai_type, regular_usage)
         .type = animType(test)
     };
 
-    cr_expect_eq(ai_type(&ai), animType(test)[0]);
+    for (animtype_t i = 0; i < ANIM_TYPE_COUNT; i += 1) {
+        ai.current = i;
+        cr_expect_eq(ai_type(&ai), animType(test)[ai.current]);
+    }
 }

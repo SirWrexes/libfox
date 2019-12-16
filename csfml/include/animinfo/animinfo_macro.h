@@ -20,12 +20,12 @@
 ****/
 
 // Macro to acess generated arrays
-#define animRect(name) \
-/* → */ FOXANIMRECT_##name
+#define animRect(entity, animation) \
+/* → */ FOXANIMRECT_##entity_##animation
 
 // Use this macro to declare an animation rectangle array for 1 animation
-#define animRect_create(name) \
-/* → */ static const sfIntRect animRect(name)[] =
+#define animRect_create(entity, animation) \
+/* → */ static const sfIntRect animRect(entity, animation)[] =
 
 // Safety macro to declare the last rectangle of an animation rect array
 #define __animRect_sentinel__                                \
@@ -40,16 +40,16 @@
 ****/
 
 // Macro to access generated arrays
-#define animRectTab(name) \
-/* → */ FOXRECTTAB_##name
+#define animRectTab(entity) \
+/* → */ FOXRECTTAB_##entity
 
 // Use this macro to make a rectangle array table
-#define animRectTab_create(name) \
-/* → */ extern const sfIntRect *animRectTab(name)[]
+#define animRectTab_create(entity) \
+/* → */ extern const sfIntRect *animRectTab(entity)[]
 
 // Use this macro to init a rectangle array table
-#define animRectTab_init(name, size...) \
-/* → */ const sfIntRect *animRectTab(name)[size] =
+#define animRectTab_init(entity, size...) \
+/* → */ const sfIntRect *animRectTab(entity)[size] =
 
 /*******************************************************************
 **

@@ -31,7 +31,9 @@ SRC += ./src/animinfo/ai_type.c
 #
 # Tests (set relative to master Makefile path)
 ################################################
-TST := ./tests/animinfo/test_ai_rect_current.c
+# -- Animation tools
+TST := ./tests/animinfo/test_ai_on_last_frame.c
+TST += ./tests/animinfo/test_ai_rect_current.c
 TST += ./tests/animinfo/test_ai_rect_first.c
 TST += ./tests/animinfo/test_ai_rect_next.c
 TST += ./tests/animinfo/test_ai_rect_prev.c
