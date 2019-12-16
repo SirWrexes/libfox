@@ -22,6 +22,9 @@
 ** ↓
 ****/
 
+// Sound effect object
+typedef struct sound_effect *sfx_t;
+
 // Animation type
 // [NONE, ONCE, LOOP, PING_PONG]
 typedef enum animation_type animtype_t;
@@ -40,9 +43,6 @@ typedef void (*entevt_t)(entity_t *);
 
 // Entity list
 typedef struct game_entity_list *entlist_t;
-
-// Sound effect object
-typedef struct sound_effect *sfx_t;
 
 // Scene object
 typedef struct game_scene *scene_t;
@@ -69,7 +69,7 @@ struct sound_effect {
 
 /*******************************************************************
 **
-** ANIMATION DATA
+** ANIMATIONS
 ** ↓
 ****/
 
@@ -85,9 +85,9 @@ enum animation_type {
 
 // Animation info object
 struct animation_info {
-    const unsigned total;      // Total count of animations
-    const animtype_t *type;    // Anim types      // @type[total]
-    const sfIntRect **rect;    // Anim rectangles // @rect[total][frame]
+    const unsigned total;     // Total count of animations
+    const animtype_t *type;   // Anim types      // @type[total]
+    const sfIntRect **rect;   // Anim rectangles // @rect[total][frame]
     const sfVector2f **scale; // Anim scales     // @scale[total][frame]
 
     unsigned current; // Current animation
@@ -108,7 +108,7 @@ struct animation_info {
 // Sprite object
 struct sprite_info {
     unsigned entid;            // Type of the entity the sprite is attached to
-    const sfTexture **texture; // Textures
+    const sfTexture **texture; // Textures            // @*texture[MAX{entid}]
     sfSprite *sprite;          // Sprite itself
     sfVector2f position;       // Sprite starting position
     sfVector2f origin;         // Sprite center
@@ -160,12 +160,13 @@ struct game_scene {
         sfRenderWindow *ptr;     // Scene window
     } window;
 
-    struct sprite_info spinfo;        // Background sprite
     sfMusic *bgmusic;                 // Music for the scene
     sfEvent event;                    // Event container
     struct game_entity_list entities; // Scene entities
 
     const scnevt_t (*on_event)[sfEvtCount];
+
+    struct sprite_info bgsprites[]; // Array of sprite info for background
 };
 
 #endif /* !DATASTRUCT_H */
