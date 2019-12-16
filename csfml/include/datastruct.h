@@ -86,9 +86,9 @@ enum animation_type {
 // Animation info object
 struct animation_info {
     const unsigned total;       // Total count of animations
-    const animtype_t *types;    // Anim types      // @types[total]
-    const sfIntRect **rects;    // Anim rectangles // @*rects[total]
-    const sfVector2f ***scales; // Anim scales     // @*rects[total][frame]
+    const animtype_t *type;    // Anim types      // @type[total]
+    const sfIntRect **rect;    // Anim rectangles // @*rect[total]
+    const sfVector2f ***scale; // Anim scales     // @*scale[total][frame]
 
     unsigned current; // Current animation
     unsigned frame;   // Current frame
