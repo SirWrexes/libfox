@@ -15,9 +15,8 @@
 
 /*******************************************************************
 **
-** ANIMATION RECTANGLES GENERATION
-** ↓ See datastruct.h's @ section in animation_info definition for
-** ↓ more information (until I maybe someday write a real doc).
+** ANIMATION RECTANGLES
+** ↓
 ****/
 
 // Macro to acess generated arrays
@@ -33,6 +32,12 @@
 /* → */ {                                                    \
 /* → */     .top = -1, .left = -1, .height = -1, .width = -1 \
 /* → */ }
+
+/*******************************************************************
+**
+** ANIMATION RECTANGLE TABLE
+** ↓
+****/
 
 // Macro to access generated arrays
 #define animRectTab(name) \
@@ -53,17 +58,17 @@
 ****/
 
 // Macro to access generated arrays
-#define __FOXANIMTYPE(name) \
+#define animType(name) \
 /* → */ FOXANIMTYPE_##name
 
 // Use this macro to create an animation type array
 // Size is optional but recommended for safety
-#define __FOXANIMTAB_CREATE(name) \
-/* → */ extern const animtype_t *__FOXANIMTYPE(name)[]
+#define animeType_create(name) \
+/* → */ extern const animtype_t animType(name)[]
 
 // Use this macro to assign values to an animation type array
 // Size is optional but recommended for safety
-#define __FOXANIMTYPE_INIT(name, size...) \
-/* → */ const animtype_t *__FOXANIMTYPE(name)[##size] =
+#define animType_init(name, size...) \
+/* → */ const animtype_t animType(name)[size] =
 
 #endif /* !ANIMINFO_H */
