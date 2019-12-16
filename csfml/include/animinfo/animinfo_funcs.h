@@ -25,8 +25,14 @@ animtype_t ai_type(animinfo_t ai) __Anonnull;
 // Get the adress of the current animation rectangle
 const sfIntRect *ai_rect_current(animinfo_t ai) __Anonnull;
 
+// Get the adress of the first animation rectangle
+const sfIntRect *ai_rect_first(animinfo_t ai) __Anonnull;
+
 // Get the adress of the next animation rectangle
 const sfIntRect *ai_rect_next(animinfo_t ai) __Anonnull;
+
+// Get the adress of the previous animation rectangle
+const sfIntRect *ai_rect_prev(animinfo_t ai) __Anonnull;
 
 // Check if an animation is on its last frame
 bool ai_on_last_frame(animinfo_t ai) __Anonnull;
