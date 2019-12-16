@@ -64,7 +64,7 @@ $(DEBUGBIN): CFLAGS += -ggdb3 -rdynamic
 $(DEBUGBIN): SRC    += $(DEPSRC) $(DEBUGMAIN)
 $(DEBUGBIN): completion-tools
 $(DEBUGBIN): $(SRC) $(DEBUGMAIN)
-	$(CC) -o $@ $(CFLAGS) $(SRC)
+	$(CC) -o $@ $(CFLAGS) $(SRC) $(LDLIBS)
 #########################################################################################
 
 
@@ -76,7 +76,7 @@ $(TESTBIN): COMPILEDBTARGET := $(TESTBIN)
 $(TESTBIN): CFLAGS += --coverage
 $(TESTBIN): CFLAGS += $(WRAPFLAGS)
 $(TESTBIN): CFLAGS += $(CMDCFLAGS)
-$(TESTBIN): LDLIBS := -lcriterion
+$(TESTBIN): LDLIBS += -lcriterion
 $(TESTBIN): SRC    += $(DEPSRC) $(TST) $(WRAPSRC)
 $(TESTBIN): completion-tools
 	@$(RM) $(COV)
@@ -88,7 +88,7 @@ test_report: $(TESTBIN)
 	@$(ECHO$(BIN)) $(CUNDERLN)$(CGREEN)$(REPORTTXT)$(CRESET)
 	@./$(TESTBIN) $(UTFLAGS)
 	@$(RM) $(notdir $(DEPSRC:.c=.gc*) $(WRAPSRC:.c=.gc*))
-	-@$(GCOV) $(COVFLAGS)
+	@$(GCOV) $(COVFLAGS)
 #########################################################################################
 
 

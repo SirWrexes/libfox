@@ -11,17 +11,21 @@ MKBUILDCONF := 1
 #
 # Build settings
 ##########################################
-INCDIRS     := ./include ../extra/include
-CFLAGS      := -std=gnu99
-CFLAGS      += -Wall -Wextra
-CFLAGS      += -Werror
-CFLAGS      += $(foreach dir, $(INCDIRS), -iquote $(dir))
-##########################################
-OBJ         := $(SRC:.c=.o) $(DEPSRC:.c=.o)
-DEP         := $(OBJ:.o=.d) $(DEPSRC:.c=.d)
-COV         := $(notdir $(OBJ:.o=.gc*)) $(notdir $(TST:.c=.gc*)) $(notdir $(WRAPSRC:.c=.gc*))
+INCDIRS := ./include ../extra/include
+# -------------------------------------- #
+CFLAGS := -std=gnu99
+CFLAGS += -Wall -Wextra
+CFLAGS += -Werror
+CFLAGS += $(foreach dir, $(INCDIRS), -iquote $(dir))
+# -------------------------------------- #
+LDLIBS := $(foreach lib, $(LIBS), -l$(lib))
+# -------------------------------------- #
+OBJ    := $(SRC:.c=.o) $(DEPSRC:.c=.o)
+DEP    := $(OBJ:.o=.d) $(DEPSRC:.c=.d)
 -include $(DEP)
-.PRECIOUS   := $(DEP)
+.PRECIOUS := $(DEP)
+# -------------------------------------- #
+COV := $(notdir $(OBJ:.o=.gc*)) $(notdir $(TST:.c=.gc*)) $(notdir $(WRAPSRC:.c=.gc*))
 ##########################################
 
 

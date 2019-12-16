@@ -28,7 +28,7 @@ MKRECIEPES := 1
 ##########################################
 %.o: CFLAGS += -MT $@ -MMD
 %.o: %.c
-	@$(CC) $(CFLAGS) -c -o $@ $<
+	@$(CC) $(CFLAGS) -c -o $@ $< $(LDLIBS)
 	@$(ECHO$(BIN)) $(CLIGHTGREEN)$(CBOLD)"Compile OK ✓"$(CRESET) $@
 ##########################################
 
