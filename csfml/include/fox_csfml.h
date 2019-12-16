@@ -8,7 +8,8 @@
 #ifndef FOX_CSFML_H
 #define FOX_CSFML_H
 
-#include "animinfo.h"
 #include "datastruct.h"
+#include "animinfo/animinfo_funcs.h"
+#include "animinfo/animinfo_macro.h"
 
 #endif /* !FOX_CSFML_H */
