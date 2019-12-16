@@ -8,11 +8,19 @@
 #include <criterion/criterion.h>
 #include <criterion/redirect.h>
 
-#include "datastruct.h"
+#include "fox_csfml.h"
+
+static animType_init(test, 1)
+{
+    ANIM_TYPE_PING_PONG
+};
 
 Test(ai_type, regular_usage)
 {
     struct animation_info ai = {
-        .current = ANIM_TYPE_LOOP,
-    }
+        .current = 0,
+        .type = animType(test)
+    };
+
+    cr_expect_eq(ai_type(&ai), animType(test)[0]);
 }

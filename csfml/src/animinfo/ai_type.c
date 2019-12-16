@@ -10,5 +10,5 @@
 
 __Anonnull __AalwaysILext unsigned ai_type(animinfo_t ai)
 {
-    return ai->types[ai->current];
+    return ai->type[ai->current];
 }

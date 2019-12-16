@@ -9,5 +9,5 @@
 
 __Anonnull __AalwaysILext const sfIntRect *ai_rect_current(animinfo_t a)
 {
-    return &a->rects[a->current][a->frame];
+    return &a->rect[a->current][a->frame];
 }

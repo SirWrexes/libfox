@@ -8,7 +8,7 @@
 #include "fox_define.h"
 #include "datastruct.h"
 
-__Anonnull __AalwaysILext const sfIntRect *ai_next_rect(animinfo_t ai)
+__Anonnull __AalwaysILext const sfIntRect *ai_rect_next(animinfo_t ai)
 {
-    return &ai->rects[ai->current][ai->frame + 1];
+    return &ai->rect[ai->current][ai->frame + 1];
 }
