@@ -14,6 +14,7 @@ CP      := cp -t
 MV      := mv -t
 .DEFAULT_GOAL := all
 
+MODULES += csfml
 MODULES += datastruct
 MODULES += io
 MODULES += math
