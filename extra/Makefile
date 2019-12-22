@@ -15,9 +15,6 @@ include ./makeinclude/module.mk
 # ↓ Module configuration
 include ./makeinclude/makeconf.mk
 
-# ↓ Unit test libc wrappers
-include ./makeinclude/wrappers.mk
-
 # ↓ Various build configuration
 include ./makeinclude/builconf.mk
 

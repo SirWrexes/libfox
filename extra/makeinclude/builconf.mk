@@ -17,6 +17,7 @@ CFLAGS := -std=gnu99
 CFLAGS += -Wall -Wextra
 CFLAGS += -Werror
 CFLAGS += $(foreach dir, $(INCDIRS), -iquote $(dir))
+CFLAGS += $(CUSTOM_CFLAGS)
 # -------------------------------------- #
 LDLIBS := $(foreach lib, $(LIBS), -l$(lib))
 # -------------------------------------- #
@@ -25,7 +26,7 @@ DEP    := $(OBJ:.o=.d) $(DEPSRC:.c=.d)
 -include $(DEP)
 .PRECIOUS := $(DEP)
 # -------------------------------------- #
-COV := $(notdir $(OBJ:.o=.gc*)) $(notdir $(TST:.c=.gc*)) $(notdir $(WRAPSRC:.c=.gc*))
+COV := $(notdir $(OBJ:.o=.gc*)) $(notdir $(TST:.c=.gc*))
 ##########################################
 
 
@@ -33,6 +34,7 @@ COV := $(notdir $(OBJ:.o=.gc*)) $(notdir $(TST:.c=.gc*)) $(notdir $(WRAPSRC:.c=.
 # Test config
 ##########################################
 UTFLAGS := --always-succeed --timeout 5
+UTFLAGS += $(CUSTOM_UTFLAGS)
 COVFLAGS := -s --exclude-unreachable-branches
 COVFLAGS += $(foreach s, $(DEPSRC), -e $(notdir $(s)))
 COVFLAGS += --exclude='.*test_.*'
