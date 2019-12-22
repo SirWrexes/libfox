@@ -1,0 +1,76 @@
+/*
+** EPITECH PROJECT, 2019
+** csfml
+** File description:
+** macro.h -- No description
+*/
+
+#ifndef MACRO_H
+#define MACRO_H
+
+#include "datastruct.h"
+#include "private.h"
+
+// Variable name resolution based on sprite name and anim name
+#define foxAnim(sprite, anim) FOXCSFML_ANIM_##sprite##_##anim
+
+// Set an id for an animation
+// For each sprite, every animation must have its own unique ID starting from 0
+// to max animation count.
+// An enum is recommended, example:
+//     enum mysprite_anims {
+//         MYSPRITE_IDLE,
+//         MYSPRITE_MOVE,
+//         ...
+//     };
+//     foxAnim_id(sprite, idle, MYSPRITE_IDLE);
+#define foxAnim_id(sprite, anim, id) \
+    __StaConst(unsigned) __foxAnim_key(sprite, anim, ID) = (id)
+
+// Set an animation's type
+// Possible type values:
+//   - ANIM_TYPE_NONE
+//   - ANIM_TYPE_ONCE
+//   - ANIM_TYPE_LOOP
+//   - ANIM_TYPE_PONG
+#define foxAnim_type(sprite, anim, type) \
+    __StaConst(animtype_t) __foxAnim_key(sprite, anim, TYPE) = (type)
+
+// Set a collection of rectangles for an animation
+// foxAnim_rectangles(sprite, anim) = {
+//     {.left = ..., .top = ..., .right = ..., .bottom = ...},
+//     {.left = ..., .top = ..., .right = ..., .bottom = ...},
+//     ...
+// }
+#define foxAnim_rectangles(sprite, anim) \
+    __StaConst(sfIntRect) __foxAnim_key(sprite, anim, RECTS)[]
+
+// Set a collection of scales for an animation
+// foxAnim_scale(sprite, anim) = {
+//     {.x = ..., .y = ...},
+//     {.x = ..., .y = ...},
+//     ...
+// }
+#define foxAnim_scale(sprite, anim) \
+    __StaConst(sfVector2f) __foxAnim_key(sprite, anim, SCALE)[]
+
+// Decalre an array of animations for a sprite
+// foxAnim_meta_list(sprite) = {
+//     foxAnim_meta(sprite, anim1),
+//     foxAnim_meta(sprite, anim2),
+//     ...
+// };
+#define foxAnim_meta_list(sprite) \
+    __StaConst(struct animation_meta) __foxAnim_meta_list(sprite)[]
+
+// Set default values for an animation
+#define foxAnim_meta(sprite, anim)                       \
+    [__foxAnim_key(sprite, anim, ID)] {                 \
+        .id = __foxAnim_key(sprite, anim, ID),          \
+        .type = __foxAnim_key(sprite, anim, TYPE),      \
+        .maxframes = __foxAnim_maxframes(sprite, anim), \
+        .rect = __foxAnim_key(sprite, anim, RECTS),     \
+        .scale = __foxAnim_key(sprite, anim, SCALE),    \
+    }
+
+#endif /* !MACRO_H */
