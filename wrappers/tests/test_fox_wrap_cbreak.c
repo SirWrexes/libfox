@@ -13,6 +13,8 @@
 
 Test(wrap_cbreak, regular_usage, .init = break_cbreak)
 {
+
+    nocbreak();
     cr_expect_eq(cbreak(), ERR);
     fix_cbreak();
     cr_expect_neq(cbreak(), ERR);
