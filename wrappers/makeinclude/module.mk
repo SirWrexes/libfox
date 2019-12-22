@@ -17,7 +17,7 @@ NAME := wrappers
 #
 # Sources (set relative to master Makefile path)
 ################################################
-DEBUGMAIN := ./src/macrotest.c
+DEBUGMAIN := ./src/debugmain.c
 SRC := ./src/fox_wrap_cbreak.c
 SRC += ./src/fox_wrap_close.c
 SRC += ./src/fox_wrap_initscr.c
@@ -38,17 +38,17 @@ TST += ./tests/test_fox_wrap_close.c
 TST += ./tests/test_fox_wrap_initscr.c
 TST += ./tests/test_fox_wrap_keypad.c
 TST += ./tests/test_fox_wrap_malloc.c
-TST += ./tests/test_fox_wrap_noecho.c
-TST += ./tests/test_fox_wrap_open.c
-TST += ./tests/test_fox_wrap_read.c
-TST += ./tests/test_fox_wrap_write.c
+#TST += ./tests/test_fox_wrap_noecho.c
+#TST += ./tests/test_fox_wrap_open.c
+#TST += ./tests/test_fox_wrap_read.c
+#TST += ./tests/test_fox_wrap_write.c
 ################################################
 
 
 #
 # External dependency soucres
 ################################################
-DEPSRC :=
+DEPSRC := ../memory/src/fox_autofree.c
 DEPSRC +=
 ################################################
 
@@ -58,6 +58,22 @@ DEPSRC +=
 ################################################
 LIBS := ncurses
 LIBS +=
+################################################
+
+
+#
+# Fetch every wrapper and make corresponding flag
+#############################################################
+WRAPPED := $(subst .c,,$(subst fox_wrap_,,$(notdir $(SRC))))
+# --------------------------------------------------------- #
+WRAPPREFIX := -Wl,--wrap=
+WRAPFLAGS  := $(addprefix $(WRAPPREFIX),$(WRAPPED))
+#############################################################
+
+#
+# Custom CFLAGS
+################################################
+CUSTOM_CFLAGS := $(WRAPFLAGS)
 ################################################
 
 endif
