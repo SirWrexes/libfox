@@ -9,6 +9,7 @@
 #define DATASTRUCT_H
 
 #include "types/foxcsfml_animation.h"
+#include "types/foxcsfml_constructordata.h"
 #include "types/foxcsfml_entity.h"
 #include "types/foxcsfml_scene.h"
 #include "types/foxcsfml_sound.h"
