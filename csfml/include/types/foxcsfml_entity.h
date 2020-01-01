@@ -27,16 +27,13 @@ struct game_entity {
     struct game_entity *prev; // Previous entity in the list
     struct game_entity *next; // Next entity in the list
 
-    enum {
-        ALIVE,
-        DEAD,
-    } state;     // Entity's state
-    health_t hp; // Entity helth
+    health_t hp;                // Entity helth
+    enum { ALIVE, DEAD } state; // Entity's state
 
-    const sfTime tick;   // Update time limit
-    const sfTime **tock; // Time since last tick
+    const sfTime tick; // Update time limit (independant of animation's)
+    sfTime elapsed;    // Time since last tick
 
-    const entevt_t (*on_event)[sfEvtCount]; // Event handlers
+    const entevt_t on_event[sfEvtCount]; // Event handlers
 
     struct sprite_info spinfo; // Sprite info
 };
