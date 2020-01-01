@@ -31,6 +31,7 @@
     #undef __Apure
     #undef __Atransparent
     #undef __Aunused
+    #undef ARRAY_SIZE
     #undef CHAR_IS_ALPHA
     #undef CHAR_IS_ALPHALO
     #undef CHAR_IS_ALPHANUM
@@ -85,6 +86,9 @@
     #define __Atransparent        __a((__transparent_union__))
     #define __Aunused             __a((unused))
 
+    // Get the number of elements in an array
+    #define ARRAY_SIZE(array) (sizeof((array)) / sizeof((*array)))
+
     // Check if a char is an end of line (linebreak OR null char)
     #define CHAR_IS_EOL(c) ((c) == '\n' || (c) == '\0')
 
@@ -107,19 +111,19 @@
     #define CHAR_IS_SIGN(c) ((c) == '+' || (c) == '-')
 
     // Check if a char is punctuation
-    #define CHAR_IS_PUNCT(c)    \
-        (((c) == '\'')          \
-         || ((c) == '\"')       \
-         || ((c) == ',')        \
-         || ((c) == '.')        \
-         || ((c) == '?')        \
-         || ((c) == '!')        \
-         || ((c) == ';')        \
-         || ((c) == ':')        \
-         || ((c) == '(')        \
-         || ((c) == ')')        \
-         || ((c) == '-')        \
-         || ((c) == '/')        \
+    #define CHAR_IS_PUNCT(c)   \
+        (((c) == '\'')         \
+        || ((c) == '\"')       \
+        || ((c) == ',')        \
+        || ((c) == '.')        \
+        || ((c) == '?')        \
+        || ((c) == '!')        \
+        || ((c) == ';')        \
+        || ((c) == ':')        \
+        || ((c) == '(')        \
+        || ((c) == ')')        \
+        || ((c) == '-')        \
+        || ((c) == '/')        \
         )
 
     // If an alphabetical character is lowercase, make it uppercase
