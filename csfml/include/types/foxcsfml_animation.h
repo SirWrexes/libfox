@@ -24,11 +24,11 @@ typedef enum animation_type {
 
 // Animation info object
 typedef struct animation_info {
-    const sfTime tick;       // Update time
     const animtype_t type;   // Type
     const sfIntRect *rect;   // Rectangles
     const sfVector2f *scale; // Scale for each frame
 
+    const sfTime tick;  // Update time
     sfTime elapsed;     // Time since last update
     unsigned frame;     // Current frame
     unsigned maxframes; // Maximum number of frames
@@ -37,6 +37,6 @@ typedef struct animation_info {
         PP_FORWARD = 1,
         PP_BACKWARD = -1
     } pongstep; // If animation is a ping pong, this is the step incrementer
-} *animinfo_t;
+} * animinfo_t;
 
 #endif /* !FOXCSFML_ANIMATION_H */
