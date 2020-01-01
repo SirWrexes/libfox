@@ -22,13 +22,13 @@
 ** I hope this makes your experiences with CSFML better !
 */
 
-// This is the object structures
+// Object types (game objects, sfx, scenes, constructor data, etc)
 #include "types/foxcsfml_types.h"
 
-// This is the part that generates your objects and constructors
-// Macros preceeded with the "STATIC" comment generate static const variables.
-// To avoid clogging your memory, use them only in headers that you include in
-// the source containing your object's constructor.
+// All the functions you can find in this module
+#include "funcs/foxcsfml_funcs.h"
+
+// Some macros to facilitate steps for creating object defaults
 #include "internal/foxcsfml_internal.h"
 
 #endif /* !FOX_CSFML_H */
