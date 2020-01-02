@@ -29,6 +29,6 @@
 #include "funcs/foxcsfml_funcs.h"
 
 // Some macros to facilitate steps for creating object defaults
-#include "internal/foxcsfml_internal.h"
+#include "macro/foxcsfml_macro.h"
 
 #endif /* !FOX_CSFML_H */
