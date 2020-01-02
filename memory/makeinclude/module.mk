@@ -32,6 +32,9 @@ TST += ./tests/test_fox_autofree.c
 TST += ./tests/test_fox_memcpy.c
 TST += ./tests/test_fox_memset.c
 TST += ./tests/test_fox_calloc.c
+# --- Wrappers
+TST += ../wrap_libc/src/fox_wrap_malloc.c
+WRAPFLAGS := -Wl,--wrap=malloc
 ################################################
 
 

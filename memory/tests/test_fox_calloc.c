@@ -7,7 +7,7 @@
 
 #include <criterion/criterion.h>
 #include <criterion/redirect.h>
-#include "tests/fox_wrappers.h"
+#include "tests/wrappers/wrap_malloc.h"
 
 #include "fox_memory.h"
 
