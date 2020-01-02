@@ -91,7 +91,14 @@ tests: $(MODULES)
 #
 # Completion tools
 ###################################################################
-.PHONY: compiledb
+.PHONY: completion-tools tags ctags compiledb
+# --------------------------------------------------------------- #
+completion-tools: RULE := completion-tools
+completion-tools: $(MODULES)
+# --------------------------------------------------------------- #
+ctags: RULE := ctags
+ctags: $(MODULES)
+# --------------------------------------------------------------- #
 compiledb: RULE := compiledb
 compiledb: $(MODULES)
 ###################################################################
