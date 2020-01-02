@@ -27,9 +27,10 @@ endif
 # ------------------------------------------------------------------------------------- #
 .PHONY: ctags
 ifneq "$(shell which ctags 2>/dev/null)" ""
+ctags: CURRDIR := $(shell pwd)
 ctags:
 	@$(ECHO$(BIN)) $(CBOLD)$(CLIGHTBLUE)"Create"$(CRESET) $(CLIGHTBLUE)"$(CTAGS)"$(CRESET)
-	@ctags -R .
+	@ctags -Ro "$(CURRDIR)/tags" $(CURRDIR)
 	@$(ECHO$(BIN)) $(CBOLD)$(CLIGHTBLUE)"Done."$(CRESET)
 else
 ctags:
@@ -64,7 +65,7 @@ $(DEBUGBIN): CFLAGS += -ggdb3 -rdynamic
 $(DEBUGBIN): SRC    += $(DEPSRC) $(DEBUGMAIN)
 $(DEBUGBIN): completion-tools
 $(DEBUGBIN): $(SRC) $(DEBUGMAIN)
-	$(CC) -o $@ $(CFLAGS) $(SRC) $(LDLIBS)
+	$(CC) -o $@ $(CFLAGS) $(SRC) $(LDLIBS) $(CMDOPTS)
 #########################################################################################
 
 
@@ -96,8 +97,13 @@ test_report: $(TESTBIN)
 #
 # Cleanup
 #########################################################################################
+.PHONY: rm_test_tmp
+rm_test_tmp:
+	@$(ECHO$(BIN)) $(CRED)"Delete"$(CRESET)" *.tmp"
+	@$(RM) *.tmp
+# ------------------------------------------------------------------------------------- #
 .PHONY: clean
-clean:
+clean: rm_test_tmp
 	@$(ECHO$(BIN)) $(CRED)"Delete"$(CRESET)" objects"
 	@$(RM) $(OBJ)
 	@$(ECHO$(BIN)) $(CRED)"Delete"$(CRESET)" dependency files"
@@ -108,7 +114,7 @@ clean:
 	@$(RM) $(PROGSCRIPT)
 # ------------------------------------------------------------------------------------- #
 .PHONY: fclean
-fclean:
+fclean: rm_test_tmp
 	@$(ECHO$(BIN)) $(CRED)"Delete"$(CRESET)" $(COMPILEDB)"
 	@$(RM) $(COMPILEDB)
 	@$(ECHO$(BIN)) $(CRED)"Delete"$(CRESET)" $(CTAGS)"
