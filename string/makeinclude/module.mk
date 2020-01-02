@@ -49,6 +49,9 @@ TST += ./tests/test_fox_strncmp.c
 TST += ./tests/test_fox_strncpy.c
 TST += ./tests/test_fox_strnlen.c
 TST += ./tests/test_fox_strspn.c
+# --- Wrappers
+TST += ../wrap_libc/src/fox_wrap_malloc.c
+WRAPFLAGS := -Wl,--wrap=malloc
 ################################################
 
 

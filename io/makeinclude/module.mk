@@ -74,6 +74,9 @@ TST += ./tests/dput/test_fox_dputstr.c
 TST += ./tests/dput/test_fox_dputstr_np.c
 TST += ./tests/dput/test_fox_dputunbr.c
 TST += ./tests/dput/test_fox_dputunbr_base.c
+# --- Wrappers
+TST += ../wrap_libc/src/fox_wrap_malloc.c
+WRAPFLAGS := -Wl,--wrap=malloc
 ################################################
 
 
