@@ -62,6 +62,9 @@ TST += ./tests/list/test_list_create.c
 TST += ./tests/list/test_list_destroy.c
 TST += ./tests/list/test_node_create.c
 TST += ./tests/list/test_node_destroy.c
+# --- Wrappers
+TST += ../wrap_libc/src/fox_wrap_malloc.c
+WRAPFLAGS := -Wl,--wrap=malloc
 ##########################################
 
 endif
