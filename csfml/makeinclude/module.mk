@@ -34,7 +34,8 @@ TST += ./tests/entity/test_foxcsfml_ent_create.c
 #
 # External dependency soucres
 ##########################################
-DEPSRC := ../memory/src/fox_calloc.c
+DEPSRC := ../memory/src/fox_autofree.c
+DEPSRC += ../memory/src/fox_calloc.c
 DEPSRC += ../memory/src/fox_memcpy.c
 DEPSRC += ../memory/src/fox_memset.c
 ##########################################
