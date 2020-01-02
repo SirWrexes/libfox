@@ -1,8 +1,8 @@
 ##
 ## EPITECH PROJECT, 2019
-## [PROJECT NAME]
+## Libfox
 ## File description:
-## [PROJECT DESCRIPTION]
+## Receipes for a good healthy lib meal
 ##
 
 ifndef MKRULES
