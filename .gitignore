@@ -65,14 +65,15 @@ dependency/build
 
 # Epitech file architecture helper
 .bash_history
+.foxmodules.sh
 .idea
 .viminfo
 CMake*
 cmake*
 compile_commands.json
 debugmain.c
+progressbar.py
 tests_run
 utests*
-progressbar.py
 
 # End of https://www.gitignore.io/api/C
