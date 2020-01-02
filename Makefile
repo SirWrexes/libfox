@@ -65,7 +65,8 @@ $(MODULES):
 ###################################################################
 # If you want to build every wrapper at once, use this receipe
 # --------------------------------------------------------------- #
-.PHONY: wrap
+.PHONY: wrap wrappers
+wrappers: wrap
 wrap: $(filter wrap_%,$(MODULES))
 ###################################################################
 
