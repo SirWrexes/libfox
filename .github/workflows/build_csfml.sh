@@ -50,4 +50,4 @@ echo "/usr/local/lib/" > /etc/ld.so.conf.d/csfml.conf
 ldconfig
 
 # Clean
-rm -rf "$CSFML_ZIP" "$CSFML_PATH" "$SFML_ZIP" "$SFML_PATH"
+rm -rf "$CSFML_ZIP" "$SFML_ZIP" "$SFML_PATH" # "$CSFML_PATH"

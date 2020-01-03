@@ -19,5 +19,7 @@ jobs:
       run: sudo apt-get -y install libsfml-dev
     - name: Install CSFML
       run: sudo ./.github/workflows/build_csfml.sh
-    - name: make and test libfox
+    - name: Make and test Libfox
       run:  make
+      env:
+        LD_LIBRABY_PATH: $GITHUB_WORKSPACE/CSFML
