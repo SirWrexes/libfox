@@ -23,3 +23,4 @@ jobs:
       run:  make
       env:
         LD_LIBRABY_PATH: $GITHUB_WORKSPACE/CSFML
+        USER: bugs
