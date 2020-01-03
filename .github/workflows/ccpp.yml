@@ -22,4 +22,4 @@ jobs:
     - name: Make and test Libfox
       run:  make
       env:
-          LD_LIBRARY_PATH: "$GITHUB_WORKSPACE/SFML/"
+          LD_LIBRARY_PATH: "./SFML"
