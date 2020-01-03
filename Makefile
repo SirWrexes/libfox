@@ -43,10 +43,9 @@ endef
 # --------------------------------------------------------------- #
 $(call export FOXMODULES_FETCHER) # Create a multi-line variable
 $(file >$(fetcher),$(FOXMODULES_FETCHER)) # Write the script
+$(shell chmod +x $(fetcher))
 # --------------------------------------------------------------- #
-MODULES = $(shell $(SHELL) $(fetcher)) # Set modules
-# This seems redundant, but it allows for running the script even
-# without x permissions set.
+MODULES = $(shell ./$(fetcher)) # Set modules
 ###################################################################
 
 #
