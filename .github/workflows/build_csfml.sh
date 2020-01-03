@@ -33,11 +33,12 @@ CSFML_PATH="$(realpath CSFML)"
 # make
 # cd ..
 
-find . -depth \( -name "SFMLConfig.cmake" -o -name "sfml-config.cmake" -o -name "FindSFML.cmake" \)
+echo "Locate config scripts"
+find . -depth \( -name "SFMLConfig.cmake" -o -name "sfml-config.cmake" -o -name "FindSFML.cmake" \) -print
 
 echo "CSFML Compilation"
 cd CSFML
-cmake .
+cmake -DSFML_DIR="$SFML_PATH" .
 # ↑ -DSFML_ROOT="$SFML_PATH" -DSFML_INCLUDE_DIR="$SFML_PATH/include" -DCMAKE_MODULE_PATH="$SFML_PATH/cmake/Modules" .
 #LD_LIBRARY_PATH="$SFML_PATH/lib"
 make
