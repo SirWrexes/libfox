@@ -27,6 +27,7 @@ SRC += ./src/fox_wrap_noecho.c
 #
 # Tests (set relative to master Makefile path)
 ################################################
+SKIP_TEST_REPORT := yup
 TST := ./tests/test_fox_wrap_cbreak.c
 TST += ./tests/test_fox_wrap_initscr.c
 TST += ./tests/test_fox_wrap_keypad.c
