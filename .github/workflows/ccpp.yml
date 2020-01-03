@@ -9,6 +9,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    - name: Update apt-get
+      run: sudo apt-get -y update
     - name: Install SFML dependencies
       run: sudo apt-get -y install libfreetype6-dev libx11-dev libxrandr-dev libgl1-mesa-dev libudev-dev libopenal-dev libflac-dev libogg-dev libvorbis-dev
     - name: Install CSFML
