@@ -21,11 +21,11 @@ unzip -qq -o $SFML_ZIP
 echo "Unzip CSFML"
 unzip -qq -o $CSFML_ZIP
 
-mv SFML-* .SFML
-mv CSFML-* .CSFML
+mv SFML-* SFML
+mv CSFML-* CSFML
 
-SFML_PATH="$(realpath .SFML)"
-CSFML_PATH="$(realpath .CSFML)"
+SFML_PATH="$(realpath SFML)"
+CSFML_PATH="$(realpath CSFML)"
 
 echo "SFML Compilation"
 cd SFML

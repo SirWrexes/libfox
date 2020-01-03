@@ -22,30 +22,17 @@ endef
 ###################################################################
 
 #
-# Helper script to fetch module dirs and set rules for each one
+# Module directories
 ###################################################################
-fetcher := .foxmodules.sh
-# --------------------------------------------------------------- #
-define FOXMODULES_FETCHER
-#!$(SHELL)
-#
-# $(fetcher)
-# Copyright (C) 2019 renard <renard@voyager>
-#
-# Distributed under terms of the MIT license.
-#
-
-find . -maxdepth 1 -type d                \
-	| perl -pe 's/^\.\/?(\.\w*|extra)?//' \
-	| perl -pe 's/^\n$$//'                \
-	| sort
-endef
-# --------------------------------------------------------------- #
-$(call export FOXMODULES_FETCHER) # Create a multi-line variable
-$(file >$(fetcher),$(FOXMODULES_FETCHER)) # Write the script
-$(shell chmod +x $(fetcher))
-# --------------------------------------------------------------- #
-MODULES = $(shell ./$(fetcher)) # Set modules
+MODULES += csfml
+MODULES += datastruct
+MODULES += io
+MODULES += math
+MODULES += memory
+MODULES += std
+MODULES += string
+MODULES += wrap_libc
+MODULES += wrap_ncurses
 ###################################################################
 
 #
