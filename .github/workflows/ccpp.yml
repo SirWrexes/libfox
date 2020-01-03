@@ -15,8 +15,6 @@ jobs:
       run: sudo pip install gcovr
     - name: Install SFML dependencies
       run: sudo apt-get -y install libfreetype6-dev libx11-dev libxrandr-dev libgl1-mesa-dev libudev-dev libopenal-dev libflac-dev libogg-dev libvorbis-dev
-    - name: Install SFML
-      run: sudo apt-get -y install libsfml-dev
     - name: Install CSFML
       run: sudo ./.github/workflows/build_csfml.sh
     - name: Make and test Libfox
