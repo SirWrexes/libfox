@@ -85,11 +85,16 @@ $(TESTBIN): completion-tools
 # ------------------------------------------------------------------------------------- #
 .PHONY: tests test_report
 tests: test_report
+ifndef SKIP_TEST_REPORT
 test_report: $(TESTBIN)
 	@$(ECHO$(BIN)) $(CUNDERLN)$(CGREEN)$(REPORTTXT)$(CRESET)
 	@./$(TESTBIN) $(UTFLAGS)
 	@$(RM) $(notdir $(DEPSRC:.c=.gc*) $(WRAPSRC:.c=.gc*))
 	@$(GCOV) $(COVFLAGS)
+else
+test_report: $(TESTBIN)
+	@$(ECHO$(BIN)) $(CUNDERLN)$(CRED)"Skip $(REPORTTXT)"$(CRESET)
+endif
 #########################################################################################
 
 
