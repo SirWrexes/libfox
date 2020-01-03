@@ -19,6 +19,3 @@ jobs:
       run: sudo ./.github/workflows/build_csfml.sh
     - name: Make and test Libfox
       run:  make
-      env:
-        LD_LIBRABY_PATH: $GITHUB_WORKSPACE/CSFML
-        USER: bugs
