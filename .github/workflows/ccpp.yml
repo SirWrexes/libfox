@@ -19,6 +19,8 @@ jobs:
       run: sudo apt-get -y install libglvnd-dev
     - name: Install lib UDev
       run: sudo apt-get -y install libudev-dev
+    - name: Install lib OpenAL
+      run: sudo apt-get -y install libopenal-dev
     - name: Install SFML
       run: sudo apt-get -y install libsfml-dev
     - name: Install CSFML
