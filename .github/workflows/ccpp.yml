@@ -17,6 +17,8 @@ jobs:
       run: sudo apt-get -y install libx11-dev libxrandr-dev
     - name: Install OpenGL
       run: sudo apt-get -y install libglvnd-dev
+    - name: Install UDev
+      run: sudo apt-get -y install udev
     - name: Install SFML
       run: sudo apt-get -y install libsfml-dev
     - name: Install CSFML
