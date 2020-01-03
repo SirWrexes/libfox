@@ -21,11 +21,11 @@ unzip -qq -o $SFML_ZIP
 echo "Unzip CSFML"
 unzip -qq -o $CSFML_ZIP
 
-mv SFML-* SFML
-mv CSFML-* CSFML
+mv SFML-* .SFML
+mv CSFML-* .CSFML
 
-SFML_PATH="$(realpath SFML)"
-CSFML_PATH="$(realpath CSFML)"
+SFML_PATH="$(realpath .SFML)"
+CSFML_PATH="$(realpath .CSFML)"
 
 echo "SFML Compilation"
 cd SFML
@@ -50,4 +50,4 @@ echo "/usr/local/lib/" > /etc/ld.so.conf.d/csfml.conf
 ldconfig
 
 # Clean
-rm -rf "$CSFML_ZIP" "$SFML_ZIP" "$SFML_PATH" "$CSFML_PATH"
+rm -rf "$CSFML_ZIP" "$SFML_ZIP"
