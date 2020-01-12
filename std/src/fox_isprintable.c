@@ -7,7 +7,7 @@
 
 #include <stdbool.h>
 
-#include "define/fox_macro.h"
+#include "fox_macro.h"
 #include "fox_std.h"
 
 __Aconst bool fox_isprintable(u_char c)

@@ -7,11 +7,11 @@
 
 #include <unistd.h>
 
-#include "define/fox_macro.h"
-#include "define/fox_types.h"
 #include "fox_io.h"
+#include "fox_macro.h"
 #include "fox_memory.h"
 #include "fox_std.h"
+#include "fox_types.h"
 
 __Apure static count_t getlen(str2c_t str)
 {

@@ -11,7 +11,6 @@
 #include <stdbool.h>
 #include <sys/types.h>
 
-#include "define/fox_macro.h"
 #include "fox_define.h"
 
 // Check if a character is printable
@@ -21,6 +20,6 @@ bool fox_isprintable(u_char c) __Aconst;
 
 // Convert a string to a long integer
 // If endptr != NULL, set it to the adress of the first non numeric character
-long fox_strtol(char const *s, char **endptr) __a((nonnull(1)));
+long fox_strtol(str2c_t s, char **endptr) __a((nonnull(1)));
 
 #endif /* !FOX_STD_H */

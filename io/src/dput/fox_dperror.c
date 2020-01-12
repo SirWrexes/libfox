@@ -8,7 +8,7 @@
 #include <errno.h>
 #include <stdio.h>
 
-#include "define/fox_types.h"
+#include "fox_types.h"
 #include "fox_io.h"
 
 scount_t fox_dperror(int fd, str2c_t s)
