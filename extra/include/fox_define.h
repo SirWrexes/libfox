@@ -8,8 +8,8 @@
 #ifndef FOX_DEFINE
 #define FOX_DEFINE
 
-#include "define/fox_macro.h"
-#include "define/fox_types.h"
-#include "define/fox_strdef.h"
+#include "fox_macro.h"
+#include "fox_types.h"
+#include "fox_strdef.h"
 
 #endif // FOX_DEFINE
