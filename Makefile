@@ -24,7 +24,6 @@ endef
 #
 # Module directories
 ###################################################################
-MODULES += csfml
 MODULES += datastruct
 MODULES += io
 MODULES += math
@@ -106,12 +105,10 @@ $(NAME): $(MODULES)
 .PHONY: clean
 clean: RULE := clean
 clean: $(MODULES)
-	-@rm $(fetcher)
 # --------------------------------------------------------------- #
 .PHONY: fclean
 fclean: RULE := fclean
 fclean: $(MODULES)
-	-@rm $(fetcher)
 ###################################################################
 
 #
