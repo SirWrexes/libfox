@@ -5,7 +5,7 @@
 ** Add a node to list
 */
 
-#include "datastruct/fox_list.h"
+#include "fox_list.h"
 
 __Anonnull bool list_addnode(foxlist_t list, void *data)
 {

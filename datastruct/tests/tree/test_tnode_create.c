@@ -9,7 +9,7 @@
 #include <criterion/redirect.h>
 #include "tests/wrappers/wrap_malloc.h"
 
-#include "datastruct/fox_tree.h"
+#include "fox_tree.h"
 
 Test(tnode_create, regular_usage_no_null)
 {

@@ -7,7 +7,8 @@
 
 #include <criterion/criterion.h>
 #include <criterion/redirect.h>
-#include "datastruct/fox_stack.h"
+
+#include "fox_stack.h"
 
 static void destructor(char ***s)
 {

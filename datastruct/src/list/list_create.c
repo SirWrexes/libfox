@@ -7,7 +7,7 @@
 
 #include <malloc.h>
 
-#include "datastruct/fox_list.h"
+#include "fox_list.h"
 
 __Anonnull bool list_create(foxlist_t *listptr)
 {

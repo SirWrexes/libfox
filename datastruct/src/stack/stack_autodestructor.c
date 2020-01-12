@@ -5,7 +5,7 @@
 ** Stack auto destructor for cleanup attribute
 */
 
-#include "datastruct/fox_stack.h"
+#include "fox_stack.h"
 
 __Aconst pilebreaker_t *stackdata_destructor(void)
 {

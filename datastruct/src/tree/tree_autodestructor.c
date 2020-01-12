@@ -5,7 +5,7 @@
 ** Tree auto destructor for cleanup attribute
 */
 
-#include "datastruct/fox_tree.h"
+#include "fox_tree.h"
 
 __Aconst leafcutter_t *treedata_destructor(void)
 {

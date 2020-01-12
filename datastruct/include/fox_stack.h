@@ -28,7 +28,7 @@ typedef struct foxsitem_s *foxsitem_t;
 //      pilebreaker = &destructor_function;
 // Default autodestructor is NULL
 #define autofoxstack_t __Acleanup(jenga) foxstack_t
-#define pilebreaker (*stackdata_destructor())
+#define pilebreaker    (*stackdata_destructor())
 
 // This is just regular sorcery. Skip to the next part.
 typedef void (*pilebreaker_t)();
@@ -37,17 +37,18 @@ pilebreaker_t *stackdata_destructor(void) __Aconst;
 
 /* ------------------------------------------------------------------------ */
 
-struct foxstack_s
-{
-    count_t items;      // Item count in the stack
+struct foxstack_s {
+    count_t items; // Item count in the stack
+
     foxsitem_t faketop; // Top of the stack (including empty items)
     foxsitem_t realtop; // Actual top of the stack
 };
 
-struct foxsitem_s
-{
-    index_t i;       // Placement in the stack
-    void *data;      // Item data
+struct foxsitem_s {
+    index_t i; // Placement in the stack
+
+    void *data; // Item data
+
     foxsitem_t prev; // Right branch/leaf
 };
 
@@ -55,24 +56,21 @@ struct foxsitem_s
 
 // Create a stack
 // Returns true in case of error
-bool stack_create(foxstack_t *stackptr)
-__Anonnull;
+bool stack_create(foxstack_t *stackptr) __Anonnull;
 
 // Destroy a stack and all its items
 // Destructor shall be a function pointer to the destructor
 //   used to free data stored in the items.
 //   Can be NULL
 void stack_destroy(foxstack_t *stackptr, void (*destructor)())
-__a((nonnull(1)));
+    __a((nonnull(1)));
 
 // Push an item to the top of the stack.
 // Returns true in case of error
-bool stack_push(foxstack_t stack, void *data)
-__Anonnull;
+bool stack_push(foxstack_t stack, void *data) __Anonnull;
 
 // Pop an item from the top of stack
 // Returns it pointer or NULL in case of empty stack
-void *stack_pop(foxstack_t stack)
-__Anonnull;
+void *stack_pop(foxstack_t stack) __Anonnull;
 
 #endif // FOX_STACK_H

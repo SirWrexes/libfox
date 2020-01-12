@@ -8,7 +8,7 @@
 #include <criterion/criterion.h>
 #include <criterion/redirect.h>
 
-#include "datastruct/fox_stack.h"
+#include "fox_stack.h"
 
 Test(stack_pop, regular_usage)
 {

@@ -33,7 +33,7 @@ typedef struct foxtnode_s *foxtnode_t;
 //     leafcutter = &destructor_function;
 // Default autodestructor is NULL
 #define autofoxtree_t __Acleanup(chainsaw) foxtree_t
-#define leafcutter (*treedata_destructor())
+#define leafcutter    (*treedata_destructor())
 
 // This is just regular sorcery. Skip to the next part.
 typedef void (*leafcutter_t)();
@@ -42,16 +42,17 @@ leafcutter_t *treedata_destructor(void) __Aconst;
 
 /* ------------------------------------------------------------------------ */
 
-struct foxtree_s
-{
+struct foxtree_s {
     count_t nodes; // Node count in the tree
-    foxtnode_t trunk; // root of the tree
+
+    foxtnode_t trunk; // Root of the tree
 };
 
-struct foxtnode_s
-{
-    foxtree_t root;   // Wherever you are, know which tree you're in.
-    void *data;    // Node data
+struct foxtnode_s {
+    foxtree_t root; // Wherever you are, know which tree you're in.
+
+    void *data; // Node data
+
     foxtnode_t lnext; // Left branch/leaf
     foxtnode_t rnext; // Right branch/leaf
 };
@@ -60,19 +61,17 @@ struct foxtnode_s
 
 // Create a binary tree
 // Returns true in case of error
-bool tree_create(foxtree_t *treeptr)
-__Anonnull;
+bool tree_create(foxtree_t *treeptr) __Anonnull;
 
 // Destroy a tree and all its nodes
 // See tnode_destroy below for details about destructor
-void tree_destroy(foxtree_t *treeptr, void (*destructor)())
-__a((nonnull(1)));
+void tree_destroy(foxtree_t *treeptr, void (*destructor)()) __a((nonnull(1)));
 
 // Create a new tree node
 // data and root can be NULL
 // Returns true in case of error
 bool tnode_create(foxtnode_t *leafptr, void *data, foxtree_t root)
-__a((nonnull(1)));
+    __a((nonnull(1)));
 
 // Recursively destroy a node and it left/right leaves
 // ¤ Also destroy data with a function pointed by destructor
@@ -82,7 +81,6 @@ __a((nonnull(1)));
 //   This way you can also set it to NULL.
 // ¤ In order to avoid crashes, be sure that every data field in your tree
 //   is of the same type if you want to use a destructor on it.
-void tnode_destroy(foxtnode_t *node, void (*destructor)())
-__a((nonnull(1)));
+void tnode_destroy(foxtnode_t *node, void (*destructor)()) __a((nonnull(1)));
 
 #endif /* !FOX_TREE_H */

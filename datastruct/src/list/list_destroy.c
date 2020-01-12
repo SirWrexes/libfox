@@ -7,7 +7,7 @@
 
 #include <malloc.h>
 
-#include "datastruct/fox_list.h"
+#include "fox_list.h"
 
 __Anonnull void list_destroy(foxlist_t *listptr, void (*destructor)())
 {

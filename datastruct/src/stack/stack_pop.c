@@ -5,7 +5,7 @@
 ** Pop an item from a stack
 */
 
-#include "datastruct/fox_stack.h"
+#include "fox_stack.h"
 
 __Anonnull void *stack_pop(foxstack_t stack)
 {

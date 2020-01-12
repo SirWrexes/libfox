@@ -9,7 +9,7 @@
 #include <criterion/redirect.h>
 #include "tests/wrappers/wrap_malloc.h"
 
-#include "datastruct/fox_list.h"
+#include "fox_list.h"
 
 Test(list_create, regular_usage)
 {

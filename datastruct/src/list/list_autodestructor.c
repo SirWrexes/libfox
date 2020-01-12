@@ -5,7 +5,7 @@
 ** List autodestructor for smart pointer implementation
 */
 
-#include "datastruct/fox_list.h"
+#include "fox_list.h"
 
 __Aconst paperblade_t *listdata_destructor(void)
 {

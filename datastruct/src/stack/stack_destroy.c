@@ -6,7 +6,8 @@
 */
 
 #include <malloc.h>
-#include "datastruct/fox_stack.h"
+
+#include "fox_stack.h"
 
 __a((nonnull(1))) void stack_destroy(foxstack_t *stack, void (*destructor)())
 {

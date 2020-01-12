@@ -8,8 +8,8 @@
 #ifndef FOX_DATASTRUCT_H
 #define FOX_DATASTRUCT_H
 
-#include "datastruct/fox_list.h"
-#include "datastruct/fox_stack.h"
-#include "datastruct/fox_tree.h"
+#include "fox_list.h"
+#include "fox_stack.h"
+#include "fox_tree.h"
 
 #endif /* !FOX_DATASTRUCT_H */

@@ -7,7 +7,8 @@
 
 #include <stdbool.h>
 #include <malloc.h>
-#include "datastruct/fox_stack.h"
+
+#include "fox_stack.h"
 
 static bool push_to_top(foxstack_t stack, void *data)
 {

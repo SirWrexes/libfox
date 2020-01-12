@@ -15,23 +15,25 @@
 #define FOX_LIST_H
 
 #include <stdbool.h>
+
 #include "fox_define.h"
 
 /* ------------------------------------------------------------------------ */
 
 // Remember: These are dynamically allocated pointers.
 // You MUST use the corresponding destructor when you're done with them.
-typedef struct foxnode_s
-{
-    index_t i;              // Position in the list (DON'T EDIT IT MANUALLY)
-    void *data;             // Data container
+typedef struct foxnode_s {
+    index_t i; // Position in the list (DON'T EDIT IT MANUALLY)
+
+    void *data; // Data container
+
     struct foxnode_s *prev; // Previous node
     struct foxnode_s *next; // Next node
 } * foxnode_t;
 
-typedef struct
-{
-    count_t nodes;  // Node count in the list (DON'T EDIT THIS EITHER)
+typedef struct {
+    count_t nodes; // Node count in the list (DON'T EDIT THIS EITHER)
+
     foxnode_t head; // Top of the list
     foxnode_t tail; // Bottom of the list
 } * foxlist_t;
@@ -43,22 +45,31 @@ typedef struct
 
 /* ------------------------------------------------------------------------ */
 
+// Readable way to cast and access the \data pointer in nodes
+// For a node conatining and (struct *) for its data,
+//   ((int *) node->data)->element
+// becomes
+//   nadata(struct *, node)->element
+// Not always the shortest way, but the prettiest for sure.
+
+// Access data in a pretty way
+#define ndata(Type, Node) (((Type)((Node)->data)))
+
+/* ------------------------------------------------------------------------ */
+
 // Create a list
 // Returns true in case of error
-bool list_create(foxlist_t *listptr)
-__Anonnull;
+bool list_create(foxlist_t *listptr) __Anonnull;
 
 // Destroy a list and all of its nodes
 // Destructor shall be a function pointer to the data destructor
 //   used to free data stored in the nodes.
 //   Can be NULL
-void list_destroy(foxlist_t *listptr, void (*destructor)())
-__a((nonnull(1)));
+void list_destroy(foxlist_t *listptr, void (*destructor)()) __a((nonnull(1)));
 
 // Add a node to the list conatining data
 // Returns true in case of error
-bool list_addnode(foxlist_t list, void *data)
-__Anonnull;
+bool list_addnode(foxlist_t list, void *data) __Anonnull;
 
 // Remove a node from the list
 // refptr can either be
@@ -68,24 +79,22 @@ __Anonnull;
 // destructor can be a pointer to a a destructor that frees refptr
 // Returns true if no match is found
 bool list_deletenode(foxlist_t list, void *refptr, void (*destructor)())
-__a((nonnull(1,2)));
+    __a((nonnull(1, 2)));
 
 // Create a node
 // Returns true in case of error
-bool node_create(foxnode_t *nodeptr, void *data)
-__Anonnull;
+bool node_create(foxnode_t *nodeptr, void *data) __Anonnull;
 
 // Destroy a node
 // Destructor shall be a pointer to the blablabla you know it by now
 //   Can be NULL
-void node_destroy(foxnode_t *nodeptr, void (*destructor)())
-__a((nonnull(1)));
+void node_destroy(foxnode_t *nodeptr, void (*destructor)()) __a((nonnull(1)));
 
 /* ------------------------------------------------------------------------ */
 
 // This is just regular sorcery. Disregard it.
 typedef void (*paperblade_t)(void *);
 void shredder(foxlist_t *listptr) __Anonnull;
-paperblade_t *stackdata_destructor(void) __Aconst;
+paperblade_t *listdata_destructor(void) __Aconst;
 
 #endif /* !FOX_LIST_H */

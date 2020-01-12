@@ -9,7 +9,7 @@
 #include <criterion/redirect.h>
 #include <string.h>
 
-#include "datastruct/fox_list.h"
+#include "fox_list.h"
 
 static void destructor(char ***s)
 {
