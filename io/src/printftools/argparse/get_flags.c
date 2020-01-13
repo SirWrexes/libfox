@@ -10,7 +10,7 @@
 #include "fox_define.h"
 #include "printf/fstruct.h"
 
-__Anonnull extern inline void get_flags(finfo_t *info, str_t *format)
+__Anonnull __AalwaysILext void get_flags(finfo_t *info, str_t *format)
 {
     do {
         switch (**format) {
@@ -23,7 +23,7 @@ __Anonnull extern inline void get_flags(finfo_t *info, str_t *format)
             default: break;
         }
         break;
-    } while (*++format);
+    } while (*++*format);
     if (info->left)
         info->padchar = ' ';
 }
