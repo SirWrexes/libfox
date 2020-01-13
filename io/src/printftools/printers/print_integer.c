@@ -31,13 +31,13 @@ scount_t print_integer(fstruct_t *arg, va_list *va)
     scount_t (*print)(llong_t) = arg->info.showsign
         ? &showsign_on : &showsign_off;
 
-    arg->value.pa_llong = va_arg(*va, llong_t);
+    arg->value.va_llong = va_arg(*va, llong_t);
     switch (info_to_mask(&arg->info)) {
-        default: arg->chars += print(arg->value.pa_int); break;
-        case MASK_CHAR: arg->chars += print(arg->value.pa_char); break;
-        case MASK_SHORT: arg->chars += print(arg->value.pa_short); break;
-        case MASK_LONG: arg->chars += print(arg->value.pa_long); break;
-        case MASK_LONGLONG: arg->chars += print(arg->value.pa_llong); break;
+        default: arg->chars += print(arg->value.va_int); break;
+        case MASK_CHAR: arg->chars += print(arg->value.va_char); break;
+        case MASK_SHORT: arg->chars += print(arg->value.va_short); break;
+        case MASK_LONG: arg->chars += print(arg->value.va_long); break;
+        case MASK_LONGLONG: arg->chars += print(arg->value.va_llong); break;
     }
     return arg->chars;
 }

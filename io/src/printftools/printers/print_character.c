@@ -14,7 +14,7 @@
 __nonnull
 scount_t print_character(fstruct_t *arg, va_list *va)
 {
-    arg->value.pa_uint = va_arg(*va, uint);
-    arg->chars = fox_putchar(arg->value.pa_uchar);
+    arg->value.va_uint = va_arg(*va, uint);
+    arg->chars = fox_putchar(arg->value.va_uchar);
     return arg->chars;
 }
