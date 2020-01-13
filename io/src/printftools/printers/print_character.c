@@ -6,15 +6,15 @@
 */
 
 #include <stdarg.h>
-#include "fox_io.h"
+
 #include "fox_define.h"
+#include "fox_io.h"
 
-#include "args/farg_datastruct.h"
+#include "printf/fstruct.h"
 
-__nonnull
-scount_t print_character(fstruct_t *arg, va_list *va)
+__Anonnull scount_t print_character(fstruct_t *arg, va_list *va)
 {
-    arg->value.va_uint = va_arg(*va, uint);
-    arg->chars = fox_putchar(arg->value.va_uchar);
+    arg->value.av_uint = va_arg(*va, uint);
+    arg->chars = fox_putchar(arg->value.av_uchar);
     return arg->chars;
 }

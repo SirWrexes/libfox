@@ -23,6 +23,13 @@ SRC := ./src/printftools/argparse/get_flags.c
 SRC += ./src/printftools/argparse/get_lenmodif.c
 SRC += ./src/printftools/argparse/get_precision.c
 SRC += ./src/printftools/argparse/get_width.c
+# -- Printf (printing)
+SRC += ./src/printftools/printers/print_character.c
+#SRC += ./src/printftools/printers/print_.c
+#SRC += ./src/printftools/printers/print_.c
+#SRC += ./src/printftools/printers/print_.c
+#SRC += ./src/printftools/printers/print_.c
+#SRC += ./src/printftools/printers/print_.c
 # -- String
 SRC += ./src/sput/fox_sputchar.c
 SRC += ./src/sput/fox_sputchar_oct.c
@@ -60,6 +67,13 @@ TST := ./tests/printftools/argparse/test_get_flags.c
 TST += ./tests/printftools/argparse/test_get_lenmodif.c
 TST += ./tests/printftools/argparse/test_get_precision.c
 TST += ./tests/printftools/argparse/test_get_width.c
+# -- Printf (arg parsing)
+TST += ./tests/printftools/printers/test_print_character.c
+#TST += ./tests/printftools/printers/test_print_
+#TST += ./tests/printftools/printers/test_print_
+#TST += ./tests/printftools/printers/test_print_
+#TST += ./tests/printftools/printers/test_print_
+#TST += ./tests/printftools/printers/test_print_
 # -- String
 TST += ./tests/sput/test_fox_sputstr.c
 # -- Allocated string
