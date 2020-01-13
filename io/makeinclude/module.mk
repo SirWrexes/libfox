@@ -22,6 +22,7 @@ DEBUGMAIN := ./src/debugmain.c
 SRC := ./src/printftools/argparse/get_flags.c
 SRC += ./src/printftools/argparse/get_lenmodif.c
 SRC += ./src/printftools/argparse/get_precision.c
+SRC += ./src/printftools/argparse/get_width.c
 # -- String
 SRC += ./src/sput/fox_sputchar.c
 SRC += ./src/sput/fox_sputchar_oct.c
@@ -58,6 +59,7 @@ SRC += ./src/dput/fox_dputunbr_base.c
 TST := ./tests/printftools/argparse/test_get_flags.c
 TST += ./tests/printftools/argparse/test_get_lenmodif.c
 TST += ./tests/printftools/argparse/test_get_precision.c
+TST += ./tests/printftools/argparse/test_get_width.c
 # -- String
 TST += ./tests/sput/test_fox_sputstr.c
 # -- Allocated string
