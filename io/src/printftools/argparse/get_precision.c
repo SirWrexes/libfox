@@ -7,7 +7,7 @@
 
 #include "fox_std.h"
 
-#include "args/farg_datastruct.h"
+#include "printf/fstruct.h"
 
 __Anonnull extern inline void get_precision(finfo_t *info, str_t *format)
 {
