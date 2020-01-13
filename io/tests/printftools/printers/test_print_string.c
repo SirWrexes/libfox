@@ -6,11 +6,14 @@
 */
 
 #include <string.h>
+
 #include <criterion/criterion.h>
 #include <criterion/redirect.h>
+
 #include "tests/printers.h"
 
-#include "printers.h"
+#include "printf/fstruct.h"
+#include "printf/printers.h"
 
 Test(print_string, regular_usage, .init = cr_redirect_stdout)
 {
