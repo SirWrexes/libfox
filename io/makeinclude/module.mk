@@ -25,10 +25,10 @@ SRC += ./src/printftools/argparse/get_precision.c
 SRC += ./src/printftools/argparse/get_width.c
 # -- Printf (printing)
 SRC += ./src/printftools/printers/print_character.c
-#SRC += ./src/printftools/printers/print_.c
-#SRC += ./src/printftools/printers/print_.c
-#SRC += ./src/printftools/printers/print_.c
-#SRC += ./src/printftools/printers/print_.c
+SRC += ./src/printftools/printers/print_integer.c
+SRC += ./src/printftools/printers/print_pointer.c
+SRC += ./src/printftools/printers/print_unsigned.c
+SRC += ./src/printftools/printers/print_unsigned_base.c
 #SRC += ./src/printftools/printers/print_.c
 # -- String
 SRC += ./src/sput/fox_sputchar.c
@@ -69,9 +69,10 @@ TST += ./tests/printftools/argparse/test_get_precision.c
 TST += ./tests/printftools/argparse/test_get_width.c
 # -- Printf (arg parsing)
 TST += ./tests/printftools/printers/test_print_character.c
-#TST += ./tests/printftools/printers/test_print_
-#TST += ./tests/printftools/printers/test_print_
-#TST += ./tests/printftools/printers/test_print_
+TST += ./tests/printftools/printers/test_print_integer.c
+TST += ./tests/printftools/printers/test_print_pointer.c
+TST += ./tests/printftools/printers/test_print_unsigned.c
+TST += ./tests/printftools/printers/test_print_unsigned_base.c
 #TST += ./tests/printftools/printers/test_print_
 #TST += ./tests/printftools/printers/test_print_
 # -- String
@@ -94,9 +95,13 @@ TST += ./tests/dput/test_fox_dputstr.c
 TST += ./tests/dput/test_fox_dputstr_np.c
 TST += ./tests/dput/test_fox_dputunbr.c
 TST += ./tests/dput/test_fox_dputunbr_base.c
-# --- Wrappers
+# -------------------------------------------- #
+## Wrappers
 TST += ../wrap_libc/src/fox_wrap_malloc.c
 WRAPFLAGS := -Wl,--wrap=malloc
+# -------------------------------------------- #
+## Custom compile flags
+CUSTOM_UTCFLAGS := -Wno-format
 ################################################
 
 
