@@ -6,12 +6,14 @@
 */
 
 #include <stdio.h>
+
 #include <criterion/criterion.h>
 #include <criterion/redirect.h>
+
 #include "tests/printers.h"
 
-#include "printers.h"
-#include "args/farg_datastruct.h"
+#include "printf/fstruct.h"
+#include "printf/printers.h"
 
 Test(print_pointer, caps, .init = cr_redirect_stdout)
 {
