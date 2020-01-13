@@ -8,8 +8,8 @@
 #include <criterion/criterion.h>
 #include <criterion/redirect.h>
 
-#include "args/farg_datastruct.h"
-#include "args/parsers.h"
+#include "printf/fstruct.h"
+#include "printf/argparse.h"
 
 Test(get_width, regular_usage)
 {
