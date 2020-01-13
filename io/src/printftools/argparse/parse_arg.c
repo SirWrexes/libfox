@@ -5,31 +5,29 @@
 ** Collect information from a format arg starting with %
 */
 
-#include "fox_string.h"
 #include "fox_define.h"
+#include "fox_string.h"
 
 #include "printf/argparse.h"
 #include "printf/fstruct.h"
-#include "printf/converter_table.h"
+#include "printf/printers.h"
 
-static const flagparser_t fp[] =
-{
+static const flagparser_t FP[] = {
     &get_flags,
     &get_width,
     &get_precision,
     &get_lenmodif,
-    NULL
+    NULL,
 };
 
-__nonnull
-extern inline void parse_arg(fstruct_t *arg, str_t *format)
+__Anonnull __AalwaysILext void parse_arg(fstruct_t *arg, str_t *format)
 {
     arg->info.is_valid = true;
     arg->fmt = *format + (**format == '%');
-    for (hindex_t i = 0; arg->info.is_valid && fp[i] != NULL; i += 1)
-        fp[i](&arg->info, &arg->fmt);
+    for (hindex_t i = 0; arg->info.is_valid && FP[i] != NULL; i += 1)
+        FP[i](&arg->info, &arg->fmt);
     arg->info.spec = *arg->fmt++;
-    arg->print = CONVERTER[CONVERTER_INDEX(arg->info.spec)];
+    arg->print = PRINTER[PRINTER_INDEX(arg->info.spec)];
     arg->info.is_valid = (arg->print != NULL);
     if (arg->info.is_valid)
         *format = arg->fmt;
