@@ -12,52 +12,47 @@
 #include "printf/fstruct.h"
 #include "fox_define.h"
 
-__Anonnull
-static inline void set_lm_h(finfo_t *info, str_t *format)
+__Anonnull __AalwaysIL static inline void set_lm_h(finfo_t *info, str_t *fmt)
 {
-    if (**format != 'h')
+    if (**fmt != 'h')
         info->is_short = true;
     else {
-        *format += 1;
+        *fmt += 1;
         info->is_char = true;
     }
 }
 
-__Anonnull
-static inline void set_lm_l(finfo_t *info, str_t *format)
+__Anonnull __AalwaysIL static inline void set_lm_l(finfo_t *info, str_t *fmt)
 {
-    if (**format != 'l')
+    if (**fmt != 'l')
         info->is_long = true;
     else {
-        *format += 1;
+        *fmt += 1;
         info->is_long_long = true;
     }
 }
 
-__Anonnull
-static inline void set_lm_z(finfo_t *info)
+__Anonnull __AalwaysIL static inline void set_lm_z(finfo_t *info)
 {
-    #if LONG_MAX != LONG_LONG_MAX
+#if LONG_MAX != LONG_LONG_MAX
     info->is_long_long = (sizeof(size_t) > sizeof(unsigned long int));
-    #endif
+#endif
     info->is_long = sizeof(size_t) > sizeof(unsigned int);
 }
 
-__Anonnull
-static inline void set_lm_j(finfo_t *info)
+__Anonnull __AalwaysIL static inline void set_lm_j(finfo_t *info)
 {
-    #if LONG_MAX != LONG_LONG_MAX
+#if LONG_MAX != LONG_LONG_MAX
     info->is_long_long = (sizeof(uintmax_t) > sizeof(unsigned long int));
-    #endif
+#endif
     info->is_long = sizeof(uintmax_t) > sizeof(unsigned int);
 }
 
-__Anonnull
-static inline void set_lm_t(finfo_t *info)
+__Anonnull __AalwaysIL static inline void set_lm_t(finfo_t *info)
 {
-    #if LONG_MAX != LONG_LONG_MAX
+#if LONG_MAX != LONG_LONG_MAX
     info->is_long_long = (sizeof(ptrdiff_t) > sizeof(long int));
-    #endif
+#endif
     info->is_long = sizeof(ptrdiff_t) > sizeof(int);
 }
 
