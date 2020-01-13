@@ -21,6 +21,7 @@ DEBUGMAIN := ./src/debugmain.c
 # -- Printf (arg parsing)
 SRC := ./src/printftools/argparse/get_flags.c
 SRC += ./src/printftools/argparse/get_lenmodif.c
+SRC += ./src/printftools/argparse/get_precision.c
 # -- String
 SRC += ./src/sput/fox_sputchar.c
 SRC += ./src/sput/fox_sputchar_oct.c
@@ -56,6 +57,7 @@ SRC += ./src/dput/fox_dputunbr_base.c
 # -- Printf (arg parsing)
 TST := ./tests/printftools/argparse/test_get_flags.c
 TST += ./tests/printftools/argparse/test_get_lenmodif.c
+TST += ./tests/printftools/argparse/test_get_precision.c
 # -- String
 TST += ./tests/sput/test_fox_sputstr.c
 # -- Allocated string
@@ -91,11 +93,14 @@ DEPSRC += ../math/src/fox_verifbase.c
 DEPSRC += ../memory/src/fox_memcpy.c
 DEPSRC += ../memory/src/fox_memset.c
 DEPSRC += ../std/src/fox_isprintable.c
+DEPSRC += ../std/src/fox_strtol.c
+DEPSRC += ../string/src/fox_isinstr.c
 DEPSRC += ../string/src/fox_strcpy.c
 DEPSRC += ../string/src/fox_strdup.c
 DEPSRC += ../string/src/fox_strlen.c
 DEPSRC += ../string/src/fox_strncpy.c
 DEPSRC += ../string/src/fox_strnlen.c
+DEPSRC += ../string/src/fox_strspn.c
 ##########################################
 
 endif
