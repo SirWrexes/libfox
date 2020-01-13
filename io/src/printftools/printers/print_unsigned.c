@@ -6,26 +6,23 @@
 */
 
 #include <stdarg.h>
-#include "fox_io.h"
 #include "fox_define.h"
+#include "fox_io.h"
 
-#include "args/farg_datastruct.h"
-#include "args/infomask.h"
+#include "printf/fstruct.h"
+#include "printf/infomask.h"
+#include "printf/printers.h"
 
-__nonnull
-scount_t print_unsigned(fstruct_t *arg, va_list *va)
+__Anonnull scount_t print_unsigned(fstruct_t *arg, va_list *va)
 {
-    arg->value.va_ullong = va_arg(*va, ullong_t);
-    switch (info_to_mask(&arg->info)) {
-        default: arg->chars = fox_putunbr(arg->value.va_uint);
-            break;
-        case MASK_CHAR: arg->chars = fox_putunbr(arg->value.va_uchar);
-            break;
-        case MASK_SHORT: arg->chars = fox_putunbr(arg->value.va_ushort);
-            break;
-        case MASK_LONG: arg->chars = fox_putunbr(arg->value.va_ulong);
-            break;
-        case MASK_LONGLONG: arg->chars = fox_putunbr(arg->value.va_ullong);
+    arg->value.av_ullong = va_arg(*va, ullong_t);
+    switch (info_to_mask(&arg->info) & MASK_TYPE) {
+        default: arg->chars = fox_putunbr(arg->value.av_uint); break;
+        case MASK_CHAR: arg->chars = fox_putunbr(arg->value.av_uchar); break;
+        case MASK_SHORT: arg->chars = fox_putunbr(arg->value.av_ushort); break;
+        case MASK_LONG: arg->chars = fox_putunbr(arg->value.av_ulong); break;
+        case MASK_LONGLONG:
+            arg->chars = fox_putunbr(arg->value.av_ullong);
             break;
     }
     return arg->chars;
