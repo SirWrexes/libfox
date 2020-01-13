@@ -10,7 +10,7 @@
 #include "printf/fstruct.h"
 #include "printf/get_lenmodif_extra.h"
 
-__Anonnull extern inline void get_lenmodif(finfo_t *info, str_t *format)
+__Anonnull __AalwaysILext void get_lenmodif(finfo_t *info, str_t *format)
 {
     switch (*(*format)++) {
         case 'h': set_lm_h(info, format); break;
