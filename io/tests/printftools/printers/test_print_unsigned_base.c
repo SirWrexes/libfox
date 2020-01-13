@@ -9,14 +9,17 @@
 #include <stdarg.h>
 #include <stdbool.h>
 #include <stdio.h>
+
 #include <criterion/criterion.h>
 #include <criterion/redirect.h>
+
 #include "fox_define.h"
 #include "fox_math.h"
+
 #include "tests/printers.h"
 
-#include "printers.h"
-#include "args/farg_datastruct.h"
+#include "printf/printers.h"
+#include "printf/fstruct.h"
 
 Test(print_unsigned_base, print_uchar, .init = cr_redirect_stdout)
 {
