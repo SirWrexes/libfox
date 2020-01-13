@@ -40,8 +40,7 @@ enum {
         | MASK_ZEROPAD
 };
 
-__Anonnull
-static inline hbmask_t info_to_mask(finfo_t *info)
+__Anonnull static inline hbmask_t info_to_mask(finfo_t *info)
 {
     return info->is_char * MASK_CHAR
         | info->is_short * MASK_SHORT
