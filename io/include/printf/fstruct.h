@@ -41,8 +41,6 @@ typedef struct {
     bool is_valid : 1; // For invalid formats
 
     const int bfpad : 5; // Bit field padding
-
-    ushort_t infomask; // Mask containgin all the previous info
 } finfo_t;             // Flags, field width, conversion specifier etc.
 
 typedef union {
