@@ -12,8 +12,28 @@
     #define NULL ((void *) 0)
 #endif // FOX_NULL
 
-// First we need to make sure their
-// name isn't already defined elsewhere
+// Number of bit i a char
+// (originally in limits.h)
+#ifndef CHAR_BIT
+    #define CHAR_BIT (8)
+#endif // CHAR_BIT
+
+// Maximum length of any multibyte character in any locale
+// (originally in limits.h)
+#ifndef MB_LEN_MAX
+    #define MB_LEN_MAX (16)
+#endif // MB_LEN_MAX
+
+// Maximum length of a human-readable string
+// (originally in gnulib's human.h)
+#ifndef LONGEST_HUMAN_READABLE
+    #define LONGEST_HUMAN_READABLE                          \
+        ((2 * sizeof(uintmax_t) * CHAR_BIT * 146 / 485 + 1) \
+                * (MB_LEN_MAX + 1)                          \
+            - MB_LEN_MAX + 1 + 3)
+#endif // LONGEST_HUMAN_READABLE
+
+// First we need to make sure Fox macros aren't already defined elsewhere
 #ifndef LIBFOX_MACRO_UNDEF
     #define LIBFOX_MACRO_UNDEF
     #undef __a
@@ -111,20 +131,10 @@
     #define CHAR_IS_SIGN(c) ((c) == '+' || (c) == '-')
 
     // Check if a char is punctuation
-    #define CHAR_IS_PUNCT(c)   \
-        (((c) == '\'')         \
-        || ((c) == '\"')       \
-        || ((c) == ',')        \
-        || ((c) == '.')        \
-        || ((c) == '?')        \
-        || ((c) == '!')        \
-        || ((c) == ';')        \
-        || ((c) == ':')        \
-        || ((c) == '(')        \
-        || ((c) == ')')        \
-        || ((c) == '-')        \
-        || ((c) == '/')        \
-        )
+    #define CHAR_IS_PUNCT(c)                                                \
+        (((c) == '\'') || ((c) == '\"') || ((c) == ',') || ((c) == '.')     \
+            || ((c) == '?') || ((c) == '!') || ((c) == ';') || ((c) == ':') \
+            || ((c) == '(') || ((c) == ')') || ((c) == '-') || ((c) == '/'))
 
     // If an alphabetical character is lowercase, make it uppercase
     #define CHAR_TOUPPER(c) ((c) -40 * CHAR_IS_ALPHALO((c)))
