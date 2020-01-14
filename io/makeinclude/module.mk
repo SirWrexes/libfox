@@ -18,11 +18,15 @@ NAME := io
 # Sources (set relative to master Makefile path)
 ################################################
 DEBUGMAIN := ./src/debugmain.c
+SRC := ./src/fox_printf.c
 # -- Printf (arg parsing)
-SRC := ./src/printftools/argparse/get_flags.c
+SRC += ./src/printftools/argparse/parse_arg.c
+SRC += ./src/printftools/argparse/get_flags.c
 SRC += ./src/printftools/argparse/get_lenmodif.c
 SRC += ./src/printftools/argparse/get_precision.c
 SRC += ./src/printftools/argparse/get_width.c
+# -- Printf (arg conversion)
+# SRC +=  ./src/printftools/argconv/
 # -- Printf (printing)
 SRC += ./src/printftools/printers/print_character.c
 SRC += ./src/printftools/printers/print_integer.c
@@ -46,7 +50,7 @@ SRC += ./src/asput/fox_asputstr.c
 SRC += ./src/asput/fox_asputstr_np.c
 SRC += ./src/asput/fox_asputunbr.c
 SRC += ./src/asput/fox_asputunbr_base.c
-# -- Descriptor
+# -- file Descriptor
 SRC += ./src/dput/fox_diopadn.c
 SRC += ./src/dput/fox_dperror.c
 SRC += ./src/dput/fox_dputchar.c
@@ -121,6 +125,7 @@ DEPSRC += ../string/src/fox_strlen.c
 DEPSRC += ../string/src/fox_strncpy.c
 DEPSRC += ../string/src/fox_strnlen.c
 DEPSRC += ../string/src/fox_strspn.c
+DEPSRC += ../string/src/fox_strcspn.c
 ##########################################
 
 endif
