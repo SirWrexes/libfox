@@ -9,7 +9,13 @@
 #define FOX_IO_H
 
 #include <sys/types.h>
+
 #include "fox_define.h"
+
+// TODO: Implement buffer system
+// Printf copycat
+ssize_t fox_printf(str2c_t format, ...) __Aformat(printf, 1, 2)
+    __a((nonnull(1)));
 
 // Print a single character to a given file descriptor
 scount_t fox_dputchar(int fd, char c);
