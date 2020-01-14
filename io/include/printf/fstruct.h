@@ -11,9 +11,12 @@
 #include <stdarg.h>
 #include <stdbool.h>
 #include <sys/types.h>
+
 #include "fox_define.h"
 
+// Forward type definition
 typedef struct format_struct fstruct_t;
+
 #ifndef CONVERTER_TYPE_DEFINED
     #define CONVERTER_TYPE_DEFINED
     typedef scount_t (*converter_t)(fstruct_t *, va_list *);
@@ -41,7 +44,7 @@ typedef struct {
     bool is_valid : 1; // For invalid formats
 
     const int bfpad : 5; // Bit field padding
-} finfo_t;             // Flags, field width, conversion specifier etc.
+} finfo_t;               // Flags, field width, conversion specifier etc.
 
 typedef union {
     char av_char;       // hhi, hhd
@@ -65,8 +68,9 @@ struct format_struct {
     finfo_t info;      // Info from "%<...>"
     fargv_t value;     // Argument value
     scount_t chars;    // Number of chars written
-    str_t fmt;         // Start of the format when parsing begins
-    str_t buff;        // Buffer string containing the converted arg
+    str2c_t fmt;       // Start of the format string when parsing begins
+    str_t buff;        /* Buffer string containing the converted arg
+       End of it when parsing is over and argument is valid */
     converter_t print; // Printer functtion
 }; // Struct bundling everything needed to print format arguments
 

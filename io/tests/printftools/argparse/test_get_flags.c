@@ -14,7 +14,7 @@
 Test(get_flags, all_cases)
 {
     finfo_t info = {0};
-    str_t format = "# +'0o";
+    str2c_t format = "# +'0o";
 
     get_flags(&info, &format);
     cr_expect_eq(*format, 'o');

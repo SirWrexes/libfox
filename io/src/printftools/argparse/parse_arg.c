@@ -20,7 +20,7 @@ static const flagparser_t FP[] = {
     NULL,
 };
 
-__Anonnull __AalwaysILext void parse_arg(fstruct_t *arg, str_t *format)
+__Anonnull __AalwaysILext void parse_arg(fstruct_t *arg, str2c_t *format)
 {
     arg->info.is_valid = true;
     arg->fmt = *format + (**format == '%');
