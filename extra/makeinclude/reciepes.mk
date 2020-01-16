@@ -93,8 +93,9 @@ test_report: $(TESTBIN)
 	@$(RM) $(notdir $(DEPSRC:.c=.gc*) $(WRAPSRC:.c=.gc*))
 	@$(GCOV) $(COVFLAGS)
 else
+test_report: REPORTTXT := "Skip tests"
 test_report: $(TESTBIN)
-	@$(ECHO$(BIN)) $(CUNDERLN)$(CRED)"Skip $(REPORTTXT)"$(CRESET)
+	@$(ECHO$(BIN)) $(CUNDERLN)$(CRED)$(REPORTTXT)$(CRESET)
 endif
 #########################################################################################
 
