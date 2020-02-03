@@ -8,14 +8,14 @@
 #ifndef FOX_STR_H
 #define FOX_STR_H
 
-#include <stddef.h>
 #include <stdbool.h>
+#include <stddef.h>
 
 #include "fox_define.h"
 
 // Get a string's length as a size_t value
 size_t fox_strlen(str2c_t str) __Anonnull __Apure;
-// Get a string's length up to n characters max
+// Get a string's length up to n characters
 size_t fox_strnlen(str2c_t str, size_t n) __Anonnull __Apure;
 // Get a line's length (strlen up to first '\n' or '\0')
 size_t fox_linelen(str2c_t str) __Anonnull __Apure;
@@ -49,14 +49,25 @@ str_t fox_revstr(str_t s) __Anonnull;
 // Check if c is in contained str
 bool fox_isinstr(char c, str2c_t str) __Anonnull __Apure;
 
-// Get length of a prefix substring
+// Locate a character in a string
+// Returns a pointer to the first occurence of c in s, or NULL if not found
+str_t fox_strchr(str2c_t s, char c) __Anonnull __Apure;
+
+// Get the length of a prefix substring matching accept characters
 size_t fox_strspn(str2c_t str, str2c_t accept) __Anonnull __Apure;
+// Get the length of a prefix substring not matching reject characters
 size_t fox_strcspn(str2c_t str, str2c_t reject) __Anonnull __Apure;
+
+// Tokenize a string into part separated by characters from delim
+str_t fox_strtok_r(str_t s, str2c_t delim, str_t *saveptr);
+// Tokenize a string into part separated by characters from delim
+// Contains a static to remember position in string after last call
+str_t fox_strtok(str_t s, str2c_t delim);
 
 // Check if a string is strictly numeric meaning it has, in this order:
 // 1. An arbitrary number of spaces
 // 2. Any number of signs (+ and -)
-// 3. Series of numbers, may have 1 dot (.) separators
+// 3. One to two series of numbers, separated by 1 dot (.)
 bool fox_strisnum(str2c_t s) __Anonnull __Apure;
 
 #endif // FOX_STR_H
