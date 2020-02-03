@@ -51,6 +51,7 @@
     #undef __Apure
     #undef __Atransparent
     #undef __Aunused
+    #undef __AweakAlias
     #undef ARRAY_SIZE
     #undef CHAR_IS_ALPHA
     #undef CHAR_IS_ALPHALO
@@ -105,6 +106,7 @@
     #define __Apure               __a((pure))
     #define __Atransparent        __a((__transparent_union__))
     #define __Aunused             __a((unused))
+    #define __AweakAlias(f)       __a((weak, alias (#f)))
 
     // Get the number of elements in an array
     #define ARRAY_SIZE(array) (sizeof((array)) / sizeof((*array)))
