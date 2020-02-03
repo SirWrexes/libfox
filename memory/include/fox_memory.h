@@ -30,4 +30,10 @@ void *fox_memset(void *dst, int c, size_t n);
 // Newly allocated memory is initialized to 0
 void *fox_calloc(size_t n, size_t sz) __Amalloc __AallocSz(1, 2);
 
+// Reallocate a pointer and set oldsz to newsz's value on success
+// If oldsz is NULL or points to a 0 value, a new pointer will be created
+// If oldp is NULL, a new pointer will be created
+// If newsz is 0, the pointer will be freed
+void *fox_realloc_sz(void *oldp, size_t *oldsz, size_t newsz) __Amalloc;
+
 #endif /* !FOX_MEMORY_H */
