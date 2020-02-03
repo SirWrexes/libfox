@@ -5,8 +5,8 @@
 ## Lib and object reciepes
 ##
 
-ifndef MKRECIEPES
-MKRECIEPES := 1
+ifndef MKRULES
+MKRULES := 1
 
 #
 # Lib archive

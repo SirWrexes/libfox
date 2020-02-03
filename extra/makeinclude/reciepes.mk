@@ -5,8 +5,8 @@
 ## Receipes for a good healthy lib meal
 ##
 
-ifndef MKRULES
-MKRULES :=1
+ifndef MKRECEIPES
+MKRECEIPES :=1
 
 #
 # Compile DB and C tags (recommended if you use vim with YouCompleteMe)
