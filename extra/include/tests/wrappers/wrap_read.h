@@ -14,8 +14,8 @@
 //     ¤ -1  Disable breaking (read works normally)
 //     ¤ 0   Break (return -1 and set errno to EBADF)
 //     ¤ n   When n > 0, read works n times then breaks.
-short *__read_counter(void) __Aconst;
-#define read_counter (*__read_counter())
+short *read_counter_location(void) __Aconst;
+#define read_counter (*read_counter_location())
 
 // Set read_counter to 0 to provoke instant breaking in your test
 // You can use it as a .init in your Test macros.

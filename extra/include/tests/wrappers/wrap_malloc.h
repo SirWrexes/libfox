@@ -14,8 +14,8 @@
 //     ¤ -1  Disable breaking (malloc works normally)
 //     ¤ 0   Break (return NULL and set errno to ENOMEM)
 //     ¤ n   When n > 0, malloc works n times then breaks.
-short *__malloc_counter(void) __Aconst;
-#define malloc_counter (*__malloc_counter())
+short *malloc_counter_location(void) __Aconst;
+#define malloc_counter (*malloc_counter_location())
 
 // Set malloc_counter to 0 to provoke instant breaking in your test
 // You can use it as a .init in your Test macros.

@@ -14,8 +14,8 @@
 //     ¤ -1  Disable breaking (write works normally)
 //     ¤ 0   Break (return -1 and set errno to EBADF)
 //     ¤ n   When n > 0, write works n times then breaks.
-short *__write_counter(void) __Aconst;
-#define write_counter (*__write_counter())
+short *write_counter_location(void) __Aconst;
+#define write_counter (*write_counter_location())
 
 // Set write_counter to 0 to provoke instant breaking in your test
 // You can use it as a .init in your Test macros.

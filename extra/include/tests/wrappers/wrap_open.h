@@ -14,8 +14,8 @@
 //     ¤ -1  Disable breaking (open works normally)
 //     ¤ 0   Break (return -1 set errno to ENOENT)
 //     ¤ n   When n > 0, open works n times then breaks.
-short *__open_counter(void) __Aconst;
-#define open_counter (*__open_counter())
+short *open_counter_location(void) __Aconst;
+#define open_counter (*open_counter_location())
 
 // Set open_counter to 0 to provoke instant breaking in your test
 // You can use it as a .init in your Test macros.
