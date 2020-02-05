@@ -30,13 +30,13 @@ __Aconst short *read_counter_location(void)
     return &n;
 }
 
-extern inline void fix_read(void)
+__AalwaysILext void fix_read(void)
 {
     read_counter = -1;
     errno = 0;
 }
 
-extern inline void break_read(void)
+__AalwaysILext void break_read(void)
 {
     read_counter = 0;
 }

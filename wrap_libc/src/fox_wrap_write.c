@@ -30,13 +30,13 @@ __Aconst short *write_counter_location(void)
     return &n;
 }
 
-extern inline void fix_write(void)
+__AalwaysILext void fix_write(void)
 {
     write_counter = -1;
     errno = 0;
 }
 
-extern inline void break_write(void)
+__AalwaysILext void break_write(void)
 {
     write_counter = 0;
 }

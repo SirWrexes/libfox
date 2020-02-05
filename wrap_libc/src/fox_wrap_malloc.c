@@ -29,13 +29,13 @@ __Aconst short *malloc_counter_location(void)
     return &n;
 }
 
-extern inline void fix_malloc(void)
+__AalwaysILext void fix_malloc(void)
 {
     malloc_counter = -1;
     errno = 0;
 }
 
-extern inline void break_malloc(void)
+__AalwaysILext void break_malloc(void)
 {
     malloc_counter = 0;
 }
