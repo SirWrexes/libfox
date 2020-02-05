@@ -9,10 +9,11 @@
 #include <fcntl.h>
 
 #include "fox_define.h"
+#include "fox_internal/foxi_wrapmacro.h"
+
 #include "tests/wrappers/wrap_open.h"
 
-int __real_open(str2c_t path);
-int __wrap_open(str2c_t path)
+Wrapper(int, open, str3c_t path)
 {
     if (open_counter == 0) {
         errno = ENOENT;
@@ -22,20 +23,20 @@ int __wrap_open(str2c_t path)
     return __real_open(path);
 }
 
-__Aconst short *__open_counter(void)
+__Aconst short *open_counter_location(void)
 {
     static short n = -1;
 
     return &n;
 }
 
-extern inline void fix_open(void)
+__AalwaysILext void fix_open(void)
 {
     open_counter = -1;
     errno = 0;
 }
 
-extern inline void break_open(void)
+__AalwaysILext void break_open(void)
 {
     open_counter = 0;
 }

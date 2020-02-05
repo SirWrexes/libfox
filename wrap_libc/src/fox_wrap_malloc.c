@@ -8,10 +8,11 @@
 #include <errno.h>
 
 #include "fox_define.h"
+#include "fox_internal/foxi_wrapmacro.h"
+
 #include "tests/wrappers/wrap_malloc.h"
 
-void *__real_malloc(size_t size);
-void *__wrap_malloc(size_t size)
+Wrapper(void *, malloc, size_t size)
 {
     if (malloc_counter == 0) {
         errno = ENOMEM;
@@ -21,7 +22,7 @@ void *__wrap_malloc(size_t size)
     return __real_malloc(size);
 }
 
-__Aconst short *__malloc_counter(void)
+__Aconst short *malloc_counter_location(void)
 {
     static short n = -1;
 

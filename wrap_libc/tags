@@ -1,0 +1,147 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/0d0ef5f0/
+$(BIN)	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/reciepes.mk	/^$(BIN): $(OBJ)$/;"	t
+$(DEBUGBIN)	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/reciepes.mk	/^$(DEBUGBIN): $(SRC) $(DEBUGMAIN)$/;"	t
+$(DEBUGBIN)	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/reciepes.mk	/^$(DEBUGBIN): CFLAGS += -ggdb3 -rdynamic$/;"	t
+$(DEBUGBIN)	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/reciepes.mk	/^$(DEBUGBIN): COMPILEDBTARGET := $(DEBUGBIN)$/;"	t
+$(DEBUGBIN)	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/reciepes.mk	/^$(DEBUGBIN): SRC    += $(DEPSRC) $(DEBUGMAIN)$/;"	t
+$(DEBUGBIN)	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/reciepes.mk	/^$(DEBUGBIN): completion-tools$/;"	t
+$(NAME)	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/reciepes.mk	/^$(NAME): $(BIN)$/;"	t
+$(NAME)	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/reciepes.mk	/^$(NAME): COMPILEDBTARGET := $(NAME)$/;"	t
+$(NAME)	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/reciepes.mk	/^$(NAME): completion-tools$/;"	t
+$(NAME)	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/reciepes.mk	/^$(NAME): tests$/;"	t
+$(TESTBIN)	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/reciepes.mk	/^$(TESTBIN): CFLAGS += $(CMDCFLAGS)$/;"	t
+$(TESTBIN)	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/reciepes.mk	/^$(TESTBIN): CFLAGS += $(CUSTOM_UTCFLAGS)$/;"	t
+$(TESTBIN)	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/reciepes.mk	/^$(TESTBIN): CFLAGS += $(WRAPFLAGS)$/;"	t
+$(TESTBIN)	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/reciepes.mk	/^$(TESTBIN): CFLAGS += --coverage$/;"	t
+$(TESTBIN)	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/reciepes.mk	/^$(TESTBIN): COMPILEDBTARGET := $(TESTBIN)$/;"	t
+$(TESTBIN)	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/reciepes.mk	/^$(TESTBIN): LDLIBS += -lcriterion$/;"	t
+$(TESTBIN)	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/reciepes.mk	/^$(TESTBIN): SRC    += $(DEPSRC) $(TST) $(WRAPSRC)$/;"	t
+$(TESTBIN)	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/reciepes.mk	/^$(TESTBIN): completion-tools$/;"	t
+%.a	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/rules.mk	/^%.a:$/;"	t
+%.o	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/rules.mk	/^%.o: %.c$/;"	t
+%.o	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/rules.mk	/^%.o: CFLAGS += -MT $@ -MMD$/;"	t
+.DEFAULT_GOAL	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/makeconf.mk	/^.DEFAULT_GOAL   := all$/;"	m
+.PRECIOUS	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/builconf.mk	/^.PRECIOUS := $(DEP)$/;"	m
+BARCOLOR	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/progscript.mk	/^    BARCOLOR := \\033[38;2;255;167;4m$/;"	m
+BIN	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/makeconf.mk	/^BIN             := libfox_$(NAME).a$/;"	m
+C	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/progscript.mk	/^  C = $(words $N)$(eval N := x $N)$/;"	m
+CBLUE	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/format.mk	/^CBLUE       :=	$$'\\033[38;2;0;0;255m'$/;"	m
+CBOLD	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/format.mk	/^CBOLD       :=  $$'\\033[1m'$/;"	m
+CC	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/makeconf.mk	/^CC              := gcc$/;"	m
+CFLAGS	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/builconf.mk	/^CFLAGS := -std=gnu99$/;"	m
+CGREEN	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/format.mk	/^CGREEN      :=	$$'\\033[1;32;40m'$/;"	m
+CLIGHTBLUE	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/format.mk	/^CLIGHTBLUE  :=	$$'\\033[38;2;88;255;250m'$/;"	m
+CLIGHTGREEN	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/format.mk	/^CLIGHTGREEN :=  $$'\\033[38;2;190;255;200m'$/;"	m
+COLOROFF	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/progscript.mk	/^    COLOROFF := \\033[0m$/;"	m
+COMPILEDB	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/makeconf.mk	/^COMPILEDB       := compile_commands.json$/;"	m
+COMPILEDBTARGET	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/makeconf.mk	/^COMPILEDBTARGET := all tests debug$/;"	m
+COMPILEDBTARGET	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/reciepes.mk	/^$(DEBUGBIN): COMPILEDBTARGET := $(DEBUGBIN)$/;"	m
+COMPILEDBTARGET	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/reciepes.mk	/^$(NAME): COMPILEDBTARGET := $(NAME)$/;"	m
+COMPILEDBTARGET	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/reciepes.mk	/^$(TESTBIN): COMPILEDBTARGET := $(TESTBIN)$/;"	m
+CORANGE	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/format.mk	/^CORANGE     :=	$$'\\033[38;2;255;167;4m'$/;"	m
+COV	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/builconf.mk	/^COV := $(notdir $(OBJ:.o=.gc*)) $(notdir $(TST:.c=.gc*))$/;"	m
+COVFLAGS	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/builconf.mk	/^COVFLAGS := -s --exclude-unreachable-branches$/;"	m
+CP	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/makeconf.mk	/^CP              := cp -t$/;"	m
+CRED	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/format.mk	/^CRED        :=	$$'\\033[38;2;255;0;0m'$/;"	m
+CRESET	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/format.mk	/^CRESET      :=	$$'\\033[0m'$/;"	m
+CTAGS	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/makeconf.mk	/^CTAGS           := tags$/;"	m
+CUNDERLN	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/format.mk	/^CUNDERLN    :=  $$'\\033[4m'$/;"	m
+CURRDIR	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/reciepes.mk	/^ctags: CURRDIR := $(shell pwd)$/;"	m
+CUSTOM_CFLAGS	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/module.mk	/^CUSTOM_CFLAGS := $(WRAPFLAGS)$/;"	m
+DEBUGBIN	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/makeconf.mk	/^DEBUGBIN        := debug_$(NAME)$/;"	m
+DEBUGMAIN	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/module.mk	/^DEBUGMAIN := .\/src\/debugmain.c$/;"	m
+DEP	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/builconf.mk	/^DEP    := $(OBJ:.o=.d) $(DEPSRC:.c=.d)$/;"	m
+DEPSRC	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/module.mk	/^DEPSRC := ..\/memory\/src\/fox_autofree.c$/;"	m
+ECHO$(BIN)	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/progscript.mk	/^  ECHO$(BIN) = python .\/$(PROGSCRIPT) --stepno=$C --nsteps=$T$/;"	m
+FOX_WRAPPERS_H	/home/renard/repos/libs/libfox/wrap_libc/include/fox_wrappers.h	/^#define FOX_WRAPPERS_H$/;"	d
+GCOV	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/makeconf.mk	/^GCOV            := gcovr$/;"	m
+INCDIRS	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/builconf.mk	/^INCDIRS := .\/include ..\/extra\/include$/;"	m
+LDLIBS	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/builconf.mk	/^LDLIBS := $(foreach lib, $(LIBS), -l$(lib))$/;"	m
+LIBS	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/module.mk	/^LIBS :=$/;"	m
+MAKE	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/makeconf.mk	/^MAKE            := make --no-print-directory -C$/;"	m
+MKBUILDCONF	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/builconf.mk	/^MKBUILDCONF := 1$/;"	m
+MKCONF	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/makeconf.mk	/^MKCONF := 1$/;"	m
+MKFORMAT	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/format.mk	/^MKFORMAT := 1$/;"	m
+MKPROJECT	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/module.mk	/^MKPROJECT := 1$/;"	m
+MKRECEIPES	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/reciepes.mk	/^MKRECEIPES :=1$/;"	m
+MKRULES	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/rules.mk	/^MKRULES := 1$/;"	m
+MV	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/makeconf.mk	/^MV              := mv -t$/;"	m
+N	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/progscript.mk	/^  N := x$/;"	m
+NAME	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/module.mk	/^NAME := wrap_libc$/;"	m
+OBJ	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/builconf.mk	/^OBJ    := $(SRC:.c=.o) $(DEPSRC:.c=.o)$/;"	m
+PROGBAR-CODE	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/progscript.mk	/^define PROGBAR-CODE$/;"	m
+PROGSCRIPT	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/progscript.mk	/^PROGSCRIPT := .progbar$/;"	m
+REPORTTXT	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/builconf.mk	/^REPORTTXT := "TEST REPORT"$/;"	m
+REPORTTXT	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/reciepes.mk	/^test_report: REPORTTXT := "Skip tests"$/;"	m
+RM	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/makeconf.mk	/^RM              := rm -f$/;"	m
+SHELL	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/makeconf.mk	/^SHELL           := \/bin\/bash$/;"	m
+SRC	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/module.mk	/^SRC := .\/src\/fox_wrap_close.c$/;"	m
+T	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/progscript.mk	/^  T := $(shell $(MAKE) . $(MAKECMDGOALS)	\\$/;"	m
+TESTBIN	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/makeconf.mk	/^TESTBIN         := utest_$(NAME)$/;"	m
+TST	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/module.mk	/^TST := .\/tests\/test_fox_wrap_close.c$/;"	m
+UTFLAGS	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/builconf.mk	/^UTFLAGS := --always-succeed --timeout 5$/;"	m
+WRAPFLAGS	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/module.mk	/^WRAPFLAGS  := $(addprefix $(WRAPPREFIX),$(WRAPPED))$/;"	m
+WRAPPED	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/module.mk	/^WRAPPED := $(subst .c,,$(subst fox_wrap_,,$(notdir $(SRC))))$/;"	m
+WRAPPREFIX	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/module.mk	/^WRAPPREFIX := -Wl,--wrap=$/;"	m
+WRAP_CBREAK_H	/home/renard/repos/libs/libfox/wrap_libc/include/wrapdef/fox_wrap_cbreak.h	/^#define WRAP_CBREAK_H$/;"	d
+WRAP_CLOSE_H	/home/renard/repos/libs/libfox/wrap_libc/include/wrapdef/fox_wrap_close.h	/^#define WRAP_CLOSE_H$/;"	d
+WRAP_INITSCR_H	/home/renard/repos/libs/libfox/wrap_libc/include/wrapdef/fox_wrap_initscr.h	/^#define WRAP_INITSCR_H$/;"	d
+WRAP_KEYPAD_H	/home/renard/repos/libs/libfox/wrap_libc/include/wrapdef/fox_wrap_keypad.h	/^#define WRAP_KEYPAD_H$/;"	d
+WRAP_MALLOC_H	/home/renard/repos/libs/libfox/wrap_libc/include/wrapdef/fox_wrap_malloc.h	/^#define WRAP_MALLOC_H$/;"	d
+WRAP_NOECHO_H	/home/renard/repos/libs/libfox/wrap_libc/include/wrapdef/fox_wrap_noecho.h	/^#define WRAP_NOECHO_H$/;"	d
+WRAP_OPEN_H	/home/renard/repos/libs/libfox/wrap_libc/include/wrapdef/fox_wrap_open.h	/^#define WRAP_OPEN_H$/;"	d
+WRAP_READ_H	/home/renard/repos/libs/libfox/wrap_libc/include/wrapdef/fox_wrap_read.h	/^#define WRAP_READ_H$/;"	d
+WRAP_WRITE_H	/home/renard/repos/libs/libfox/wrap_libc/include/wrapdef/fox_wrap_write.h	/^#define WRAP_WRITE_H$/;"	d
+Wrapper	/home/renard/repos/libs/libfox/wrap_libc/src/fox_wrap_close.c	/^Wrapper(int, close, int fd)$/;"	f
+Wrapper	/home/renard/repos/libs/libfox/wrap_libc/src/fox_wrap_malloc.c	/^Wrapper(void *, malloc, size_t size)$/;"	f
+Wrapper	/home/renard/repos/libs/libfox/wrap_libc/src/fox_wrap_open.c	/^Wrapper(int, open, str3c_t path)$/;"	f
+Wrapper	/home/renard/repos/libs/libfox/wrap_libc/src/fox_wrap_read.c	/^Wrapper(ssize_t, read, int fd, void *buff, size_t n)$/;"	f
+Wrapper	/home/renard/repos/libs/libfox/wrap_libc/src/fox_wrap_write.c	/^Wrapper(ssize_t, write, int fd, void *buff, size_t n)$/;"	f
+all	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/reciepes.mk	/^all: $(NAME)$/;"	t
+break_close	/home/renard/repos/libs/libfox/wrap_libc/src/fox_wrap_close.c	/^extern inline void break_close(void)$/;"	f	typeref:typename:void
+break_malloc	/home/renard/repos/libs/libfox/wrap_libc/src/fox_wrap_malloc.c	/^extern inline void break_malloc(void)$/;"	f	typeref:typename:void
+break_open	/home/renard/repos/libs/libfox/wrap_libc/src/fox_wrap_open.c	/^__AalwaysILext void break_open(void)$/;"	f	typeref:typename:__AalwaysILext void
+break_read	/home/renard/repos/libs/libfox/wrap_libc/src/fox_wrap_read.c	/^extern inline void break_read(void)$/;"	f	typeref:typename:void
+break_write	/home/renard/repos/libs/libfox/wrap_libc/src/fox_wrap_write.c	/^extern inline void break_write(void)$/;"	f	typeref:typename:void
+cbreak_counter	/home/renard/repos/libs/libfox/wrap_libc/include/wrapdef/fox_wrap_cbreak.h	/^#define cbreak_counter /;"	d
+clean	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/reciepes.mk	/^clean: rm_test_tmp$/;"	t
+close_counter	/home/renard/repos/libs/libfox/wrap_libc/include/wrapdef/fox_wrap_close.h	/^#define close_counter /;"	d
+close_counter_location	/home/renard/repos/libs/libfox/wrap_libc/src/fox_wrap_close.c	/^__Aconst short *close_counter_location(void)$/;"	f	typeref:typename:__Aconst short *
+compiledb	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/reciepes.mk	/^compiledb:$/;"	t
+completion-tools	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/reciepes.mk	/^completion-tools: ctags compiledb$/;"	t
+ctags	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/reciepes.mk	/^ctags: CURRDIR := $(shell pwd)$/;"	t
+ctags	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/reciepes.mk	/^ctags:$/;"	t
+debug	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/reciepes.mk	/^debug: $(DEBUGBIN)$/;"	t
+err	/home/renard/repos/libs/libfox/wrap_libc/tests/test_fox_wrap_malloc.c	/^    int err = errno;$/;"	v	typeref:typename:int
+fclean	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/reciepes.mk	/^fclean: rm_test_tmp$/;"	t
+fd	/home/renard/repos/libs/libfox/wrap_libc/tests/test_fox_wrap_close.c	/^    int fd = open("wrap_close.tmp", O_CREAT);$/;"	v	typeref:typename:int
+fix_close	/home/renard/repos/libs/libfox/wrap_libc/src/fox_wrap_close.c	/^extern inline void fix_close(void)$/;"	f	typeref:typename:void
+fix_malloc	/home/renard/repos/libs/libfox/wrap_libc/src/fox_wrap_malloc.c	/^extern inline void fix_malloc(void)$/;"	f	typeref:typename:void
+fix_open	/home/renard/repos/libs/libfox/wrap_libc/src/fox_wrap_open.c	/^__AalwaysILext void fix_open(void)$/;"	f	typeref:typename:__AalwaysILext void
+fix_read	/home/renard/repos/libs/libfox/wrap_libc/src/fox_wrap_read.c	/^extern inline void fix_read(void)$/;"	f	typeref:typename:void
+fix_write	/home/renard/repos/libs/libfox/wrap_libc/src/fox_wrap_write.c	/^extern inline void fix_write(void)$/;"	f	typeref:typename:void
+initscr_counter	/home/renard/repos/libs/libfox/wrap_libc/include/wrapdef/fox_wrap_initscr.h	/^#define initscr_counter /;"	d
+keypad_counter	/home/renard/repos/libs/libfox/wrap_libc/include/wrapdef/fox_wrap_keypad.h	/^#define keypad_counter /;"	d
+malloc_counter	/home/renard/repos/libs/libfox/wrap_libc/include/wrapdef/fox_wrap_malloc.h	/^#define malloc_counter /;"	d
+malloc_counter_location	/home/renard/repos/libs/libfox/wrap_libc/src/fox_wrap_malloc.c	/^__Aconst short *malloc_counter_location(void)$/;"	f	typeref:typename:__Aconst short *
+module	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/reciepes.mk	/^module: $(NAME)$/;"	t
+noecho_counter	/home/renard/repos/libs/libfox/wrap_libc/include/wrapdef/fox_wrap_noecho.h	/^#define noecho_counter /;"	d
+open_counter	/home/renard/repos/libs/libfox/wrap_libc/include/wrapdef/fox_wrap_open.h	/^#define open_counter /;"	d
+open_counter_location	/home/renard/repos/libs/libfox/wrap_libc/src/fox_wrap_open.c	/^__Aconst short *open_counter_location(void)$/;"	f	typeref:typename:__Aconst short *
+re	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/reciepes.mk	/^re:$/;"	t
+read_counter	/home/renard/repos/libs/libfox/wrap_libc/include/wrapdef/fox_wrap_read.h	/^#define read_counter /;"	d
+read_counter_location	/home/renard/repos/libs/libfox/wrap_libc/src/fox_wrap_read.c	/^__Aconst short *read_counter_location(void)$/;"	f	typeref:typename:__Aconst short *
+rm_test_tmp	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/reciepes.mk	/^rm_test_tmp:$/;"	t
+test_report	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/reciepes.mk	/^test_report: $(TESTBIN)$/;"	t
+test_report	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/reciepes.mk	/^test_report: REPORTTXT := "Skip tests"$/;"	t
+tests	/home/renard/repos/libs/libfox/wrap_libc/makeinclude/reciepes.mk	/^tests: test_report$/;"	t
+tst	/home/renard/repos/libs/libfox/wrap_libc/tests/test_fox_wrap_malloc.c	/^    __smart void *tst = malloc(1);$/;"	v	typeref:typename:__smart void *
+write_counter	/home/renard/repos/libs/libfox/wrap_libc/include/wrapdef/fox_wrap_write.h	/^#define write_counter /;"	d
+write_counter_location	/home/renard/repos/libs/libfox/wrap_libc/src/fox_wrap_write.c	/^__Aconst short *write_counter_location(void)$/;"	f	typeref:typename:__Aconst short *

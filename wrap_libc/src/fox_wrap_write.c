@@ -9,10 +9,11 @@
 #include <sys/types.h>
 
 #include "fox_define.h"
+#include "fox_internal/foxi_wrapmacro.h"
+
 #include "tests/wrappers/wrap_write.h"
 
-ssize_t __real_write(int fd, void *buff, size_t n);
-ssize_t __wrap_write(int fd, void *buff, size_t n)
+Wrapper(ssize_t, write, int fd, void *buff, size_t n)
 {
     if (write_counter == 0) {
         errno = EBADF;
@@ -22,7 +23,7 @@ ssize_t __wrap_write(int fd, void *buff, size_t n)
     return __real_write(fd, buff, n);
 }
 
-__Aconst short *__write_counter(void)
+__Aconst short *write_counter_location(void)
 {
     static short n = -1;
 

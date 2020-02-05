@@ -6,13 +6,14 @@
 */
 
 #include <errno.h>
-#include <fcntl.h>
+#include <unistd.h>
 
 #include "fox_define.h"
+#include "fox_internal/foxi_wrapmacro.h"
+
 #include "tests/wrappers/wrap_close.h"
 
-int __real_close(int fd);
-int __wrap_close(int fd)
+Wrapper(int, close, int fd)
 {
     if (close_counter == 0) {
         errno = EBADF;
@@ -22,7 +23,7 @@ int __wrap_close(int fd)
     return __real_close(fd);
 }
 
-__Aconst short *__close_counter(void)
+__Aconst short *close_counter_location(void)
 {
     static short n = -1;
 
