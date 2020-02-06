@@ -23,7 +23,7 @@ static const flagparser_t FP[] = {
 __Anonnull __AalwaysILext void parse_arg(fstruct_t *arg, str2c_t *format)
 {
     arg->info.is_valid = true;
-    arg->fmt = *format + (**format == '%');
+    arg->fmt = *format + 1;
     for (hindex_t i = 0; arg->info.is_valid && FP[i] != NULL; i += 1)
         FP[i](&arg->info, &arg->fmt);
     arg->info.spec = *arg->fmt++;
