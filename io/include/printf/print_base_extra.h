@@ -19,8 +19,8 @@ static inline const str_t *pick_base(char spec)
 {
     switch (spec) {
         default:
-        case 'x': return BASE_HEX;
-        case 'X': return BASE_HEX_CAPS;
+        case 'x': case 'p': return BASE_HEX;
+        case 'X': case 'P': return BASE_HEX_CAPS;
         case 'o': return BASE_OCT;
         case 'b': return BASE_BIN;
     }
