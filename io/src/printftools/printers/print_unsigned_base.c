@@ -32,7 +32,7 @@ __Anonnull scount_t print_unsigned_base(fstruct_t *arg, va_list *va)
         arg->info.alt ? &alt_on : &alt_off;
 
     arg->value.av_ullong = va_arg(*va, ullong_t);
-    switch (info_to_mask(&arg->info)) {
+    switch (info_to_mask(&arg->info) & MASK_TYPE) {
         default: arg->chars = print(arg->value.av_uint, b); break;
         case MASK_CHAR: arg->chars = print(arg->value.av_uchar, b); break;
         case MASK_SHORT: arg->chars = print(arg->value.av_ushort, b); break;
