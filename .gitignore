@@ -70,10 +70,11 @@ dependency/build
 .clangd
 .foxmodules.sh
 .idea
+.progbar
 .viminfo
 CMake*
 cmake*
 compile_commands.json
-progressbar.py
+tags
 
 # End of https://www.gitignore.io/api/C
