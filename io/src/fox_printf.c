@@ -35,7 +35,9 @@ __Aformat(printf, 1, 2) __a((nonnull(1))) ssize_t fox_printf(str2c_t fmt, ...)
     fstruct_t arg = {0};
 
     va_start(va, fmt);
-    while (*fmt) {
+    do {
+        if (*fmt == '\0')
+            break;
         r += print_segment(&fmt);
         if (*fmt == '\0')
             break;
@@ -45,6 +47,6 @@ __Aformat(printf, 1, 2) __a((nonnull(1))) ssize_t fox_printf(str2c_t fmt, ...)
             r += arg.print(&arg, &va);
         else
             r += write(1, fmt++, 1);
-    }
+    } while (true);
     return r;
 }
