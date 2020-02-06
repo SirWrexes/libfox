@@ -39,9 +39,11 @@
 *.i*86
 *.x86_64
 *.hex
-unit_tests
+utest_*
+debug_*
 
 # Debug files
+debugmain.c
 *.dSYM/
 *.su
 *.idb
@@ -63,17 +65,15 @@ dkms.conf
 # Submodule stuff
 dependency/build
 
-# Epitech file architecture helper
+# Miscellaneous
 .bash_history
+.clangd
 .foxmodules.sh
 .idea
 .viminfo
 CMake*
 cmake*
 compile_commands.json
-debugmain.c
 progressbar.py
-tests_run
-utests*
 
 # End of https://www.gitignore.io/api/C
