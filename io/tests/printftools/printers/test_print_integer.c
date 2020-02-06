@@ -81,6 +81,7 @@ Test(print_integer, print_long_long, .init = cr_redirect_stdout)
 
     setup_va_list(&ap, INT_MAX);
     arg.info.is_long_long = true;
+    arg.info.showsign = true;
     cr_assert_eq(print_integer(&arg, &ap), sprintf(ref, "%+lli", INT_MAX));
     cr_expect_stdout_eq_str(ref);
     va_end(ap);
