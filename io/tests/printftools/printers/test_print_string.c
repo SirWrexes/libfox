@@ -32,8 +32,8 @@ Test(print_string, non_printables, .init = cr_redirect_stdout)
 {
     va_list va;
     fstruct_t arg = {0};
-    str_t str = "\008ff the\014 handle";
-    str_t ref = "\\008ff the\\014 handle";
+    str_t str = "\007ff the\014 handle";
+    str_t ref = "\\007ff the\\014 handle";
 
     setup_va_list(&va, str);
     arg.info.spec = 'S';
