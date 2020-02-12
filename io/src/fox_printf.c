@@ -10,7 +10,6 @@
 
 #include "fox_define.h"
 #include "fox_io.h"
-#include "fox_memory.h"
 #include "fox_string.h"
 
 #include "printf/argparse.h"
@@ -41,7 +40,6 @@ __Aformat(printf, 1, 2) __a((nonnull(1))) ssize_t fox_printf(str2c_t fmt, ...)
         r += print_segment(&fmt);
         if (*fmt == '\0')
             break;
-        fox_memset(&arg, 0, sizeof(arg));
         parse_arg(&arg, &fmt);
         if (arg.info.is_valid)
             r += arg.print(&arg, &va);

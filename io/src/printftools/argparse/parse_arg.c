@@ -6,6 +6,7 @@
 */
 
 #include "fox_define.h"
+#include "fox_memory.h"
 #include "fox_string.h"
 
 #include "printf/argparse.h"
@@ -22,7 +23,9 @@ static const flagparser_t FP[] = {
 
 __Anonnull __AalwaysILext void parse_arg(fstruct_t *arg, str2c_t *format)
 {
+    fox_memset(arg, 0, sizeof(*arg));
     arg->info.is_valid = true;
+    arg->info.padchar = ' ';
     arg->fmt = *format + 1;
     for (hindex_t i = 0; arg->info.is_valid && FP[i] != NULL; i += 1)
         FP[i](&arg->info, &arg->fmt);
