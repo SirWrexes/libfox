@@ -15,6 +15,10 @@
 __Anonnull scount_t print_character(fstruct_t *arg, va_list *va)
 {
     arg->value.av_uint = va_arg(*va, uint);
-    arg->chars = fox_putchar(arg->value.av_uchar);
+    if (arg->info.width && arg->info.left == false)
+        arg->chars += fox_iopadn(' ', arg->info.width - 1);
+    arg->chars += fox_putchar(arg->value.av_uchar);
+    if (arg->info.width && arg->info.left == true)
+        arg->chars += fox_iopadn(' ', arg->info.width - 1);
     return arg->chars;
 }
