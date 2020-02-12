@@ -9,6 +9,7 @@
 #define FOX_TYPES_H
 
 #include <stddef.h>
+#include <stdbool.h>
 
 #ifndef FOX_UCHAR_TYPE
     #define FOX_UCHAR_TYPE
@@ -49,6 +50,7 @@
 #ifndef FOX_LONG_TYPE
     #define FOX_LONG_TYPE
     typedef long scount_t;
+    typedef long sindex_t;
 #endif // FOX_LONG_TYPE
 
 #ifndef FOX_ULONG_TYPE
