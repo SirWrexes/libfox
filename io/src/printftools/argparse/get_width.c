@@ -6,6 +6,7 @@
 */
 
 #include "fox_std.h"
+
 #include "printf/fstruct.h"
 
 __Anonnull __AalwaysILext void get_width(finfo_t *info, str_t *format)
