@@ -19,7 +19,7 @@ typedef struct format_struct fstruct_t;
 
 #ifndef CONVERTER_TYPE_DEFINED
     #define CONVERTER_TYPE_DEFINED
-    typedef scount_t (*converter_t)(fstruct_t *, va_list *);
+    typedef scount_t (*converter_t)(int fd, fstruct_t *, va_list *);
 #endif // CONVERTER_TYPE_DEFINED
 
 typedef struct {

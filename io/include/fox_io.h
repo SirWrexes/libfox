@@ -12,10 +12,18 @@
 
 #include "fox_define.h"
 
+// dPrintf copycat
 // TODO: Implement buffer system
+__a((nonnull(2))) __Aformat(printf, 2, 3) ssize_t
+    fox_dprintf(int fd, str2c_t format, ...);
+
 // Printf copycat
-ssize_t fox_printf(str2c_t format, ...) __Aformat(printf, 1, 2)
-    __a((nonnull(1)));
+__a((nonnull(1))) __Aformat(printf, 1, 2) ssize_t
+    fox_printf(str2c_t format, ...);
+
+// Printf copycat, writes to STDERR
+__a((nonnull(1))) __Aformat(printf, 1, 2) ssize_t
+    fox_eprintf(str2c_t format, ...);
 
 // Print a single character to a given file descriptor
 scount_t fox_dputchar(int fd, char c);

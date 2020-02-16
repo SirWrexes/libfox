@@ -13,16 +13,22 @@
 #include "printf/infomask.h"
 #include "printf/printers.h"
 
-__Anonnull scount_t print_unsigned(fstruct_t *arg, va_list *va)
+__Anonnull scount_t print_unsigned(int fd, fstruct_t *arg, va_list *va)
 {
     arg->value.av_ullong = va_arg(*va, ullong_t);
     switch (info_to_mask(&arg->info) & MASK_TYPE) {
-        default: arg->chars = fox_putunbr(arg->value.av_uint); break;
-        case MASK_CHAR: arg->chars = fox_putunbr(arg->value.av_uchar); break;
-        case MASK_SHORT: arg->chars = fox_putunbr(arg->value.av_ushort); break;
-        case MASK_LONG: arg->chars = fox_putunbr(arg->value.av_ulong); break;
+        default: arg->chars = fox_dputunbr(fd, arg->value.av_uint); break;
+        case MASK_CHAR:
+            arg->chars = fox_dputunbr(fd, arg->value.av_uchar);
+            break;
+        case MASK_SHORT:
+            arg->chars = fox_dputunbr(fd, arg->value.av_ushort);
+            break;
+        case MASK_LONG:
+            arg->chars = fox_dputunbr(fd, arg->value.av_ulong);
+            break;
         case MASK_LONGLONG:
-            arg->chars = fox_putunbr(arg->value.av_ullong);
+            arg->chars = fox_dputunbr(fd, arg->value.av_ullong);
             break;
     }
     return arg->chars;

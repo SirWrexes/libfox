@@ -12,12 +12,12 @@
 
 #include "printf/fstruct.h"
 
-__Anonnull scount_t print_string(fstruct_t *arg, va_list *va)
+__Anonnull scount_t print_string(int fd, fstruct_t *arg, va_list *va)
 {
     arg->value.av_str = va_arg(*va, str_t);
     if (arg->info.spec == 's')
-        arg->chars = fox_putstr(arg->value.av_str);
+        arg->chars = fox_dputstr(fd, arg->value.av_str);
     if (arg->info.spec == 'S')
-        arg->chars = fox_putstr_np(arg->value.av_str);
+        arg->chars = fox_dputstr_np(fd, arg->value.av_str);
     return arg->chars;
 }

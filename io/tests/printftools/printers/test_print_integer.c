@@ -29,7 +29,7 @@ Test(print_integer, print_char, .init = cr_redirect_stdout)
 
     setup_va_list(&ap, LLONG_MAX);
     arg.info.is_char = true;
-    cr_assert_eq(print_integer(&arg, &ap), sprintf(ref, "%hhi", LLONG_MAX));
+    cr_assert_eq(print_integer(1, &arg, &ap), sprintf(ref, "%hhi", LLONG_MAX));
     cr_expect_stdout_eq_str(ref);
     va_end(ap);
 }
@@ -42,7 +42,7 @@ Test(print_integer, print_short, .init = cr_redirect_stdout)
 
     setup_va_list(&ap, LLONG_MAX);
     arg.info.is_short = true;
-    cr_assert_eq(print_integer(&arg, &ap), sprintf(ref, "%hi", LLONG_MAX));
+    cr_assert_eq(print_integer(1, &arg, &ap), sprintf(ref, "%hi", LLONG_MAX));
     cr_expect_stdout_eq_str(ref);
     va_end(ap);
 }
@@ -55,7 +55,7 @@ Test(print_integer, print_int, .init = cr_redirect_stdout)
 
     setup_va_list(&ap, LLONG_MAX);
     arg.info.showsign = true;
-    cr_assert_eq(print_integer(&arg, &ap), sprintf(ref, "%+i", LLONG_MAX));
+    cr_assert_eq(print_integer(1, &arg, &ap), sprintf(ref, "%+i", LLONG_MAX));
     cr_expect_stdout_eq_str(ref);
     va_end(ap);
 }
@@ -68,7 +68,7 @@ Test(print_integer, print_long, .init = cr_redirect_stdout)
 
     setup_va_list(&ap, LLONG_MAX);
     arg.info.is_long = true;
-    cr_assert_eq(print_integer(&arg, &ap), sprintf(ref, "%li", LLONG_MAX));
+    cr_assert_eq(print_integer(1, &arg, &ap), sprintf(ref, "%li", LLONG_MAX));
     cr_expect_stdout_eq_str(ref);
     va_end(ap);
 }
@@ -82,7 +82,7 @@ Test(print_integer, print_long_long, .init = cr_redirect_stdout)
     setup_va_list(&ap, INT_MAX);
     arg.info.is_long_long = true;
     arg.info.showsign = true;
-    cr_assert_eq(print_integer(&arg, &ap), sprintf(ref, "%+lli", INT_MAX));
+    cr_assert_eq(print_integer(1, &arg, &ap), sprintf(ref, "%+lli", INT_MAX));
     cr_expect_stdout_eq_str(ref);
     va_end(ap);
 }

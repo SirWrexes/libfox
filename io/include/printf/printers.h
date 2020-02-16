@@ -14,16 +14,17 @@
 
 #ifndef PRINTER_TYPE_DEFINED
     #define PRINTER_TYPE_DEFINED
-    typedef scount_t (*printer_t)(fstruct_t *, va_list *);
+    typedef scount_t (*printer_t)(int fd, fstruct_t *, va_list *);
 #endif // PRINTER_TYPE_DEFINED
 
 // Format argument printers
-scount_t print_integer(fstruct_t *arg, va_list *va);
-scount_t print_unsigned(fstruct_t *arg, va_list *va);
-scount_t print_unsigned_base(fstruct_t *arg, va_list *va);
-scount_t print_character(fstruct_t *arg, va_list *va);
-scount_t print_string(fstruct_t *arg, va_list *va);
-scount_t print_pointer(fstruct_t *arg, va_list *va);
+scount_t print_integer(int fd, fstruct_t *arg, va_list *va);
+scount_t print_unsigned(int fd, fstruct_t *arg, va_list *va);
+scount_t print_unsigned_base(int fd, fstruct_t *arg, va_list *va);
+scount_t print_character(int fd, fstruct_t *arg, va_list *va);
+scount_t print_string(int fd, fstruct_t *arg, va_list *va);
+scount_t print_pointer(int fd, fstruct_t *arg, va_list *va);
+scount_t print_strerror(int fd, fstruct_t *arg, __Aunused va_list *va);
 
 #define PRINTER_INDEX(c) ((c) - ' ')
 static const printer_t PRINTER[] = {
@@ -104,7 +105,7 @@ static const printer_t PRINTER[] = {
     NULL,                 // 'j'
     NULL,                 // 'k'
     NULL,                 // 'l'
-    &print_string,        // 'm'
+    &print_strerror,      // 'm'
     NULL,                 // 'n'
     &print_unsigned_base, // 'o'
     &print_pointer,       // 'p'

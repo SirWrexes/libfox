@@ -29,7 +29,8 @@ Test(print_unsigned, print_uchar, .init = cr_redirect_stdout)
 
     setup_va_list(&ap, ULLONG_MAX);
     arg.info.is_char = true;
-    cr_assert_eq(print_unsigned(&arg, &ap), sprintf(ref, "%hhu", ULLONG_MAX));
+    cr_assert_eq(
+        print_unsigned(1, &arg, &ap), sprintf(ref, "%hhu", ULLONG_MAX));
     cr_expect_stdout_eq_str(ref);
     va_end(ap);
 }
@@ -42,7 +43,8 @@ Test(print_unsigned, print_ushort, .init = cr_redirect_stdout)
 
     setup_va_list(&ap, ULLONG_MAX);
     arg.info.is_short = true;
-    cr_assert_eq(print_unsigned(&arg, &ap), sprintf(ref, "%hu", ULLONG_MAX));
+    cr_assert_eq(
+        print_unsigned(1, &arg, &ap), sprintf(ref, "%hu", ULLONG_MAX));
     cr_expect_stdout_eq_str(ref);
     va_end(ap);
 }
@@ -54,7 +56,7 @@ Test(print_unsigned, print_uint, .init = cr_redirect_stdout)
     char ref[fox_unumsize(ULLONG_MAX)];
 
     setup_va_list(&ap, ULLONG_MAX);
-    cr_assert_eq(print_unsigned(&arg, &ap), sprintf(ref, "%u", ULLONG_MAX));
+    cr_assert_eq(print_unsigned(1, &arg, &ap), sprintf(ref, "%u", ULLONG_MAX));
     cr_expect_stdout_eq_str(ref);
     va_end(ap);
 }
@@ -67,7 +69,8 @@ Test(print_unsigned, print_ulong, .init = cr_redirect_stdout)
 
     setup_va_list(&ap, ULLONG_MAX);
     arg.info.is_long = true;
-    cr_assert_eq(print_unsigned(&arg, &ap), sprintf(ref, "%lu", ULLONG_MAX));
+    cr_assert_eq(
+        print_unsigned(1, &arg, &ap), sprintf(ref, "%lu", ULLONG_MAX));
     cr_expect_stdout_eq_str(ref);
     va_end(ap);
 }
@@ -80,7 +83,8 @@ Test(print_unsigned, print_ulong_long, .init = cr_redirect_stdout)
 
     setup_va_list(&ap, ULLONG_MAX);
     arg.info.is_long_long = true;
-    cr_assert_eq(print_unsigned(&arg, &ap), sprintf(ref, "%llu", ULLONG_MAX));
+    cr_assert_eq(
+        print_unsigned(1, &arg, &ap), sprintf(ref, "%llu", ULLONG_MAX));
     cr_expect_stdout_eq_str(ref);
     va_end(ap);
 }

@@ -18,7 +18,7 @@ NAME := io
 # Sources (set relative to master Makefile path)
 ################################################
 DEBUGMAIN := ./src/debugmain.c
-SRC := ./src/fox_printf.c
+SRC := ./src/fox_dprintf.c
 # -- Printf (arg parsing)
 SRC += ./src/printftools/argparse/parse_arg.c
 SRC += ./src/printftools/argparse/get_flags.c
@@ -31,6 +31,7 @@ SRC += ./src/printftools/argparse/get_width.c
 SRC += ./src/printftools/printers/print_character.c
 SRC += ./src/printftools/printers/print_integer.c
 SRC += ./src/printftools/printers/print_pointer.c
+SRC += ./src/printftools/printers/print_strerror.c
 SRC += ./src/printftools/printers/print_string.c
 SRC += ./src/printftools/printers/print_unsigned.c
 SRC += ./src/printftools/printers/print_unsigned_base.c

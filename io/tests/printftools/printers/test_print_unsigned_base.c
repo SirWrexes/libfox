@@ -18,8 +18,8 @@
 
 #include "tests/printers.h"
 
-#include "printf/printers.h"
 #include "printf/fstruct.h"
+#include "printf/printers.h"
 
 Test(print_unsigned_base, print_uchar, .init = cr_redirect_stdout)
 {
@@ -30,7 +30,7 @@ Test(print_unsigned_base, print_uchar, .init = cr_redirect_stdout)
     setup_va_list(&ap, 0b10101101);
     arg.info.is_char = true;
     arg.info.spec = 'b';
-    cr_assert_eq(print_unsigned_base(&arg, &ap), (scount_t) strlen(ref));
+    cr_assert_eq(print_unsigned_base(1, &arg, &ap), (scount_t) strlen(ref));
     cr_expect_stdout_eq_str(ref);
     va_end(ap);
 }
@@ -45,7 +45,7 @@ Test(print_unsigned_base, print_ushort, .init = cr_redirect_stdout)
     arg.info.is_short = true;
     arg.info.spec = 'X';
     cr_assert_eq(
-        print_unsigned_base(&arg, &ap), sprintf(ref, "%hX", ULLONG_MAX));
+        print_unsigned_base(1, &arg, &ap), sprintf(ref, "%hX", ULLONG_MAX));
     cr_expect_stdout_eq_str(ref);
     va_end(ap);
 }
@@ -60,7 +60,7 @@ Test(print_unsigned_base, print_uint, .init = cr_redirect_stdout)
     arg.info.spec = 'o';
     arg.info.alt = true;
     cr_assert_eq(
-        print_unsigned_base(&arg, &ap), sprintf(ref, "%#o", ULLONG_MAX));
+        print_unsigned_base(1, &arg, &ap), sprintf(ref, "%#o", ULLONG_MAX));
     cr_expect_stdout_eq_str(ref);
     va_end(ap);
 }
@@ -76,7 +76,7 @@ Test(print_unsigned_base, print_ulong, .init = cr_redirect_stdout)
     arg.info.spec = 'x';
     arg.info.alt = true;
     cr_assert_eq(
-        print_unsigned_base(&arg, &ap), sprintf(ref, "%#lx", ULLONG_MAX));
+        print_unsigned_base(1, &arg, &ap), sprintf(ref, "%#lx", ULLONG_MAX));
     cr_expect_stdout_eq_str(ref);
     va_end(ap);
 }
@@ -91,7 +91,7 @@ Test(print_unsigned_base, print_ulong_long, .init = cr_redirect_stdout)
     arg.info.is_long_long = true;
     arg.info.spec = 'o';
     cr_assert_eq(
-        print_unsigned_base(&arg, &ap), sprintf(ref, "%llo", ULLONG_MAX));
+        print_unsigned_base(1, &arg, &ap), sprintf(ref, "%llo", ULLONG_MAX));
     cr_expect_stdout_eq_str(ref);
     va_end(ap);
 }

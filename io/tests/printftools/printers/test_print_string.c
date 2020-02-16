@@ -23,7 +23,7 @@ Test(print_string, regular_usage, .init = cr_redirect_stdout)
 
     setup_va_list(&va, ref);
     arg.info.spec = 's';
-    cr_assert_eq(print_string(&arg, &va), (scount_t) strlen(ref));
+    cr_assert_eq(print_string(1, &arg, &va), (scount_t) strlen(ref));
     cr_expect_stdout_eq_str(ref);
     va_end(va);
 }
@@ -37,7 +37,7 @@ Test(print_string, non_printables, .init = cr_redirect_stdout)
 
     setup_va_list(&va, str);
     arg.info.spec = 'S';
-    cr_assert_eq(print_string(&arg, &va), (scount_t) strlen(ref));
+    cr_assert_eq(print_string(1, &arg, &va), (scount_t) strlen(ref));
     cr_expect_stdout_eq_str(ref);
     va_end(va);
 }
@@ -50,7 +50,7 @@ Test(print_string, null_string, .init = cr_redirect_stdout)
 
     setup_va_list(&va, NULL);
     arg.info.spec = 's';
-    cr_assert_eq(print_string(&arg, &va), (scount_t) strlen(ref));
+    cr_assert_eq(print_string(1, &arg, &va), (scount_t) strlen(ref));
     cr_expect_stdout_eq_str(ref);
     va_end(va);
 }
