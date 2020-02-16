@@ -30,6 +30,7 @@ SRC += ./src/printftools/argparse/get_width.c
 # -- Printf (printing)
 SRC += ./src/printftools/printers/print_character.c
 SRC += ./src/printftools/printers/print_integer.c
+SRC += ./src/printftools/printers/print_percent.c
 SRC += ./src/printftools/printers/print_pointer.c
 SRC += ./src/printftools/printers/print_strerror.c
 SRC += ./src/printftools/printers/print_string.c
@@ -92,6 +93,7 @@ TST += ./tests/asput/test_fox_asputunbr_base.c
 # -- Descriptor
 TST += ./tests/dput/test_fox_diopadn.c
 TST += ./tests/dput/test_fox_dperror.c
+TST += ./tests/dput/test_fox_dprintf.c
 TST += ./tests/dput/test_fox_dputchar.c
 TST += ./tests/dput/test_fox_dputchar_oct.c
 TST += ./tests/dput/test_fox_dputnbr.c

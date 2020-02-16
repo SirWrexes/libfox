@@ -18,13 +18,14 @@
 #endif // PRINTER_TYPE_DEFINED
 
 // Format argument printers
+scount_t print_character(int fd, fstruct_t *arg, va_list *va);
 scount_t print_integer(int fd, fstruct_t *arg, va_list *va);
+scount_t print_percent(int fd, fstruct_t *arg, va_list *__Aunused);
+scount_t print_pointer(int fd, fstruct_t *arg, va_list *va);
+scount_t print_strerror(int fd, fstruct_t *arg, va_list *__Aunused);
+scount_t print_string(int fd, fstruct_t *arg, va_list *va);
 scount_t print_unsigned(int fd, fstruct_t *arg, va_list *va);
 scount_t print_unsigned_base(int fd, fstruct_t *arg, va_list *va);
-scount_t print_character(int fd, fstruct_t *arg, va_list *va);
-scount_t print_string(int fd, fstruct_t *arg, va_list *va);
-scount_t print_pointer(int fd, fstruct_t *arg, va_list *va);
-scount_t print_strerror(int fd, fstruct_t *arg, __Aunused va_list *va);
 
 #define PRINTER_INDEX(c) ((c) - ' ')
 static const printer_t PRINTER[] = {
@@ -33,7 +34,7 @@ static const printer_t PRINTER[] = {
     NULL,                 // '"'
     NULL,                 // '#'
     NULL,                 // '$'
-    &print_character,     // '%'
+    &print_percent,       // '%'
     NULL,                 // '&'
     NULL,                 // '''
     NULL,                 // '('
