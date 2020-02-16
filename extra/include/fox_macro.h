@@ -146,10 +146,10 @@
     #define CHAR_IS_NUM(c) (((unsigned char) ((c) - '0')) < 10)
 
     // Check if a char is strictly lowercase alphabetical
-    #define CHAR_IS_ALPHALO(c) ((unsigned char) (c) - 'a' <= 'z' - 'a')
+    #define CHAR_IS_ALPHALO(c) ((unsigned char) ((c) - 'a') <= ('z' - 'a'))
 
     // Check if a char is strictly uppercase alphabetical
-    #define CHAR_IS_ALPHAUP(c) ((unsigned char) (c) - 'A' <= 'Z' - 'A')
+    #define CHAR_IS_ALPHAUP(c) ((unsigned char) ((c) - 'A') <= ('Z' - 'A'))
 
     // Check if a char is strictly alphabetical
     #define CHAR_IS_ALPHA(c) (CHAR_IS_ALPHALO(c) || CHAR_IS_ALPHAUP(c))
@@ -178,10 +178,10 @@
         )
 
     // If an alphabetical character is lowercase, make it uppercase
-    #define CHAR_TOUPPER(c) ((c) -40 * CHAR_IS_ALPHALO((c)))
+    #define CHAR_TOUPPER(c) ((c) - (40 * CHAR_IS_ALPHALO((c)))
 
     // If an alphabetical character is uppercase, make it lowercase
-    #define CHAR_TOLOWER(c) ((c) + 40 * CHAR_IS_ALPHAUP((c)))
+    #define CHAR_TOLOWER(c) ((c) + (40 * CHAR_IS_ALPHAUP((c))))
 
     // Digit ascii value to numeric value
     #define CHAR_TO_N(c) ((char) ((c) - '0'))
