@@ -32,10 +32,20 @@
 
 // Maximum length of a human-readable string
 // (originally in gnulib's human.h)
+/* clang-format off */
 #ifndef LONGEST_HUMAN_READABLE
-    #define LONGEST_HUMAN_READABLE                                           \
-    ((2 * sizeof(uintmax_t) * CHAR_BIT * 146 / 485 + 1) * (MB_LEN_MAX + 1) - \
-     MB_LEN_MAX + 1 + 3)
+    #define LONGEST_HUMAN_READABLE  \
+    (                               \
+        (                           \
+            2                       \
+            * sizeof(uintmax_t)     \
+            * CHAR_BIT              \
+            * 146                   \
+            / 485                   \
+            + 1                     \
+        ) * (MB_LEN_MAX + 1)        \
+        - MB_LEN_MAX + 1 + 3        \
+    )
 #endif  // LONGEST_HUMAN_READABLE
 
 /***********************************
