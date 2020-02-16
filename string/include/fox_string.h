@@ -38,6 +38,10 @@ str_t fox_strcpy(str_t dest, str2c_t s) __a((nonnull(2)));
 // Returns dest
 str_t fox_strncpy(str_t dest, str2c_t s, size_t n) __a((nonnull(2)));
 
+// Append s to dest
+// Returns dest
+str_t fox_strcat(str_t dest, str2c_t s) __Anonnull;
+
 // Make an exact copy of s and return its pointer
 // Returns null in case of error
 str_t fox_strdup(str2c_t s) __Anonnull;
@@ -49,14 +53,25 @@ str_t fox_revstr(str_t s) __Anonnull;
 // Check if c is in contained str
 bool fox_isinstr(char c, str2c_t str) __Anonnull __Apure;
 
+// Returns the last character of a string
+char fox_lastchar(str2c_t s) __Anonnull __Apure;
+
 // Locate a character in a string
 // Returns a pointer to the first occurence of c in s, or NULL if not found
-str_t fox_strchr(str2c_t s, char c) __Anonnull __Apure;
+char *fox_strchr(str2c_t s, char c) __Anonnull __Apure;
+
+// Locate a character in a string
+// Returns a pointer to the first occurence of c in s, or the terminating null
+// byte if not found
+char *fox_strchrnul(str2c_t s, char c) __Anonnull __Apure;
 
 // Get the length of a prefix substring matching accept characters
 size_t fox_strspn(str2c_t str, str2c_t accept) __Anonnull __Apure;
 // Get the length of a prefix substring not matching reject characters
 size_t fox_strcspn(str2c_t str, str2c_t reject) __Anonnull __Apure;
+
+// Count the number of words in s with delim as separator
+count_t fox_wordcount(str2c_t s, str2c_t delim) __Anonnull __Apure;
 
 // Tokenize a string into part separated by characters from delim
 str_t fox_strtok_r(str_t s, str2c_t delim, str_t *saveptr);
