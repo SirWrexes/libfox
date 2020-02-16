@@ -161,6 +161,7 @@
     #define CHAR_IS_SIGN(c) ((c) == '+' || (c) == '-')
 
     // Check if a char is punctuation
+    /* clang-format off */
     #define CHAR_IS_PUNCT(c)    \
         (                       \
             ((c) == '\'')       \
@@ -176,6 +177,7 @@
             || ((c) == '-')     \
             || ((c) == '/')     \
         )
+    /* clang-format on */
 
     // If an alphabetical character is lowercase, make it uppercase
     #define CHAR_TOUPPER(c) ((c) - (40 * CHAR_IS_ALPHALO((c)))
