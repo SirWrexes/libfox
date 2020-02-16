@@ -8,6 +8,12 @@
 #ifndef FOX_MACRO_H
 #define FOX_MACRO_H
 
+/************************************
+** Useful standard macro definitions*
+************************************/
+
+// Null pointer
+// (originally in stddef.h)
 #ifndef NULL
     #define NULL ((void *) 0)
 #endif // FOX_NULL
@@ -31,6 +37,10 @@
     ((2 * sizeof(uintmax_t) * CHAR_BIT * 146 / 485 + 1) * (MB_LEN_MAX + 1) - \
      MB_LEN_MAX + 1 + 3)
 #endif  // LONGEST_HUMAN_READABLE
+
+/***********************************
+**     Libfox macro collection     *
+************************************/
 
 // First we need to make sure Fox macros aren't already defined elsewhere
 #ifndef LIBFOX_MACRO_UNDEF
