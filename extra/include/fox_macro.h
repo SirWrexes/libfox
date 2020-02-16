@@ -18,7 +18,13 @@
     #define NULL ((void *) 0)
 #endif // FOX_NULL
 
-// Number of bit i a char
+// Exit value when everthing went well
+// (originally in stddef.h)
+#ifndef EXIT_SUCCESS
+    #define EXIT_SUCCESS (0)
+#endif // FOX_EXIT_SUCCESS
+
+// Number of bit in a char
 // (originally in limits.h)
 #ifndef CHAR_BIT
     #define CHAR_BIT (8)
@@ -61,6 +67,7 @@
     #undef __Acleanup
     #undef __Aconst
     #undef __Aconstructor
+    #undef __Adestructor
     #undef __Afallthrough
     #undef __Aformat
     #undef __Ahidden
@@ -116,6 +123,7 @@
     #define __Acleanup(janitor)   __a((cleanup(janitor)))
     #define __Aconst              __a((const))
     #define __Aconstructor        __a((constructor))
+    #define __Adestructor         __a((destructor))
     #define __Afallthrough        __a((fallthrough))
     #define __Aformat(type, f, a) __a((format(type, f, a)))
     #define __Ahidden             __a((visibility("hidden")))
@@ -126,9 +134,9 @@
     #define __Apure               __a((pure))
     #define __Atransparent        __a((__transparent_union__))
     #define __Aunused             __a((unused))
-    #define __AweakAlias(f)       __a((weak, alias (#f)))
+    #define __AweakAlias(f)       __a((weak, alias(#f)))
 
-    // Get the number of elements in an array
+    // Get the number of elements in a non flexible array
     #define ARRAY_SIZE(array) (sizeof((array)) / sizeof((*array)))
 
     // Check if a char is an end of line (linebreak OR null char)
@@ -205,6 +213,9 @@
 
     // Returns false (sucess) if a != b
     #define SUCCESS_IF_DIFF(a, b) ((a) == (b))
+
+    // Returns true (failure) if a == b
+    #define FAILURE_IF_DIFF(a, b) ((a) != (b))
 
     // Return value for error at in Epitech projects
     #define EPITECH_ERROR (84)
