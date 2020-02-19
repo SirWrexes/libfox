@@ -37,7 +37,7 @@
 #endif // MB_LEN_MAX
 
 // Maximum length of a human-readable string
-// (originally in gnulib's human.h)
+// (originally in glibc's human.h)
 /* clang-format off */
 #ifndef LONGEST_HUMAN_READABLE
     #define LONGEST_HUMAN_READABLE  \
@@ -53,6 +53,26 @@
         - MB_LEN_MAX + 1 + 3        \
     )
 #endif  // LONGEST_HUMAN_READABLE
+
+// Unlikely for conditions that are rarely met
+// (originally in glibc's sys/cdefs.h)
+#ifndef __unlikely
+    #if __GNUC__ >= 3
+        #define __unlikely(cond)	__builtin_expect((!!(cond)), 0)
+    #else
+        #define __unlikely(cond)	(!!(cond))
+    #endif
+#endif
+
+// Likely for conditions that are rarely not met
+// (originally in glibc's sys/cdefs.h)
+#ifndef __likely
+    #if __GNUC__ >= 3
+        #define __likely(cond)	__builtin_expect(!!(cond), 1)
+    #else
+        #define __likely(cond)	(!!(cond))
+    #endif
+#endif
 
 /***********************************
 **     Libfox macro collection     *
