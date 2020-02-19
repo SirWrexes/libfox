@@ -30,7 +30,7 @@ Test(autofree, manual_call)
 {
     char *test = malloc(23);
 
-    __fox_autofree(&test);
+    fox_autofree(&test);
     cr_expect_null(test);
 }
 
@@ -38,6 +38,6 @@ Test(autofree, manual_call_null_ptr)
 {
     char *test = NULL;
 
-    __fox_autofree(&test);
+    fox_autofree(&test);
     cr_assert(true);
 }

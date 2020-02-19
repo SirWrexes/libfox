@@ -9,7 +9,7 @@
 
 #include "fox_memory.h"
 
-__Ahidden void __fox_autofree(void *p)
+__Ahidden void fox_autofree(void *p)
 {
     if (* (void **) p == NULL)
         return;
