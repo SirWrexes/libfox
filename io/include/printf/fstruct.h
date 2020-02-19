@@ -22,6 +22,7 @@ typedef struct format_struct fstruct_t;
     typedef scount_t (*converter_t)(int fd, fstruct_t *, va_list *);
 #endif // CONVERTER_TYPE_DEFINED
 
+// Flags, field width, conversion specifier etc.
 typedef struct {
     unsigned prec;  // Precision
     unsigned width; // Field width
@@ -44,8 +45,9 @@ typedef struct {
     bool is_valid : 1; // For invalid formats
 
     const int bfpad : 5; // Bit field padding
-} finfo_t;               // Flags, field width, conversion specifier etc.
+} finfo_t;
 
+// Format argument value
 typedef union {
     char av_char;       // hhi, hhd
     short av_short;     // hi, hd
@@ -62,8 +64,9 @@ typedef union {
     ullong_t av_ullong; // llu, llb, llo, llx, llX
     str2c_t av_str;     // s, S
     void *av_ptr;       // p, P
-} fargv_t;              // Format argument value
+} fargv_t;
 
+// Struct bundling everything needed to print format arguments
 struct format_struct {
     finfo_t info;      // Info from "%<...>"
     fargv_t value;     // Argument value
@@ -72,6 +75,6 @@ struct format_struct {
     str_t buff;        /* Buffer string containing the converted arg
        End of it when parsing is over and argument is valid */
     converter_t print; // Printer functtion
-}; // Struct bundling everything needed to print format arguments
+};
 
 #endif /* !ARGS_H */
