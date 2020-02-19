@@ -9,7 +9,7 @@
 
 #include "fox_memory.h"
 
-__Ahidden void __fox_autoclose(int *fdp)
+__Ahidden void fox_autoclose(int *fdp)
 {
     if (*fdp == -1)
         return;

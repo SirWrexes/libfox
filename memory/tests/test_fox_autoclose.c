@@ -7,6 +7,7 @@
 
 #include <fcntl.h>
 #include <unistd.h>
+#include <errno.h>
 
 #include <criterion/criterion.h>
 #include <criterion/redirect.h>
@@ -15,7 +16,7 @@
 
 static int proc_autoclose(void)
 {
-    __close int fd = open("/dev/null", O_RDONLY);
+    __close int fd = open("/dev/random", O_RDONLY);
 
     return fd;
 }
@@ -24,21 +25,23 @@ Test(autoclose, regular_usage, .init = cr_redirect_stderr)
 {
     int test = proc_autoclose();
 
-    close(test);
+    cr_expect_eq(close(test), -1);
+    test = errno;
+    cr_expect_eq(test, EBADF);
 }
 
 Test(autoclose, manual_call)
 {
     int test = open("/dev/null", O_RDONLY);
 
-    __fox_autoclose(&test);
+    fox_autoclose(&test);
     cr_expect_eq(test, -1);
 }
 
-Test(autoclose, manual_call_null_ptr)
+Test(autoclose, manual_call_bad_fd)
 {
     int test = -1;
 
-    __fox_autoclose(&test);
+    fox_autoclose(&test);
     cr_assert(true);
 }
