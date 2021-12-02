@@ -16,21 +16,21 @@ Test(perror, null_s, .init = cr_redirect_stdout)
 {
     errno = ENOMEM;
     fox_perror(NULL);
-    cr_expect_stdout_eq_str(sys_errlist[ENOMEM]);
+    cr_expect_stdout_eq_str(strerror(ENOMEM));
 }
 
 Test(perror, empty_s, .init = cr_redirect_stdout)
 {
     errno = ENOMEM;
     fox_perror("");
-    cr_expect_stdout_eq_str(sys_errlist[ENOMEM]);
+    cr_expect_stdout_eq_str(strerror(ENOMEM));
 }
 
 Test(perror, something, .init = cr_redirect_stdout)
 {
     char buff[150] = "something: ";
 
-    strcat(buff, sys_errlist[ENOMEM]);
+    strcat(buff, strerror(ENOMEM));
     errno = ENOMEM;
     fox_perror("something");
     cr_expect_stdout_eq_str(buff);

@@ -7,9 +7,10 @@
 
 #include <errno.h>
 #include <stdio.h>
+#include "printf/errno.h"
 
-#include "fox_types.h"
 #include "fox_io.h"
+#include "fox_types.h"
 
 scount_t fox_dperror(int fd, str2c_t s)
 {
@@ -20,6 +21,6 @@ scount_t fox_dperror(int fd, str2c_t s)
         r += fox_dputstr(fd, s);
         r += fox_dputstr(fd, ": ");
     }
-    r += fox_dputstr(fd, sys_errlist[errsave]);
+    r += fox_dputstr(fd, fox_errlist[errsave]);
     return r;
 }
