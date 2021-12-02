@@ -100,7 +100,6 @@ endif
 #########################################################################################
 
 
-
 #
 # Cleanup
 #########################################################################################
@@ -115,7 +114,7 @@ clean: rm_test_tmp
 	@$(RM) $(OBJ)
 	@$(ECHO$(BIN)) $(CRED)"Delete"$(CRESET)" dependency files"
 	@$(RM) $(DEP)
-	@$(ECHO$(BIN)) $(CRED)"Delete"$(CRESET)" coverage files"
+	@$(ECHO$(BIN)) $(CRED)"Delete"$(CRESET)" following coverage files"
 	@$(RM) $(COV)
 	@$(ECHO$(BIN)) $(CRED)"Delete"$(CRESET)" progress bar script ($(PROGSCRIPT))"
 	@$(RM) $(PROGSCRIPT)

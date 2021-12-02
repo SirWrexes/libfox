@@ -26,7 +26,7 @@ DEP    := $(OBJ:.o=.d) $(DEPSRC:.c=.d)
 -include $(DEP)
 .PRECIOUS := $(DEP)
 # -------------------------------------- #
-COV := $(notdir $(OBJ:.o=.gc*)) $(notdir $(TST:.c=.gc*))
+COV := $(wildcard **.gc??)
 ##########################################
 
 
