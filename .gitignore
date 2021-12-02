@@ -67,6 +67,7 @@ dependency/build
 
 # Miscellaneous
 .bash_history
+.cache
 .clangd
 .foxmodules.sh
 .idea
