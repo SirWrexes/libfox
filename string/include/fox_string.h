@@ -85,4 +85,7 @@ str_t fox_strtok(str_t s, str2c_t delim);
 // 3. One to two series of numbers, separated by 1 dot (.)
 bool fox_strisnum(str2c_t s) __Anonnull __Apure;
 
+// Get a string corresponding to given errno value
+str_t fox_strerror(int errnum) __Apure;
+
 #endif // FOX_STR_H

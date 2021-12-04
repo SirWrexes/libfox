@@ -14,6 +14,7 @@
 
 #include "fox_define.h"
 #include "fox_io.h"
+#include "fox_string.h"
 
 #include "printf/errno.h"
 #include "printf/fstruct.h"
@@ -32,7 +33,7 @@ __AalwaysILext void save_errno(void)
 
 scount_t print_strerror(int fd, fstruct_t *arg, __Aunused va_list *va)
 {
-    arg->value.av_str = fox_errlist[*errno_storage()];
+    arg->value.av_str = fox_strerror(*errno_storage());
     arg->chars = fox_dputstr(fd, arg->value.av_str);
     return arg->chars;
 }

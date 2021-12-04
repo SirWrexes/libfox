@@ -123,12 +123,13 @@ DEPSRC += ../std/src/fox_isprintable.c
 DEPSRC += ../std/src/fox_strtol.c
 DEPSRC += ../string/src/fox_isinstr.c
 DEPSRC += ../string/src/fox_strcpy.c
+DEPSRC += ../string/src/fox_strcspn.c
 DEPSRC += ../string/src/fox_strdup.c
+DEPSRC += ../string/src/fox_strerror.c
 DEPSRC += ../string/src/fox_strlen.c
 DEPSRC += ../string/src/fox_strncpy.c
 DEPSRC += ../string/src/fox_strnlen.c
 DEPSRC += ../string/src/fox_strspn.c
-DEPSRC += ../string/src/fox_strcspn.c
 ##########################################
 
 endif

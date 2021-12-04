@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2019
-** <project name> unit tests
+** Libfox unit tests
 ** File description:
 ** test_fox_isinstr.c -- No description
 */
