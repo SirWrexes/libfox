@@ -15,12 +15,10 @@ __a((nonnull(1))) bool tnode_create(
     *leafptr = malloc(sizeof(**leafptr));
     if (*leafptr == NULL)
         return true;
-    if (root != NULL) {
+    (*leafptr)->root = root;
+    if (root != NULL)
         root->nodes += 1;
-        (*leafptr)->root = root;
-    }
-    if (data != NULL)
-        (*leafptr)->data = data;
+    (*leafptr)->data = data;
     (*leafptr)->lnext = NULL;
     (*leafptr)->rnext = NULL;
     return false;
