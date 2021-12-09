@@ -66,6 +66,7 @@ dkms.conf
 dependency/build
 
 # Miscellaneous
+*.tmp
 .bash_history
 .cache
 .clangd
