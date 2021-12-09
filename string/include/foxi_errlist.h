@@ -11,6 +11,8 @@
 #ifndef ERRLIST_H
 #define ERRLIST_H
 
+#include <errno.h>
+
 #include "fox_types.h"
 
 #ifndef FOX_ERRMAP
