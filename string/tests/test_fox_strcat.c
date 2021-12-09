@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2020
-** Minishell 1
+** (not) EPITECH PROJECT, 2021
+** Libfox
 ** File description:
-** test_fox_strcat.c -- No description
+** UT: Concatenate two strings
 */
 
 #include <string.h>

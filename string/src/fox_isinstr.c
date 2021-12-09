@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** Check if c is contained in str
+** Check if a string contains a given character
 */
 
 #include <stdbool.h>

@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2020
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** optpriv.h -- No description
+** Private header for fox_getopt()
 */
 
 #ifndef OPTPRIV_H

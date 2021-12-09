@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
-** Minishell unit tests
+** (not) EPITECH PROJECT, 2021
+** Libfox
 ** File description:
-** test_fox_strchr.c -- No description
+** UT: Locate the first occurence of a character in a string
 */
 
 #include <string.h>

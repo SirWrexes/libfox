@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2020
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** Locate a character in a string
+** Locate a the first occurrence of a character in a string
 */
 
 #include "fox_define.h"

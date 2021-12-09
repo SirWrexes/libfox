@@ -1,6 +1,6 @@
 /*
-** EPITECH PROJECT, 2018
-** libfox
+** (not) EPITECH PROJECT, 2021
+** Libfox
 ** File description:
 ** Collection of handy includes I use everywhere
 */

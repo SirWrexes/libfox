@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** Functions converting args to a new string
+** Functions converting their argument to a string
 */
 
 #ifndef CONVERTERS_H

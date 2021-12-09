@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** Get the length of an unsigned int
+** Count the digits in an unsigned number
 */
 
 #include <stddef.h>

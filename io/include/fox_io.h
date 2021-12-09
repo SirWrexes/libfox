@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** Input/Output header
+** Input/Output module header
 */
 
 #ifndef FOX_IO_H

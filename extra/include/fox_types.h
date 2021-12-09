@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** Various typedefs
+** Various useful typedefs
 */
 
 #ifndef FOX_TYPES_H

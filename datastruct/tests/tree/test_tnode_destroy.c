@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
-** <project name> unit tests
+** (not) EPITECH PROJECT, 2021
+** Libfox unit tests
 ** File description:
-** test_tnode_destroy.c -- No description
+** UT: Destroy a tree node
 */
 
 #include <criterion/criterion.h>

@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
-** <project name>
+** (not) EPITECH PROJECT, 2021
+** Libfox
 ** File description:
-** fox_asputstr.c -- No description
+** Allocate a string and print another string into it
 */
 
 #include <malloc.h>

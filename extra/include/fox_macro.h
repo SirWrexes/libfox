@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** Macro definitions
+** A collection of pretty useful macros !
 */
 
 #ifndef FOX_MACRO_H

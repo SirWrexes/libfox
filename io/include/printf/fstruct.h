@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
 ** Format argument data structure
@@ -72,8 +72,8 @@ struct format_struct {
     fargv_t value;     // Argument value
     scount_t chars;    // Number of chars written
     str2c_t fmt;       // Start of the format string when parsing begins
-    str_t buff;        /* Buffer string containing the converted arg
-       End of it when parsing is over and argument is valid */
+    str_t buff;        /* Buffer string containing the converted argument
+    End of it when parsing is over and argument is valid */
     converter_t print; // Printer functtion
 };
 

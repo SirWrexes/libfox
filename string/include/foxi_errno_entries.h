@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2021
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
 ** List of entries for possible errno values

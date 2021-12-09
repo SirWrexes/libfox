@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2020
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** test_fox_dprintf.c -- No description
+** UT: Print a format string with multiple conversion specifiers at once
 */
 
 #define _GNU_SOURCE

@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2020
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** getopt_internal.c -- No description
+** The inner working of fox_getopt()
 */
 
 #include <getopt.h>

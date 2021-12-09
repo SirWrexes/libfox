@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** Functions parsing format arguments
+** Functions parsing format arguments for fox_printf()
 */
 
 #ifndef ARGPARSE_H

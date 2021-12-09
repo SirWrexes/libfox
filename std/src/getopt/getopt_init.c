@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2020
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** getopt(3) copycat
+** fox_getopt() initialiser
 */
 
 #include "fox_define.h"

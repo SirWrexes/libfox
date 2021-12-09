@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** Make a new exact copy of str and return its pointer
+** Make a new exact copy of a string and return its pointer
 */
 
 #include <malloc.h>

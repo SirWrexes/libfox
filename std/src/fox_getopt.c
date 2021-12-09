@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2020
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** getopt(3) copycat
+** getopt(3) copycat using the same global variables
 */
 
 #include <getopt.h>

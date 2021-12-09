@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
-** Libfox unit tests
+** (not) EPITECH PROJECT, 2021
+** Libfox
 ** File description:
-** test_fox_isinstr.c -- No description
+** UT: Chck that a string contains a given character
 */
 
 #include <criterion/criterion.h>

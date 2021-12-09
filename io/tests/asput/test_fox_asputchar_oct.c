@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** UT: Writing a char in octal in a new string
+** UT: Write a char in octal in a new string
 */
 
 #include <criterion/criterion.h>

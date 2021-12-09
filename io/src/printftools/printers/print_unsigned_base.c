@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** Printing a number in hexadecimal
+** Print a number format argument in hexadecimal
 */
 
 #include <stdarg.h>

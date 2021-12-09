@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
-** <project name> unit tests
+** (not) EPITECH PROJECT, 2021
+** Libfox unit tests
 ** File description:
-** test_fox_dputstr.c -- No description
+** UT: Print a string to given fd
 */
 
 #include <criterion/criterion.h>

@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
-** IO unit tests
+** (not) EPITECH PROJECT, 2021
+** Libfox
 ** File description:
-** UT: Filling flag fields in format argument struct
+** UT: Fill flag fields in a format argument structure
 */
 
 #include <criterion/criterion.h>

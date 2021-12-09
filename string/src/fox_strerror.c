@@ -1,8 +1,8 @@
 /*
-** (not) EPITECH PROJECT, 2021
+** (not) (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** Get a string corresponding to given errno value
+** Get a string corresponding to a given errnum
 */
 
 #include "fox_define.h"

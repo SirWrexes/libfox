@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** Wiritng a whole string
+** Print a string format argument
 */
 
 #include <stdarg.h>

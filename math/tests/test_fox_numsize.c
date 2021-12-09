@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** UT: Counting the digits of a number
+** UT: Count the digits of a number
 */
 
 #include <criterion/criterion.h>

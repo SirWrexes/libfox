@@ -1,6 +1,6 @@
 /*
-** EPITECH PROJECT, 2019
-** libfox-2
+** (not) EPITECH PROJECT, 2021
+** Libfox
 ** File description:
 ** String module header
 */

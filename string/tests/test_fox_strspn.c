@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
-** <project name> unit tests
+** (not) EPITECH PROJECT, 2021
+** Libfox
 ** File description:
-** test_fox_strspn.c -- No description
+** UT: Count the occurences of given characters at the start of a string
 */
 
 #include <criterion/criterion.h>

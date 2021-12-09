@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** Extra tools for conv_base function
+** Extra tools for conv_base()
 */
 
 #ifndef PRINT_BASE_EXTRA_H

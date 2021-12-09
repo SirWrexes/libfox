@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2020
-** Minishell 1
+** (not) EPITECH PROJECT, 2021
+** Libfox
 ** File description:
-** test_fox_lastchar.c -- No description
+** UT: Get the last character of a string
 */
 
 #include <criterion/criterion.h>

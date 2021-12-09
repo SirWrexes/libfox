@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2020
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** Get the last char of a string
+** Get the last character of a string
 */
 
 #include "fox_string.h"

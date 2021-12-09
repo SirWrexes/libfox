@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** UT: Getting the length of a string
+** UT: Get the length of a string
 */
 
 #include <criterion/criterion.h>

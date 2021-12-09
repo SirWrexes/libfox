@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
-** <project name> unit tests
+** (not) EPITECH PROJECT, 2021
+** Libfox unit tests
 ** File description:
-** test_stack_pop.c -- No description
+** UT: Pop an item from a stack
 */
 
 #include <criterion/criterion.h>

@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox unit tests
 ** File description:
-** UT: Checking if a character is printable
+** UT: Check if a character is printable
 */
 
 #include <criterion/criterion.h>

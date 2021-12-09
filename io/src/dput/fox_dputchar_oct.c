@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** Print a non-printable character in the form of \xxx
+** Print a non-printable character as its octal value
 */
 
 #include <unistd.h>

@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
 ** Wrap malloc to break it on demand

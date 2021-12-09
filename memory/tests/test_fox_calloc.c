@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
-** Libfox unit tests
+** (not) EPITECH PROJECT, 2021
+** Libfox
 ** File description:
-** UT: Array alloc & init
+** UT: Array allocation and initialisation
 */
 
 #include <criterion/criterion.h>

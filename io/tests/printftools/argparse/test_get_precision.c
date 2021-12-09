@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** UT: Getting the precision of a format argument
+** UT: Get the precision of a format argument
 */
 
 #include <criterion/criterion.h>

@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** UT: Writing numbers to a new string
+** UT: Write numbers to a new string
 */
 
 #include <criterion/criterion.h>

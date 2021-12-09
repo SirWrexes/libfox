@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** UT: Printing an unsigned int in a new allocated string
+** UT: Print an unsigned int into a new allocated string
 */
 
 #include <criterion/criterion.h>

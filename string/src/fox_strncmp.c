@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** Check if two strings are identical up to n chars
+** Check if two strings are identical up to n characters
 */
 
 #include "fox_define.h"

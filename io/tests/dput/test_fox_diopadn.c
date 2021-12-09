@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** UT: Writing a padding to a given fd
+** UT: Write a padding to given fd
 */
 
 #include <criterion/criterion.h>

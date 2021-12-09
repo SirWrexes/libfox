@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** Print a non-printable character in octal (\xxx) in already allocated string
+** Print a non-printable character in octal form in an already allocated string
 */
 
 #include "fox_io.h"

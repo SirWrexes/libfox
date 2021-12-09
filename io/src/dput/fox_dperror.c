@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** Print a message correspoding to last errno status
+** Print a message correspoding to last errno value
 */
 
 #include <errno.h>

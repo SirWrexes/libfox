@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** Write a single character
+** Allocate a string and print a single character into it
 */
 
 #include <malloc.h>

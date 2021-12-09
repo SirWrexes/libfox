@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** UT: tree_destroy
+** UT: Destroy a tree
 */
 
 #include <criterion/criterion.h>

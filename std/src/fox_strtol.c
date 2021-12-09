@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
 ** Convert a numeric string into a long int

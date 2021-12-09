@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2020
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** invalid.h -- No description
+** Getopt error messages
 */
 
 #ifndef INVALID_H

@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
-** <project name> unit tests
+** (not) EPITECH PROJECT, 2021
+** Libfox
 ** File description:
-** test_fox_strcspn.c -- No description
+** UT: Count the prefix characters not from delim in a string
 */
 
 #include <criterion/criterion.h>

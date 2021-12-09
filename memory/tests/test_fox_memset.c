@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
-** <project name> unit tests
+** (not) EPITECH PROJECT, 2021
+** Libfox
 ** File description:
-** test_fox_memset.c -- No description
+** UT: Set an area of memory to given data
 */
 
 #include <criterion/criterion.h>

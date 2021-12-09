@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
 ** Print a string to a given file descriptor including non printables

@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** UT: Writing a string to another already allocated string
+** UT: Writ a string into an other already allocated string
 */
 
 #include <criterion/criterion.h>

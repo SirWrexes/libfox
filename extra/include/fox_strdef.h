@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** Useful strings, mostly used for str module functions
+** Useful strings, mostly used for string module functions
 */
 
 #ifndef FOX_STRDEF_H

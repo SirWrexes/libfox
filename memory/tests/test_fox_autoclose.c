@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
-** Libfox unit tests
+** (not) EPITECH PROJECT, 2021
+** Libfox
 ** File description:
-** test_fox_autoclose.c -- No description
+** UT: Smart file descriptors
 */
 
 #include <fcntl.h>

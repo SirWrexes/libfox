@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** Unit tests for fox_strtol
+** UT: Convert a numeric string into a long int
 */
 
 #include <criterion/criterion.h>

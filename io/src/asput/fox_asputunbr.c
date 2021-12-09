@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** Write an unsigned number to an allocated string
+** Allocate a string and print an unsigned number into it
 */
 
 #include <malloc.h>

@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
-** <project_name>
+** (not) EPITECH PROJECT, 2021
+** Libfox
 ** File description:
-** lenmodifs.h -- No description
+** Length modifier indification helpers
 */
 
 #ifndef LENMODIFS_H

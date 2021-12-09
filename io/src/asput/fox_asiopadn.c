@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** Allocate a new string of n length and fill it with pad
+** Allocate a new string of length n and fill it with given character
 */
 
 #include <malloc.h>

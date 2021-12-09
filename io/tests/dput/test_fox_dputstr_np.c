@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** UT: Printing a string including no printables in \xxx form
+** UT: Print a string with no printables in octal form
 */
 
 #include <stdio.h>

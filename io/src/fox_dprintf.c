@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** Personal implementation of libc's printf
+** Modular implementation of libc's printf
 */
 
 #include <stdarg.h>

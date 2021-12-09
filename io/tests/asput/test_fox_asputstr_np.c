@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** UT: Printing a string (including non-printables) to a new pointer
+** UT: Print a string (including non-printables) to a newly allocated string
 */
 
 #include <criterion/criterion.h>

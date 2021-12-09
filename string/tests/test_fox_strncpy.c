@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** UT: Copying up to n chars of a string into another
+** UT: Copy up to n chars of a string into another
 */
 
 #include <criterion/criterion.h>

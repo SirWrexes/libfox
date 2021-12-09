@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox unit tests
 ** File description:
-** UT: Realloc
+** UT: Reallocate a pointer
 */
 
 #include <criterion/criterion.h>

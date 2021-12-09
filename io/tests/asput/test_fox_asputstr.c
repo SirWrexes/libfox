@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** UT: Writing a string to a newly allocated pointer
+** UT: Write string to a newly allocated pointer
 */
 
 #include <criterion/criterion.h>

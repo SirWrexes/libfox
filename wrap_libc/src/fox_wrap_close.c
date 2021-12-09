@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** Wrap Close to break it on demand
+** Wrap close to break it on demand
 */
 
 #include <errno.h>

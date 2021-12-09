@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2020
-** io
+** (not) EPITECH PROJECT, 2021
+** Libfox
 ** File description:
-** printers.h -- No description
+** Assignation of printer functions to their corresponding character
 */
 
 #ifndef PRINTERS_H

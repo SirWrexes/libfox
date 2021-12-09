@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2020
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** UT: Counting words in a string
+** UT: Count words in a string
 */
 
 #include <criterion/criterion.h>

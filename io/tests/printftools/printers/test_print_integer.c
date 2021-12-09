@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** UT: Integer format arg printer
+** UT: Print a number format argument
 */
 
 #include <limits.h>

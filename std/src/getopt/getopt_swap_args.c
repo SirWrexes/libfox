@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2020
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** swap_args.c -- No description
+** The inner workings of fox_getopt()
 */
 
 #include "fox_define.h"

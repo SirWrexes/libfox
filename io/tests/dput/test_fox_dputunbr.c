@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
-** <project name> unit tests
+** (not) EPITECH PROJECT, 2021
+** Libfox unit tests
 ** File description:
-** test_fox_putunbr.c -- No description
+** UT: Print a number
 */
 
 #include <criterion/criterion.h>

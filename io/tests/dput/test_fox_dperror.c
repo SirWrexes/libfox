@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox unit tests
 ** File description:
-** UT: Printing an error logging message
+** UT: Print an error message corresponding to given errnum
 */
 
 #include <errno.h>

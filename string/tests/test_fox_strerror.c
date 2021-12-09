@@ -1,8 +1,8 @@
 /*
-** (not) EPITECH PROJECT, 2019
-** Libfox unit tests
+** (not) EPITECH PROJECT, 2021
+** Libfox
 ** File description:
-** test_fox_strerror.c -- No description
+** UT: Get a string corresponding to a given errnum
 */
 
 #include <criterion/criterion.h>

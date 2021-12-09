@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2020
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** fox_wordcount.c -- No description
+** Count the words in a string with delim as separator(s)
 */
 
 #include "fox_string.h"

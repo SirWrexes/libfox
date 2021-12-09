@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** Allocate and initialize memory for n items of size sz.
+** Allocate and initialize an array of n items of size sz.
 */
 
 #include <malloc.h>

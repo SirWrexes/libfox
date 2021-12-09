@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** Write pad n times in already allocated string
+** Write pad n times in an already allocated string
 */
 
 #include <unistd.h>

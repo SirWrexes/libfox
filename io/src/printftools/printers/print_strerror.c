@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2020
-** Minishell 1
+** (not) EPITECH PROJECT, 2021
+** Libfox
 ** File description:
-** print_errstr.c -- No description
+** Print the last errno value's corresponding message as format argument
 */
 
 #include <stdio.h>

@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
-** <project name> unit tests
+** (not) EPITECH PROJECT, 2021
+** Libfox
 ** File description:
-** test_fox_strlen.c -- No description
+** UT: Get the length of a string up to n characters
 */
 
 #include <criterion/criterion.h>

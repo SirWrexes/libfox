@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** UT: Printing a single character
+** UT: Print a single character format argument
 */
 
 #include <stdarg.h>

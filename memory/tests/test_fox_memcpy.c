@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** UT: copying a whole bunch of memory
+** UT: Copy a whole bunch of memory
 */
 
 #include <criterion/criterion.h>

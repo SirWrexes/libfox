@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** Print an unsigned number in given base into a newly allocated string
+** Allocate a string and print an unsigned number in given base into it
 */
 
 #include <malloc.h>

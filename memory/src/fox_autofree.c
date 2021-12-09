@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** fox_autofree.c -- No description
+** Garbage collector: Pointer
 */
 
 #include <malloc.h>

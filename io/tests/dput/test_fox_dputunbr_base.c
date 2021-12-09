@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** UT: Printing a number in given base
+** UT: Print a number in given base
 */
 
 #include <criterion/criterion.h>

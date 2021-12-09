@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2020
-** Minishell
+** (not) EPITECH PROJECT, 2021
+** Libfox
 ** File description:
-** fox_strchr.c -- No description
+** Locate the first occurence of a character in a string
 */
 
 #include "fox_define.h"

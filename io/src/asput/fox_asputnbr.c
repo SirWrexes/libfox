@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** Write a number to an allocated string
+** Allocate a string and print a number into it
 */
 
 #include <malloc.h>

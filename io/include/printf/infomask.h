@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
-** <project_name>
+** (not) EPITECH PROJECT, 2021
+** Libfox
 ** File description:
-** infomask.h -- No description
+** Bit masks to work with fstruct values
 */
 
 #ifndef INFOMASK_H

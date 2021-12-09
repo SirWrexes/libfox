@@ -6,7 +6,7 @@
 */
 
 // This header should not be included anywhere.
-// You should use fox_strerror() instead.
+// You should use fox_strerror() from the string module instead.
 
 #ifndef ERRLIST_H
 #define ERRLIST_H

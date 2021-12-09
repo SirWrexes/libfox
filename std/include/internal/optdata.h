@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2020
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** optdata.h -- No description
+** Data structure containing data used by fox_getopt()
 */
 
 #ifndef OPTDATA_H

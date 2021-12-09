@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** UT: Comparing a string up to n characters
+** UT: Compare a string up to n characters
 */
 
 #include <criterion/criterion.h>

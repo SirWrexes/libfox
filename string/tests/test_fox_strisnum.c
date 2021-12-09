@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
-** Libfox unit tests
+** (not) EPITECH PROJECT, 2021
+** Libfox
 ** File description:
-** UT: Checking if a string is stricly numeric
+** UT: Check if a string is stricly numeric
 */
 
 #include <criterion/criterion.h>

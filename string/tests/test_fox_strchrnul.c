@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2020
-** Minishell 1
+** (not) EPITECH PROJECT, 2021
+** Libfox
 ** File description:
-** test_fox_strchrnul.c -- No description
+** UT: Locate the first occurrence of a character in a string
 */
 
 #define _GNU_SOURCE

@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** Write an unsigned integer to already allocated s
+** Write an unsigned number to already allocated string
 */
 
 #include <stdbool.h>

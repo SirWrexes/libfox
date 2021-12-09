@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** Copy src into dst
+** Copy a string into another
 */
 
 #include "fox_define.h"

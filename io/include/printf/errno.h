@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2020
-** Minishell 1
+** (not) EPITECH PROJECT, 2021
+** Libfox
 ** File description:
-** errno.h -- No description
+** Just making a function visible for a certain fox_printf() function
 */
 
 #ifndef ERRNO_H

@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** UT: Filling a buffer with n times the pad characters
+** UT: Fill a buffer with n times the pad characters
 */
 
 #include <criterion/criterion.h>

@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
+** (not) EPITECH PROJECT, 2021
 ** Libfox
 ** File description:
-** Unit tests for fox_revstr
+** UT: Revert a string
 */
 
 #include <criterion/criterion.h>
